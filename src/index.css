@@ -674,7 +674,7 @@ img {
   height: 19.2vw;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
