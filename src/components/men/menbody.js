@@ -12,7 +12,7 @@ function MenBody() {
               {discount > 0 ? (
                 <div className="men__group__sale">-{discount}%</div>
               ) : null}
-              <img
+              <img alt={title}
                 src={require(`../../assets/img/categories/men/${file}`)}
               ></img>
             </div>

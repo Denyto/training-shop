@@ -1,13 +1,16 @@
 import './App.css';
 import React from 'react';
-import Header from './components/header/header';
+import { Routes, Route } from 'react-router-dom';
+import Men from './components/men/men';
 
 function App() {
   return (
     <div className="App">
-
-        <Header></Header>        
-
+      <Routes>
+        <Route exact path="/" element={<Men></Men>} />
+        
+      </Routes>
+      
     </div>
   );
 }
