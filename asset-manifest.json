@@ -1,15 +1,27 @@
 {
   "files": {
-    "main.css": "/training-shop/static/css/main.073c9b0a.css",
+    "main.css": "/training-shop/static/css/main.7fe4c1e0.css",
     "main.js": "/training-shop/static/js/main.1f4434ea.js",
     "static/js/787.47ca6e30.chunk.js": "/training-shop/static/js/787.47ca6e30.chunk.js",
+    "static/media/banner.png": "/training-shop/static/media/banner.c59a67a48a101ef83f4a.png",
+    "static/media/subscribe-women.png": "/training-shop/static/media/subscribe-women.4152b783e591f01bafb6.png",
+    "static/media/blogleft.png": "/training-shop/static/media/blogleft.2c83828d55b07238fddc.png",
+    "static/media/blogcenter.png": "/training-shop/static/media/blogcenter.cbdb6b497397f7851676.png",
+    "static/media/banner-accessories.png": "/training-shop/static/media/banner-accessories.4692b52fccd7d4dde009.png",
+    "static/media/subscribe-men.png": "/training-shop/static/media/subscribe-men.5a7402230a574e8b3266.png",
+    "static/media/subscribe-gradient.png": "/training-shop/static/media/subscribe-gradient.759f145a375127f71bd5.png",
+    "static/media/collection-rigth.png": "/training-shop/static/media/collection-rigth.a6f508ab262ecf674a61.png",
+    "static/media/blogright.png": "/training-shop/static/media/blogright.aef6170eac9e5d31e8f6.png",
+    "static/media/collection-left.png": "/training-shop/static/media/collection-left.1c6ffb2792b7b7a01773.png",
+    "static/media/banner-women.png": "/training-shop/static/media/banner-women.cbee119685e91c164d5b.png",
+    "static/media/banner-men.png": "/training-shop/static/media/banner-men.8155c56f7dd3f70c2963.png",
     "index.html": "/training-shop/index.html",
-    "main.073c9b0a.css.map": "/training-shop/static/css/main.073c9b0a.css.map",
+    "main.7fe4c1e0.css.map": "/training-shop/static/css/main.7fe4c1e0.css.map",
     "main.1f4434ea.js.map": "/training-shop/static/js/main.1f4434ea.js.map",
     "787.47ca6e30.chunk.js.map": "/training-shop/static/js/787.47ca6e30.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
+    "static/css/main.7fe4c1e0.css",
     "static/js/main.1f4434ea.js"
   ]
 }
