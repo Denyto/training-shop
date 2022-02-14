@@ -29,16 +29,16 @@ function Nav() {
         </ul>
         <ul className="navigation__user">
           <li>
-            <Link href="#" className="navigation__user__search" target="blank"></Link>
+            <Link to="#" className="navigation__user__search" target="blank"></Link>
           </li>
           <li>
-            <Link href="#" className="navigation__user__planet" target="blank"></Link>
+            <Link to="#" className="navigation__user__planet" target="blank"></Link>
           </li>
           <li>
-            <Link href="#" className="navigation__user__person" target="blank"></Link>
+            <Link to="#" className="navigation__user__person" target="blank"></Link>
           </li>
           <li>
-            <Link href="#" className="navigation__user__basket" target="blank"></Link>
+            <Link to="#" className="navigation__user__basket" target="blank"></Link>
           </li>
         </ul>
       </div>

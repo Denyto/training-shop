@@ -3,10 +3,10 @@ import { DATA } from "../../constants/const";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
-function Product({ tipe }) {
+function Product({tipe}) {
   const { id } = useParams();
   const { men, women } = DATA;
-
+console.log(id);
   return (
     <>
       <Header></Header>
@@ -23,7 +23,7 @@ function Product({ tipe }) {
             ►<p>{tipe === 'Men' ? men[+id - 1].title : women[+id - 1].title}</p>
           </div>
           <div className="product__route__share">
-            <Link href="#"></Link>
+            <Link to="#"></Link>
             <p>Share</p>
           </div>
         </div>

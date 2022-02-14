@@ -27,7 +27,7 @@ function FooterNav() {
         </ul>
         <ul>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               INFORMATION
             </Link>
           </li>
@@ -45,65 +45,65 @@ function FooterNav() {
             ) : null
           )}
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               FAQs
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               USEFUL LINKS
             </Link>
           </li>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               Terms & Conditions
             </Link>
           </li>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               Returns & Exchanges
             </Link>
           </li>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               Shipping & Delivery
             </Link>
           </li>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               Privacy Policy
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               CONTACT US
             </Link>
           </li>
           <li>
             <span className="footer-nav__map"></span>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               Belarus, Gomel, Lange 17
             </Link>
           </li>
           <li>
             <span className="footer-nav__phone"></span>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               +375 29 100 20 30
             </Link>
           </li>
           <li>
             <span className="footer-nav__clock"></span>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               All week 24/7
             </Link>
           </li>
           <li>
             <span className="footer-nav__email"></span>
-            <Link href="#" target="blank">
+            <Link to="#" target="blank">
               info@clevertec.ru
             </Link>
           </li>

@@ -18,28 +18,28 @@ function FooterTop() {
           <ul className="footer-top__social">
             <li>
               <Link
-                href="https://www.facebook.com"
+                to="https://www.facebook.com"
                 className="footer-top__social__facebook"
                 target="blank"
               ></Link>
             </li>
             <li>
               <Link
-                href="https://www.twitter.com"
+                to="https://www.twitter.com"
                 target="blank"
                 className="footer-top__social__twitter"
               ></Link>
             </li>
             <li>
               <Link
-                href="https://www.instagram.com/"
+                to="https://www.instagram.com/"
                 target="blank"
                 className="footer-top__social__instagram"
               ></Link>
             </li>
             <li>
               <Link
-                href="https://www.linkedin.com"
+                to="https://www.linkedin.com"
                 target="blank"
                 className="footer-top__social__noname"
               ></Link>
