@@ -1,4 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
+import { Link } from "react-router-dom";
+
 function FooterTop() {
     return (
       <div className="footer-top">
@@ -16,32 +17,32 @@ function FooterTop() {
   
           <ul className="footer-top__social">
             <li>
-              <a
+              <Link
                 href="https://www.facebook.com"
                 className="footer-top__social__facebook"
                 target="blank"
-              ></a>
+              ></Link>
             </li>
             <li>
-              <a
+              <Link
                 href="https://www.twitter.com"
                 target="blank"
                 className="footer-top__social__twitter"
-              ></a>
+              ></Link>
             </li>
             <li>
-              <a
+              <Link
                 href="https://www.instagram.com/"
                 target="blank"
                 className="footer-top__social__instagram"
-              ></a>
+              ></Link>
             </li>
             <li>
-              <a
+              <Link
                 href="https://www.linkedin.com"
                 target="blank"
                 className="footer-top__social__noname"
-              ></a>
+              ></Link>
             </li>
           </ul>
         </div>
