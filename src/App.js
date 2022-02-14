@@ -1,13 +1,13 @@
 import './App.css';
-import Blog from "./components/blog/blog";
-import Collection from './components/blog/blog';
+import Advantage from './components/commercial/advantage';
+import Commercial from './components/commercial/commercial';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Blog></Blog>
-        <Collection></Collection>
+        <Advantage></Advantage>
+        <Commercial></Commercial>
       </header>
     </div>
   );
