@@ -9,10 +9,11 @@ function WomenBody() {
         <li key={id}>
           <Link to={`/women/${id}`}>
             <div className="women__group__foto">
-            {discount > 0 ? (
+              {discount > 0 ? (
                 <div className="women__group__sale">-{discount}%</div>
               ) : null}
               <img
+                alt={title}
                 src={require(`../../assets/img/categories/women/${file}`)}
               ></img>
             </div>

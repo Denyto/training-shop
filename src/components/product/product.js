@@ -20,32 +20,47 @@ function Product({ tipe }) {
             <p>
               <Link to={`/${tipe}`}>{tipe}</Link>
             </p>
-            ►<p>{tipe === "Men" ? men[+id - 1].title : women[+id - 1].title}</p>
+            ►<p>{tipe === 'Men' ? men[+id - 1].title : women[+id - 1].title}</p>
           </div>
           <div className="product__route__share">
-            <a href="#"></a>
+            <Link href="#"></Link>
             <p>Share</p>
           </div>
         </div>
         <h2 className="product__title">
-          {tipe === "Men" ? men[+id - 1].title : women[+id - 1].title}
+          {tipe === 'Men' ? men[+id - 1].title : women[+id - 1].title}
         </h2>
         <div className="product__review">
           <div className="product__review__block">
             <div className="product__review__star">
-              <img src={require("../../assets/img/star.png")}></img>
+              <img
+                alt="review"
+                src={require('../../assets/img/star.png')}
+              ></img>
             </div>
             <div className="product__review__star">
-              <img src={require("../../assets/img/star.png")}></img>
+              <img
+                alt="review"
+                src={require('../../assets/img/star.png')}
+              ></img>
             </div>
             <div className="product__review__star">
-              <img src={require("../../assets/img/star.png")}></img>
+              <img
+                alt="review"
+                src={require('../../assets/img/star.png')}
+              ></img>
             </div>
             <div className="product__review__star">
-              <img src={require("../../assets/img/star.png")}></img>
+              <img
+                alt="review"
+                src={require('../../assets/img/star.png')}
+              ></img>
             </div>
             <div className="product__review__star">
-              <img src={require("../../assets/img/star.png")}></img>
+              <img
+                alt="review"
+                src={require('../../assets/img/star.png')}
+              ></img>
             </div>
             <p>2 Reviews</p>
           </div>
@@ -63,47 +78,64 @@ function Product({ tipe }) {
             <div className="product__main__item__1">
               <div className="product__main__item__foto">
                 <div className="product__main__item__arrow">
-                  <img src={require("../../assets/img/arrowup.png")}></img>
+                  <img
+                    alt="arrow"
+                    src={require('../../assets/img/arrowup.png')}
+                  ></img>
                 </div>
                 <div className="product__main__item__arrow">
-                  <img src={require("../../assets/img/arrowdown.png")}></img>
+                  <img
+                    alt="arrow"
+                    src={require('../../assets/img/arrowdown.png')}
+                  ></img>
                 </div>
               </div>
               <div className="product__main__item__foto">
                 <img
-                  src={require("../../assets/img/categories/women/shirt.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/shirt.png')}
                 ></img>
               </div>
               <div className="product__main__item__foto">
                 <img
-                  src={require("../../assets/img/categories/women/women1.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/women1.png')}
                 ></img>
               </div>
               <div className="product__main__item__foto">
                 <img
-                  src={require("../../assets/img/categories/women/women2.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/women2.png')}
                 ></img>
               </div>
               <div className="product__main__item__foto">
                 <img
-                  src={require("../../assets/img/categories/women/women3.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/women3.png')}
                 ></img>
               </div>
             </div>
             <div className="product__main__item__2">
               <img
+                alt={men[+id - 1].title}
                 src={require(`../../assets/img/categories/${
-                  tipe === "Men"
-                    ? "men/" + men[+id - 1].file
-                    : "women/" + women[+id - 1].file
+                  tipe === 'Men'
+                    ? 'men/' + men[+id - 1].file
+                    : 'women/' + women[+id - 1].file
                 }`)}
               ></img>
               <div className="product__main__item__2__slider">
                 <div className="product__main__item__2__arrow">
-                  <img src={require("../../assets/img/arrowup.png")}></img>
+                  <img
+                    alt="arrow"
+                    src={require('../../assets/img/arrowup.png')}
+                  ></img>
                 </div>
                 <div className="product__main__item__2__arrow">
-                  <img src={require("../../assets/img/arrowdown.png")}></img>
+                  <img
+                    alt="arrow"
+                    src={require('../../assets/img/arrowdown.png')}
+                  ></img>
                 </div>
               </div>
             </div>
@@ -115,22 +147,26 @@ function Product({ tipe }) {
             <div className="product__main__description__flex">
               <div className="product__main__description__foto">
                 <img
-                  src={require("../../assets/img/categories/women/small1.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/small1.png')}
                 ></img>
               </div>
               <div className="product__main__description__foto">
                 <img
-                  src={require("../../assets/img/categories/women/small2.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/small2.png')}
                 ></img>
               </div>
               <div className="product__main__description__foto">
                 <img
-                  src={require("../../assets/img/categories/women/small3.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/small3.png')}
                 ></img>
               </div>
               <div className="product__main__description__foto">
                 <img
-                  src={require("../../assets/img/categories/women/small4.png")}
+                  alt={men[+id - 1].title}
+                  src={require('../../assets/img/categories/women/small4.png')}
                 ></img>
               </div>
             </div>
@@ -144,7 +180,12 @@ function Product({ tipe }) {
               <div className="product__main__description__size">L</div>
             </div>
             <div className="product__main__description__flex">
-              <div className="product__main__description__sizeguide"><img src={require("../../assets/img/hanger.png")}></img></div>              
+              <div className="product__main__description__sizeguide">
+                <img
+                  alt='hanger'
+                  src={require('../../assets/img/hanger.png')}
+                ></img>
+              </div>
               <p>Size guide</p>
             </div>
             <hr></hr>
@@ -155,14 +196,13 @@ function Product({ tipe }) {
               <div className="product__main__description__name">et</div>
             </div>
           </div>
-         
+
           <div className="product__main__item">3</div>
           <div className="product__main__item">4</div>
         </div>
       </div>
       <Footer></Footer>
     </>
-
     // <div>
     //   {tipe === "men" ? (
     //     <div>
