@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import FooterBottom from './components/footer/bottom';
 
 function App() {
