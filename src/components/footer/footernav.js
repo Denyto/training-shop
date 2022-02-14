@@ -7,9 +7,9 @@ function FooterNav() {
       <div className="wrapper footer-nav__wrapper">
         <ul>
           <li>
-            <a href="#" target="blank">
+            <Link to="#" target="blank">
               CATEGORIES
-            </a>
+            </Link>
           </li>
           {MENU.map(({ id, path }, index) =>
             index < 4 ? (
@@ -27,9 +27,9 @@ function FooterNav() {
         </ul>
         <ul>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               INFORMATION
-            </a>
+            </Link>
           </li>
           {MENU.map(({ id, path }, index) =>
             index >= 4 ? (
@@ -45,67 +45,67 @@ function FooterNav() {
             ) : null
           )}
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               FAQs
-            </a>
+            </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               USEFUL LINKS
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               Terms & Conditions
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               Returns & Exchanges
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               Shipping & Delivery
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               Privacy Policy
-            </a>
+            </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               CONTACT US
-            </a>
+            </Link>
           </li>
           <li>
             <span className="footer-nav__map"></span>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               Belarus, Gomel, Lange 17
-            </a>
+            </Link>
           </li>
           <li>
             <span className="footer-nav__phone"></span>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               +375 29 100 20 30
-            </a>
+            </Link>
           </li>
           <li>
             <span className="footer-nav__clock"></span>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               All week 24/7
-            </a>
+            </Link>
           </li>
           <li>
             <span className="footer-nav__email"></span>
-            <a href="#" target="blank">
+            <Link href="#" target="blank">
               info@clevertec.ru
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

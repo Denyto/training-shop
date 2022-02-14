@@ -1,13 +1,12 @@
 import './App.css';
-import Advantage from './components/commercial/advantage';
-import Commercial from './components/commercial/commercial';
+import FooterBottom from './components/footer/bottom';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Advantage></Advantage>
-        <Commercial></Commercial>
+        <FooterBottom></FooterBottom>
+        
       </header>
     </div>
   );
