@@ -11,13 +11,9 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App" data-test-id="app">
-      <Routes>
-        <Route exact path="/" element={<Mainpage />} />
-        <Route exact path="/women" element={<Womenpage />} />
-        <Route exact path="/men" element={<Menpage />} />
-        <Route exact path="/men/:id" element={<Product tipe='Men' />} />
-        <Route exact path="/women/:id" element={<Product tipe='Women' />} />
-      </Routes>
+      <header className="App-header">
+        ПРИВЕТ
+      </header>
     </div>
   );
 }
