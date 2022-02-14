@@ -1,0 +1,39 @@
+.collection {
+  margin-bottom: 6rem;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    height: 18vw;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &__half {
+      width: 20.5vw;
+      height: 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+    &:first-child {
+        background-image: url(./assets/img/collection-left.png);
+        margin-right: 1.5rem;
+    }
+    &:last-child {
+        background-image: url(./assets/img/collection-rigth.png);
+        margin-left: 1.5rem;
+        & span {
+            color: red;
+            font-size: 1.4rem;
+        }
+    }
+  }
+}
