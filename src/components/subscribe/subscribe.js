@@ -10,7 +10,7 @@ function Subscribe() {
             <h3>AND&nbsp;<span>GET 10% OFF</span></h3>
           </div>
           <div className="subscribe__item">
-            <h3 className="subscribe__title">Enter your email</h3>
+            <input type="text" className="subscribe__title" placeholder="Enter your email"></input>
           </div>
           <div className="subscribe__item">
             <h3 className="subscribe__title">SUBSCRIBE</h3>

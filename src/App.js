@@ -5,17 +5,14 @@ import Womenpage from './pages/womenpage';
 import Menpage from './pages/menpage';
 import Mainpage from './pages/mainpage';
 import Product from './components/product/product';
-import Clothes from "./components/clothes/clothes";
-import { DATA } from "./constants/const";
+
 
 function App() {
-  // const { men, women } = DATA;
+
   return (
     <React.StrictMode>
       <div className="App" data-test-id="app">
         <Routes>
-          <Route exact path="/clothes" element={<Clothes productType={DATA}/>} />
-          {/* <Route exact path="/clothes" element={<Clothes productType={DATA}/>} /> */}
           <Route exact path="/" element={<Mainpage />} />
           <Route exact path="/women" element={<Womenpage />} />
           <Route exact path="/men" element={<Menpage />} />
