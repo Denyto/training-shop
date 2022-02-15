@@ -119,8 +119,8 @@ export const DATA = {
 
 export const MENU = [
   { id: 1, path: "About Us" },
-  { id: 2, path: "Men" },
-  { id: 3, path: "Women" },
+  { id: 2, path: "men" },
+  { id: 3, path: "women" },
   { id: 4, path: "Beauty" },
   { id: 5, path: "Accessories" },
   { id: 6, path: "Blog" },

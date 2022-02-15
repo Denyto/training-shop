@@ -3,9 +3,10 @@ import { DATA } from "../../constants/const";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
-function Product({tipe}) {
+function Product({type}) {
   const { id } = useParams();
   const { men, women } = DATA;
+  console.log();
   return (
     <>
       <Header></Header>
@@ -17,9 +18,9 @@ function Product({tipe}) {
             </p>
             ►
             <p>
-              <Link to={`/${tipe}`}>{tipe}</Link>
+              <Link to={`/${type}`}>{type}</Link>
             </p>
-            ►<p>{tipe === 'Men' ? men[+id - 1].title : women[+id - 1].title}</p>
+            ►<p>{type === 'men' ? men[+id - 1].title : women[+id - 1].title}</p>
           </div>
           <div className="product__route__share">
             <Link to="#"></Link>
@@ -27,7 +28,7 @@ function Product({tipe}) {
           </div>
         </div>
         <h2 className="product__title">
-          {tipe === 'Men' ? men[+id - 1].title : women[+id - 1].title}
+          {type === 'men' ? men[+id - 1].title : women[+id - 1].title}
         </h2>
         <div className="product__review">
           <div className="product__review__block">
@@ -72,7 +73,7 @@ function Product({tipe}) {
             </p>
           </div>
         </div>
-        <div className="product__main">
+        <div className="product__main page-product" data-test-id={`page-product-${type}`}>
           <div className="product__main__item">
             <div className="product__main__item__1">
               <div className="product__main__item__foto">
@@ -118,7 +119,7 @@ function Product({tipe}) {
               <img
                 alt={men[+id - 1].title}
                 src={require(`../../assets/img/categories/${
-                  tipe === 'Men'
+                  type === 'men'
                     ? 'men/' + men[+id - 1].file
                     : 'women/' + women[+id - 1].file
                 }`)}
@@ -201,22 +202,7 @@ function Product({tipe}) {
         </div>
       </div>
       <Footer></Footer>
-    </>
-    // <div>
-    //   {tipe === "men" ? (
-    //     <div>
-    //       price{men[+id - 1].price}
-    //       <div>id{men[+id - 1].id}</div>
-    //       <div>dis{men[+id - 1].discount}</div>
-    //     </div>
-    //   ) : (
-    //     <>
-    //       <div>{women[+id - 1].price}</div>
-    //       <div>{women[+id - 1].id}</div>
-    //       <div>{women[+id - 1].discount}</div>
-    //     </>
-    //   )}
-    // </div>
+    </>    
   );
 }
 

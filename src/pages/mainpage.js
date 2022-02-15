@@ -8,6 +8,7 @@ import Blog from "../components/blog/blog";
 import Footer from "../components/footer/footer";
 import Commercial from "../components/commercial/commercial";
 
+
 function Mainpage() {
   return (
     <div className="App">

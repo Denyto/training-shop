@@ -15,7 +15,6 @@ function FooterNav() {
             index < 4 ? (
               <li key={id}>
                 <Link
-                  className="menu-item"
                   data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >
@@ -35,7 +34,6 @@ function FooterNav() {
             index >= 4 ? (
               <li key={id}>
                 <Link
-                  className="menu-item"
                   data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >

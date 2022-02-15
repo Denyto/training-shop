@@ -4,10 +4,10 @@ import { DATA } from "../../constants/const";
 function WomenBody() {
   const { women } = DATA;
   return (
-    <ul className="women__group clothes" data-test-id="clothes-women">
+    <ul className="women__group products-page" data-test-id="products-page-women">
       {women.map(({ discount, file, id, price, title }) => (
         <li key={id}>
-          <Link to={`/women/${id}`}>
+          <Link to={`/women/${id}`} className="cards-item" data-test-id="clothes-card-women">
             <div className="women__group__foto">
               {discount > 0 ? (
                 <div className="women__group__sale">-{discount}%</div>
