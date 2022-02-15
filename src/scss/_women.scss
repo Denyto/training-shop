@@ -57,9 +57,18 @@
       margin: 1.2rem 0;
     }
     &__price {
-      font-weight: bold;
-      font-size: 14px;
-      text-align: start;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & p {
+        font-weight: bold;
+        font-size: 14px;
+        text-align: start;
+        opacity: 1;
+      }
+    }
+    &__review {
+      display: flex;
     }
     &__foto {
       position: relative;

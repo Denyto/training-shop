@@ -7,7 +7,11 @@ function MenBody() {
     <ul className="men__group products-page" data-test-id="products-page-men">
       {men.map(({ discount, file, id, price, title }) => (
         <li key={id}>
-          <Link to={`/men/${id}`} className="cards-item" data-test-id="clothes-card-men">
+          <Link
+            to={`/men/${id}`}
+            className="cards-item"
+            data-test-id="clothes-card-men"
+          >
             <div className="men__group__foto">
               {discount > 0 ? (
                 <div className="men__group__sale">-{discount}%</div>
@@ -18,8 +22,15 @@ function MenBody() {
               ></img>
             </div>
             <p>{title}</p>
-            <div>
-              <div className="men__group__price">$ {price}.00</div>
+
+            <div className="men__group__price">
+              <p>$ {price}.00</p>
+              <div className="men__group__review">
+                <img
+                  alt="review"
+                  src={require("../../assets/img/stars-review.png")}
+                ></img>
+              </div>
             </div>
           </Link>
         </li>

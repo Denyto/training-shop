@@ -18,8 +18,14 @@ function WomenBody() {
               ></img>
             </div>
             <p>{title}</p>
-            <div>
-              <div className="women__group__price">$ {price}.00</div>
+            <div className="women__group__price">
+              <p>$ {price}.00</p>
+              <div className="women__group__review">
+                <img
+                  alt="review"
+                  src={require("../../assets/img/stars-review.png")}
+                ></img>
+              </div>
             </div>
           </Link>
         </li>

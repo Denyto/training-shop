@@ -252,9 +252,18 @@ img {
   margin: 1.2rem 0;
 }
 .women__group__price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.women__group__price p {
   font-weight: bold;
   font-size: 14px;
   text-align: start;
+  opacity: 1;
+}
+.women__group__review {
+  display: flex;
 }
 .women__group__foto {
   position: relative;
@@ -419,9 +428,18 @@ img {
   margin: 1.2rem 0;
 }
 .men__group__price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.men__group__price p {
   font-weight: bold;
   font-size: 14px;
   text-align: start;
+  opacity: 1;
+}
+.men__group__review {
+  display: flex;
 }
 .men__group__foto {
   position: relative;
@@ -429,7 +447,7 @@ img {
 .men__group__sale {
   width: 5.5rem;
   height: 3.5rem;
-  color: #FFF;
+  color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: red;
@@ -739,7 +757,7 @@ form button {
   background: #121212;
   color: #ffffff;
   opacity: 0.9;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 .footer-top {
@@ -874,7 +892,7 @@ form button {
   width: 100%;
   height: 2.4rem;
   color: #121212;
-  opacity: 0.8;
+  padding: 0.8rem 0 0.8rem 0;
 }
 .footer-bottom__wrapper {
   display: flex;
@@ -946,6 +964,13 @@ form button {
 }
 .footer-bottom__social__noname {
   background: url(./assets/img/noname.png) no-repeat;
+}
+.footer-bottom__payments {
+  display: flex;
+}
+.footer-bottom__payments div {
+  max-height: 1.6rem;
+  margin: 0 0.6rem 0 0.6rem;
 }
 
 .commercial {

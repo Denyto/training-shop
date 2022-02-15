@@ -26,7 +26,7 @@ form {
     background: #121212;
     color: #ffffff;
     opacity: 0.9;
-    border: 1px solid #FFFFFF;    
+    border: 1px solid #ffffff;
   }
 }
 
@@ -164,7 +164,7 @@ form {
   width: 100%;
   height: 2.4rem;
   color: #121212;
-  opacity: 0.8;
+  padding: 0.8rem 0 0.8rem 0;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -234,6 +234,13 @@ form {
     }
     &__noname {
       background: url(./assets/img/noname.png) no-repeat;
+    }
+  }
+  &__payments {
+    display: flex;
+    & div {
+      max-height: 1.6rem;
+      margin: 0 0.6rem 0 0.6rem;
     }
   }
 }
