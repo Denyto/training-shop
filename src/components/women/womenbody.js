@@ -4,7 +4,7 @@ import { DATA } from "../../constants/const";
 function WomenBody() {
   const { women } = DATA;
   return (
-    <ul className="women__group">
+    <ul className="women__group clothes" data-test-id="clothes-women">
       {women.map(({ discount, file, id, price, title }) => (
         <li key={id}>
           <Link to={`/women/${id}`}>

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { MENU } from "../../constants/const";
+import { Link } from 'react-router-dom';
+import { MENU } from '../../constants/const';
 
 function Nav() {
   return (
@@ -18,9 +18,9 @@ function Nav() {
           {MENU.map(({ id, path }) => (
             <li key={id}>
               <Link
+                to={`/${path}`}
                 className="menu-item"
                 data-test-id={`menu-link-${path}`}
-                to={`/${path}`}
               >
                 {path}
               </Link>
@@ -29,16 +29,32 @@ function Nav() {
         </ul>
         <ul className="navigation__user">
           <li>
-            <Link to="#" className="navigation__user__search" target="blank"></Link>
+            <Link
+              to="#"
+              className="navigation__user__search"
+              target="blank"
+            ></Link>
           </li>
           <li>
-            <Link to="#" className="navigation__user__planet" target="blank"></Link>
+            <Link
+              to="#"
+              className="navigation__user__planet"
+              target="blank"
+            ></Link>
           </li>
           <li>
-            <Link to="#" className="navigation__user__person" target="blank"></Link>
+            <Link
+              to="#"
+              className="navigation__user__person"
+              target="blank"
+            ></Link>
           </li>
           <li>
-            <Link to="#" className="navigation__user__basket" target="blank"></Link>
+            <Link
+              to="#"
+              className="navigation__user__basket"
+              target="blank"
+            ></Link>
           </li>
         </ul>
       </div>

@@ -4,7 +4,7 @@ import { DATA } from "../../constants/const";
 function MenBody() {
   const { men } = DATA;
   return (
-    <ul className="men__group">
+    <ul className="men__group clothes" data-test-id="clothes-men">
       {men.map(({ discount, file, id, price, title }) => (
         <li key={id}>
           <Link to={`/men/${id}`}>
@@ -12,7 +12,8 @@ function MenBody() {
               {discount > 0 ? (
                 <div className="men__group__sale">-{discount}%</div>
               ) : null}
-              <img alt={title}
+              <img
+                alt={title}
                 src={require(`../../assets/img/categories/men/${file}`)}
               ></img>
             </div>

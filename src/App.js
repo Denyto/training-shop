@@ -9,7 +9,7 @@ import Product from './components/product/product';
 function App() {
   return (
     <React.StrictMode>
-      <div className="App">
+      <div className="App" data-test-id="app">
         <Routes>
           <Route exact path="/" element={<Mainpage />} />
           <Route exact path="/women" element={<Womenpage />} />

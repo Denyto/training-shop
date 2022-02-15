@@ -16,7 +16,7 @@ function FooterNav() {
               <li key={id}>
                 <Link
                   className="menu-item"
-                  data-test-id={`menu-link-${path}`}
+                  data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >
                   {path}
@@ -36,7 +36,7 @@ function FooterNav() {
               <li key={id}>
                 <Link
                   className="menu-item"
-                  data-test-id={`menu-link-${path}`}
+                  data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >
                   {path}

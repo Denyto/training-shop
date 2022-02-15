@@ -6,7 +6,6 @@ import Footer from "../footer/footer";
 function Product({tipe}) {
   const { id } = useParams();
   const { men, women } = DATA;
-console.log(id);
   return (
     <>
       <Header></Header>

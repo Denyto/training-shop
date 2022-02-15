@@ -2,7 +2,7 @@ import WomenBody from "./womenbody";
 
 function Women() {
   return (
-    <section className="women">
+    <section className="women clothes" data-test-id="clothes-women">
       <div className="wrapper women__wrapper">
         <div className="women__header">
           <h2>WOMEN'S</h2>
