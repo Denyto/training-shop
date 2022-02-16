@@ -18,9 +18,8 @@ body {
   font-family: 'Spartan', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include media-finish {
-    width: 320px;
-  }
+
+  
 }
 
 a {
@@ -32,9 +31,7 @@ a {
   max-width: $laptop-width;
   height: 100%;
   margin: 0 auto;
-  @include media-finish {
-    width: 320px;
-  }
+
 }
 
 h2 {
