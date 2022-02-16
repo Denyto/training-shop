@@ -20,6 +20,9 @@
     list-style: none;
     color: #121212;
     opacity: 0.6;
+    @include media-mobile {
+      display: none;
+    }
   }
   &__group {
     width: 100%;
@@ -44,6 +47,12 @@
           transform: scale(97%);
         }
       }
+      @include media-mobile {
+        width: 48%;
+      }
+      @include media-finish {
+        width: 97%;
+        }
     }
     &__description {
       flex: 1;
@@ -71,7 +80,7 @@
           font-size: 12px;
           opacity: 0.4;
           text-decoration: line-through;
-          margin-left: .4rem;
+          margin-left: 0.4rem;
         }
       }
     }
@@ -93,6 +102,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    @include media-finish {
+      justify-content: center;
     }
   }
 
@@ -130,14 +142,7 @@
       & p {
         font-size: 1.1rem;
         line-height: 1px;
-      }
-      & a {
-        width: 1.5rem;
-        height: 1.5rem;
-        background-image: url(./assets/img/share.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        margin-left: 0.9rem;
       }
     }
   }

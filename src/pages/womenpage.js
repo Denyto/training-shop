@@ -17,7 +17,9 @@ function Womenpage() {
             ►<p>Women</p>
           </div>
           <div className="women__route__share">
-            <Link to="#"></Link>
+
+              <img alt="share" src={require("../assets/img/share.png")}></img>
+
             <p>Share</p>
           </div>
         </div>

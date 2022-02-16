@@ -73,6 +73,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
+    @include media-mobile {
+      display: none;
+    }
   }
   &__men {
     width: 15vw;
@@ -84,6 +87,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 100;
+    @include media-mobile {
+      display: none;
+    }
   }
 }
 

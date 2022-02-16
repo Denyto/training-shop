@@ -5,17 +5,21 @@ import Footer from "../components/footer/footer";
 import { Link } from "react-router-dom";
 
 function Menpage() {
-
-    return (
+  return (
     <div className="App">
       <Header></Header>
       <div className="wrapper">
         <div className="men__route">
           <div className="men__route__name">
-            <p><Link to="/">Home</Link></p>►<p>Men</p>
+            <p>
+              <Link to="/">Home</Link>
+            </p>
+            ►<p>Men</p>
           </div>
           <div className="men__route__share">
-            <Link to="#"></Link>
+
+              <img alt="share" src={require("../assets/img/share.png")}></img>
+
             <p>Share</p>
           </div>
         </div>

@@ -3,6 +3,10 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    @include media-mobile {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__item {
     height: 18vw;
@@ -10,9 +14,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+
     &__half {
       width: 20.5vw;
       height: 5vw;
@@ -26,6 +31,9 @@
     &:first-child {
         background-image: url(./assets/img/collection-left.png);
         margin-right: 1.5rem;
+        @include media-mobile {
+          margin: 0 0 1rem 0;
+         }
     }
     &:last-child {
         background-image: url(./assets/img/collection-rigth.png);
@@ -34,6 +42,13 @@
             color: red;
             font-size: 1.4rem;
         }
+        @include media-mobile {
+          margin: 1rem 0 0 0;
+         }
+    }
+    @include media-mobile {
+      width: 95%;
+      height: 40vw;
     }
   }
 }

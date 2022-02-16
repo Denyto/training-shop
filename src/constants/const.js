@@ -11,7 +11,7 @@ export const DATA = {
       id: 2,
       title: "Women's tracksuit Q109",
       file: "menclouthes.png",
-      price: 3500,
+      price: 350,
       discount: 50,
     },
     {
@@ -32,7 +32,7 @@ export const DATA = {
       id: 5,
       title: "Women's tracksuit Q109",
       file: "menclouthes.png",
-      price: 3577,
+      price: 357,
       discount: 0,
     },
     {
@@ -76,7 +76,7 @@ export const DATA = {
       id: 3,
       title: "Women's tracksuit Q109",
       file: "shirt.png",
-      price: 3350,
+      price: 330,
       discount: 33,
     },
     {
@@ -90,7 +90,7 @@ export const DATA = {
       id: 5,
       title: "Women's tracksuit Q109",
       file: "shirt.png",
-      price: 50,
+      price: 550,
       discount: 0,
     },
     {

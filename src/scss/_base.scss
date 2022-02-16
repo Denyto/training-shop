@@ -3,12 +3,24 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  @include media-tablet {
+    font-size: 9px;
+  }
+  @include media-mobile {
+    font-size: 8px;
+  }
+  @include media-finish {
+    font-size: 7px;
+  }
 }
 
 body {
   font-family: 'Spartan', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @include media-finish {
+    width: 320px;
+  }
 }
 
 a {
@@ -17,9 +29,12 @@ a {
 }
 
 .wrapper {
-  max-width: 1110px;
+  max-width: $laptop-width;
   height: 100%;
   margin: 0 auto;
+  @include media-finish {
+    width: 320px;
+  }
 }
 
 h2 {

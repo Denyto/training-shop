@@ -28,7 +28,7 @@ function Product({ type }) {
             ►<p>{type === "men" ? men[+id - 1].title : women[+id - 1].title}</p>
           </div>
           <div className="product__route__share">
-            <Link to="#"></Link>
+            <img alt="share" src={require("../../assets/img/share.png")}></img>
             <p>Share</p>
           </div>
         </div>
@@ -290,9 +290,15 @@ function Product({ type }) {
             <p>DESCRIPTION</p>
             <hr></hr>
             <h4>ADDITIONAL INFORMATION</h4>
-            <p><span>Color:</span>&nbsp;Blue, White, Black, Grey</p>
-            <p><span>Size:</span>&nbsp;XS, S, M, L</p>
-            <p><span>Material:</span>&nbsp;100% Polyester</p>
+            <p>
+              <span>Color:</span>&nbsp;Blue, White, Black, Grey
+            </p>
+            <p>
+              <span>Size:</span>&nbsp;XS, S, M, L
+            </p>
+            <p>
+              <span>Material:</span>&nbsp;100% Polyester
+            </p>
             <hr></hr>
             <h4>REVIEWS</h4>
             <div className="product__main__info__element">
@@ -429,6 +435,47 @@ function Product({ type }) {
             ></img>
           </div>
         </div>
+        <ul className="men__group">
+          {men.map(({ discount, file, id, price, title }, index) =>
+            index < 4 ? (
+              <li key={id}>
+                <Link
+                  to={`/men/${id}`}
+                  className="cards-item"
+                  data-test-id="clothes-card-men"
+                >
+                  <div className="men__group__foto">
+                    {discount > 0 ? (
+                      <div className="men__group__sale">-{discount}%</div>
+                    ) : null}
+                    <img
+                      alt={title}
+                      src={require(`../../assets/img/categories/men/${file}`)}
+                    ></img>
+                  </div>
+                  <p>{title}</p>
+
+                  <div className="men__group__price">
+                    <p>
+                      $ {price}.00
+                      <span>
+                        {discount
+                          ? `$ ${(price / (1 - discount / 100)).toFixed()}.00`
+                          : ""}
+                      </span>
+                    </p>
+                    <div className="men__group__review">
+                      <img
+                        alt="review"
+                        src={require("../../assets/img/stars-review.png")}
+                      ></img>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            ) : null
+          )}
+        </ul>
       </div>
       <Footer></Footer>
     </>

@@ -154,4 +154,7 @@
       font-size: 1.4rem;
     }
   }
+  @include media-tablet {
+    display: none;
+  }
 }
