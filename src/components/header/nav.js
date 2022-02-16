@@ -22,7 +22,7 @@ function Nav() {
                 className="menu-item"
                 data-test-id={`menu-link-${path}`}
               >
-                {path}
+                {path.split('').map((el, index) => index === 0 ? el.toUpperCase() : el).join('')}
               </Link>
             </li>
           ))}

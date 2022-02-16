@@ -18,7 +18,7 @@ function FooterNav() {
                   data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >
-                  {path}
+                  {path.split('').map((el, index) => index === 0 ? el.toUpperCase() : el).join('')}
                 </Link>
               </li>
             ) : null
@@ -37,7 +37,7 @@ function FooterNav() {
                   data-test-id={`footer-nav-link-${path}`}
                   to={`/${path}`}
                 >
-                  {path}
+                  {path.split('').map((el, index) => index === 0 ? el.toUpperCase() : el).join('')}
                 </Link>
               </li>
             ) : null

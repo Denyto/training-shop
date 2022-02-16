@@ -24,7 +24,9 @@ function MenBody() {
             <p>{title}</p>
 
             <div className="men__group__price">
-              <p>$ {price}.00</p>
+              <p>
+                $ {price}.00<span>{discount ? `$ ${(price / (1 - discount / 100)).toFixed()}.00` : ""}</span>
+              </p>
               <div className="men__group__review">
                 <img
                   alt="review"

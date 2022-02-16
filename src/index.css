@@ -30,6 +30,11 @@ h3 {
   font-size: 1.4rem;
 }
 
+h4 {
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -261,6 +266,15 @@ img {
   font-size: 14px;
   text-align: start;
   opacity: 1;
+  display: flex;
+  align-items: center;
+}
+.women__group__price p span {
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 0.4;
+  text-decoration: line-through;
+  margin-left: 0.4rem;
 }
 .women__group__review {
   display: flex;
@@ -437,6 +451,15 @@ img {
   font-size: 14px;
   text-align: start;
   opacity: 1;
+  display: flex;
+  align-items: center;
+}
+.men__group__price p span {
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 0.4;
+  text-decoration: line-through;
+  margin-left: 0.4rem;
 }
 .men__group__review {
   display: flex;
@@ -1162,6 +1185,7 @@ form button {
 }
 .product__review__block {
   display: flex;
+  align-items: center;
 }
 .product__review__block p {
   font-size: 1.1rem;
@@ -1172,10 +1196,6 @@ form button {
 .product__review__block p span {
   font-weight: 700;
   font-size: 1.1rem;
-}
-.product__review__star {
-  width: 1.1rem;
-  height: 1.1rem;
 }
 .product__title {
   padding: 1rem 0 2.4rem 0;
@@ -1242,9 +1262,10 @@ form button {
   height: 20%;
 }
 .product__main__description {
-  padding-left: 3rem;
+  padding-left: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: left;
 }
 .product__main__description p {
@@ -1258,8 +1279,18 @@ form button {
   opacity: 1;
 }
 .product__main__description__flex {
-  padding: 1.6rem 0 1.6rem 0;
+  padding: 1rem 0 1rem 0;
   display: flex;
+  align-items: center;
+}
+.product__main__description__flex button {
+  width: 15.6rem;
+  height: 4.8rem;
+  font-size: 1.3rem;
+  background: #121212;
+  border: 2px solid #121212;
+  color: #ffffff;
+  opacity: 0.9;
 }
 .product__main__description__foto {
   margin-right: 1.6rem;
@@ -1285,18 +1316,101 @@ form button {
   margin-right: 0.8rem;
 }
 .product__main__description__price {
-  border: 1px solid #121212;
   font-weight: bold;
   font-size: 2.2rem;
+  margin-right: 2.4rem;
 }
 .product__main__description__name {
-  width: 20%;
-  border: 1px solid #121212;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.6rem;
+}
+.product__main__description__name img {
+  width: 1.8rem;
+  height: 1.6rem;
+}
+.product__main__description__ship {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+}
+.product__main__description__ship img {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0 0.6rem;
+}
+.product__main__description__ship p {
+  margin-right: 0.9rem;
+}
+.product__main__description__guarant {
+  display: flex;
+  justify-content: space-between;
+}
+.product__main__description__guarant hr {
+  flex: 1;
+}
+.product__main__description__guarant p {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  opacity: 1;
+}
+.product__main__description__payments {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0 1rem 0;
+}
+.product__main__description__payments div {
+  max-height: 2.1rem;
+  margin: 0 0.6rem 0 0.6rem;
+}
+.product__main__info {
+  flex-direction: column;
+  text-align: left;
+}
+.product__main__info__element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product__main__info p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 1rem 0 1rem 0.5rem;
+  opacity: 0.6;
+}
+.product__main__info hr {
+  height: 0.2rem;
+  margin: 1.6rem 0;
+}
+.product__main__info span {
+  font-size: 14px;
+  font-weight: 700;
+}
+.product__related {
+  display: flex;
+  justify-content: space-between;
+}
+.product__related__arrows {
+  display: flex;
+  align-items: center;
+}
+.product__related__arrows img {
+  width: 1.4rem;
+  height: 0.7rem;
+  transform: rotate(-90deg);
+  margin: 0 1.2rem;
 }
 
 hr {
+  width: 100%;
+  height: 0.2rem;
   border: 1px solid #e6e6e6;
-  margin: 2vw 0 2vw 0;
 }
 
 /*# sourceMappingURL=index.css.map */
