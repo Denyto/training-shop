@@ -47,7 +47,7 @@
           transform: scale(97%);
         }
       }
-      @include media-mobile {
+      @include media-tablet {
         width: 48%;
       }
       @include media-finish {
@@ -70,14 +70,14 @@
       align-items: center;
       & p {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 1.4rem;
         text-align: start;
         opacity: 1;
         display: flex;
         align-items: center;
         & span {
           font-weight: bold;
-          font-size: 12px;
+          font-size: 1.2rem;
           opacity: 0.4;
           text-decoration: line-through;
           margin-left: 0.4rem;
@@ -177,6 +177,7 @@
         height: 2.1rem;
         background-repeat: no-repeat;
         background-position: center;
+        background-size: cover;
         &:first-child {
           opacity: 0.6;
           background-image: url(./assets/img/filter1.png);

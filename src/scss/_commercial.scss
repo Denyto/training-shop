@@ -4,6 +4,10 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    @include media-mobile {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__half {
     width: 50%;
@@ -12,19 +16,26 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    
     &:first-child {
       margin-right: 1.5rem;
       background: url(./assets/img/banner.png) no-repeat;
       background-size: cover;
       background-position: top;
       flex-direction: row;
+      @include media-mobile {
+        margin: 0 0 1rem 0;
+     }
     }
     &:last-child {
       margin-left: 1.5rem;
+      @include media-mobile {
+        margin: 1rem 0 0 0;
+     }
     }
     &__banner {
-      width: 22vw;
-      height: 7vw;
+      width: 29rem;
+      height: 10rem;
       background: #ffffff;
       border-radius: 4px;
       display: flex;
@@ -36,6 +47,13 @@
         opacity: 0.4;
         margin-bottom: 1rem;
       }
+      @include media-tablet {
+        width: 26rem;
+      }
+      @include media-mobile {
+        width: 50vw;
+        height: 15vw;
+      }
     }
     &__arrow {
       width: 2.8vw;
@@ -46,11 +64,19 @@
       background-size: 25%;
       background-repeat: no-repeat;
       &:first-child {
-        background-image: url(./assets/img/arrowleft.png);
+        background-image: url(./assets/img/arrowleft.png);        
       }
       &:last-child {
         background-image: url(./assets/img/arrowright.png);
       }
+      @include media-mobile {
+        width: 9vw;
+        height: 9vw;
+      }
+    }
+    @include media-mobile {
+      width: 95%;
+      height: 82vw;
     }
   }
   &__quarter {
@@ -69,8 +95,8 @@
       align-items: center;
     }
     &__banner {
-      width: 12vw;
-      height: 4vw;
+      width: 17rem;
+      height: 5rem;
       background: #ffffff;
       border-radius: 4px;
       display: flex;
@@ -97,8 +123,8 @@
       background-position: center;
     }
     &__banner {
-      width: 8vw;
-      height: 3.5vw;
+      width: 12rem;
+      height: 5rem;
       background: #ffffff;
       border-radius: 4px;
       display: flex;
@@ -130,7 +156,7 @@
     display: flex;
   }
   &__logo {
-    width: 15%;
+    width: 18%;
     background-position: center;
     background-repeat: no-repeat;
     &__car {
@@ -151,5 +177,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    & p {
+      font-size: 1.2rem;
+    }
   }
 }
