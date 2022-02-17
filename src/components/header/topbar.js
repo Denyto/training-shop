@@ -5,14 +5,30 @@ function Topbar() {
     <div className="topbar">
       <div className="wrapper topbar__wrapper">
         <div className="topbar__left">
-          <i className="topbar__phone"></i>
-          <div className="topbar__item">+375 29 100 20 30</div>
-          <i className="topbar__map"></i>
-          <div className="topbar__item topbar__item__location">
-            Belarus, Gomel, Lange 17
+          <div className="topbar__item">
+            <div>
+              <img
+                alt="phone"
+                src={require("../../assets/img/phone.png")}
+              ></img>
+            </div>
+            <p>+375 29 100 20 30</p>
           </div>
-          <i className="topbar__clock"></i>
-          <div className="topbar__item">All week 24/7</div>
+          <div className="topbar__item">
+            <div>
+              <img alt="map" src={require("../../assets/img/map.png")}></img>
+            </div>
+            <p> Belarus, Gomel, Lange 17</p>
+          </div>
+          <div className="topbar__item">
+            <div>
+              <img
+                alt="clock"
+                src={require("../../assets/img/clock.png")}
+              ></img>
+            </div>
+            <p>All week 24/7</p>
+          </div>
         </div>
 
         <ul className="topbar__social">

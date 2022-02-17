@@ -10,31 +10,21 @@
   }
   &__left {
     display: flex;
-    height: 100%;
-    align-items: center;
-    & i {
-      min-width: 2.4rem;
-      min-height: 2.4rem;
-      background-position: center;
-      background-size: auto;
-    }
-  }
-  &__phone {
-    background: url(./assets/img/phone.png) no-repeat;
-  }
-  &__map {
-    background: url(./assets/img/map.png) no-repeat;
-  }
-  &__clock {
-    background: url(./assets/img/clock.png) no-repeat;
-  }
+    align-items: center;   
+ 
+  }   
   &__item {
-    font-size: 1.1rem;
     margin: 0 0.5rem;
-    &__location {
-      font-family: "Inter", "sans-serif";
-      font-style: normal;
-      font-weight: normal;
+    display: flex;
+    align-items: center;
+    & p {
+      font-size: 1.1rem;
+      margin-left: .9rem;
+    }
+    &:last-child {
+      @include media-mobile {
+        display: none;
+      }
     }
   }
   &__social {
