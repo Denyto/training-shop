@@ -27,7 +27,7 @@ function Nav() {
         <ul
           onClick={toggleMenuMode}
           className={classNames("menu", { visible: isMenuOpen })}
-          data-test-id="menu"
+          data-test-id="burger-menu"
         >
           {MENU.map(({ id, path }) => (
             <li key={id}>
@@ -71,10 +71,11 @@ function Nav() {
               <div>0</div>
             </Link>
           </li>
-          <li>
+          <li data-test-id="burger-menu-btn">
             <span
               onClick={toggleMenuMode}
               className={classNames("hamburger", { rotate: isMenuOpen })}
+              data-test-id="burger-menu-btn"
             >
               <span className="hamburger-line"></span>
             </span>
