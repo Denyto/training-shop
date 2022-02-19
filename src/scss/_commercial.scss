@@ -52,7 +52,6 @@
       }
       @include media-mobile {
         width: 50vw;
-        height: 15vw;
       }
     }
     &__arrow {
@@ -138,8 +137,7 @@
 }
 
 .advantage {
-  width: 100%;
-  
+  width: 100%;  
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -154,6 +152,9 @@
     height: 4.5rem;
     margin: 3.5rem 0 3rem 0;
     display: flex;
+    @include media-finish {
+      width: 70%;
+    }
   }
   &__logo {
     width: 18%;

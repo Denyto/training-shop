@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/header/header";
 import MenBody from "../components/men/menbody";
 import Footer from "../components/footer/footer";
 import { Link } from "react-router-dom";
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 function Menpage() {
   return (
     <div className="App">
-      <Header></Header>
       <div className="wrapper">
         <div className="men__route">
           <div className="men__route__name">

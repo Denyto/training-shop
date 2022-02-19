@@ -1,7 +1,21 @@
-import { Link } from 'react-router-dom';
-import { MENU } from '../../constants/const';
+import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { MENU } from "../../constants/const";
+import classNames from "classnames";
 
 function Nav() {
+  const [isMenuOpen, toggleMenu] = useState(false);
+
+  function toggleMenuMode(e) {
+    document.body.classList.toggle("fixed");
+    toggleMenu(!isMenuOpen);
+  }
+
+  function scrName(e) {
+    console.log(e);
+  }
+
   return (
     <nav className="navigation">
       <div className="wrapper navigation__wrapper">
@@ -14,7 +28,12 @@ function Nav() {
             CleverShop
           </Link>
         </h1>
-        <ul className="menu" data-test-id="menu">
+        <ul
+          onClick={toggleMenuMode}
+          onScroll={scrName}
+          className={classNames("menu", { visible: isMenuOpen })}
+          data-test-id="menu"
+        >
           {MENU.map(({ id, path }) => (
             <li key={id}>
               <Link
@@ -22,7 +41,10 @@ function Nav() {
                 className="menu-item"
                 data-test-id={`menu-link-${path}`}
               >
-                {path.split('').map((el, index) => index === 0 ? el.toUpperCase() : el).join('')}
+                {path
+                  .split("")
+                  .map((el, index) => (index === 0 ? el.toUpperCase() : el))
+                  .join("")}
               </Link>
             </li>
           ))}
@@ -55,6 +77,14 @@ function Nav() {
               className="navigation__user__basket"
               target="blank"
             ></Link>
+          </li>
+          <li>
+            <span
+              onClick={toggleMenuMode}
+              className={classNames("hamburger", { rotate: isMenuOpen })}
+            >
+              <span className="hamburger-line"></span>
+            </span>
           </li>
         </ul>
       </div>

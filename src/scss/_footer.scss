@@ -14,11 +14,6 @@ form {
     background: #fff;
     opacity: 0.2;
     font-size: 1.4rem;
-    // color: #fff;
-    // &:focus {
-    //   opacity: 0.6;
-    //   color: #fff;
-    // }
   }
   button {
     width: 11rem;
@@ -27,6 +22,9 @@ form {
     color: #ffffff;
     opacity: 0.9;
     border: 1px solid #ffffff;
+  }
+  @include media-mobile {
+    margin-bottom: 1rem;
   }
 }
 
@@ -40,6 +38,9 @@ form {
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 0;
+    @include media-mobile {
+      flex-direction: column;
+    }
   }
   &__left {
     display: flex;
@@ -50,6 +51,9 @@ form {
       min-height: 2.4rem;
       background-position: center;
       background-size: auto;
+    }
+    @include media-mobile {
+      margin-bottom: 1rem;
     }
   }
   &__phone {
@@ -144,6 +148,13 @@ form {
           background-size: contain;
         }
       }
+      @include media-mobile {
+        width: 50%;
+        margin-bottom: 3rem;
+      }
+    }
+    @include media-mobile {
+      flex-wrap: wrap;
     }
   }
   &__map {

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/header/header";
 import WomenBody from "../components/women/womenbody";
 import Footer from "../components/footer/footer";
 import { Link } from "react-router-dom";
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 function Womenpage() {
   return (
     <div className="App">
-      <Header></Header>
       <div className="wrapper">
         <div className="women__route">
           <div className="women__route__name">

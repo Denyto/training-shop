@@ -68,6 +68,7 @@
     }
     @include media-mobile {
       height: 24.5vw;
+      transform: translateY(14vw);
     }
     @include media-finish {
       height: 41.5vw;

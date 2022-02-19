@@ -1,15 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { DATA } from "../../constants/const";
-import Header from "../header/header";
 import Footer from "../footer/footer";
 
 function Product({ type }) {
   const { id } = useParams();
   const { men, women } = DATA;
-  console.log();
   return (
     <>
-      <Header></Header>
       <div className="wrapper">
         <div className="product__route">
           <div className="product__route__name">
@@ -101,7 +98,7 @@ function Product({ type }) {
               <div className="product__main__item__foto">
                 <img
                   alt={men[+id - 1].title}
-                  src={require("../../assets/img/categories/women/shirt.png")}
+                  src={require("../../assets/img/categories/women/women-1.jpg")}
                 ></img>
               </div>
               <div className="product__main__item__foto">

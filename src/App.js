@@ -5,6 +5,7 @@ import Womenpage from './pages/womenpage';
 import Menpage from './pages/menpage';
 import Mainpage from './pages/mainpage';
 import Product from './components/product/product';
+import Header from './components/header/header';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <React.StrictMode>
       <div className="App" data-test-id="app">
+        <Header></Header>
         <Routes>
           <Route exact path="/" element={<Mainpage />} />
           <Route exact path="/women" element={<Womenpage />} />
