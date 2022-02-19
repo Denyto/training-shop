@@ -12,10 +12,6 @@ function Nav() {
     toggleMenu(!isMenuOpen);
   }
 
-  function scrName(e) {
-    console.log(e);
-  }
-
   return (
     <nav className="navigation">
       <div className="wrapper navigation__wrapper">
@@ -30,7 +26,6 @@ function Nav() {
         </h1>
         <ul
           onClick={toggleMenuMode}
-          onScroll={scrName}
           className={classNames("menu", { visible: isMenuOpen })}
           data-test-id="menu"
         >
