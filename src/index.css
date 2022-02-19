@@ -180,26 +180,6 @@ img {
   background-position: center;
   background-size: contain;
 }
-.navigation__user li:nth-child(4) {
-  position: relative;
-}
-.navigation__user li:nth-child(4)::after {
-  width: 55%;
-  height: 85%;
-  font-size: 0.9rem;
-  font-weight: bold;
-  content: "0";
-  position: absolute;
-  top: -0.7rem;
-  right: -0.4rem;
-  border-radius: 50%;
-  border: 2px solid #FFFFFF;
-  color: #fff;
-  background-color: #121212;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .navigation__user li:last-child {
   display: none;
 }
@@ -219,6 +199,23 @@ img {
 }
 .navigation__user__basket {
   background: url(./assets/img/basket.png) no-repeat;
+  position: relative;
+}
+.navigation__user__basket div {
+  width: 65%;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: absolute;
+  top: -0.8rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  border: 0.2rem solid #ffffff;
+  color: #fff;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu {
@@ -1094,6 +1091,7 @@ form button {
 @media (max-width: 605px) {
   .footer-nav__wrapper {
     flex-wrap: wrap;
+    padding: 0 0 0 1rem;
   }
 }
 .footer-nav__map {

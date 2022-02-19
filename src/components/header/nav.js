@@ -67,11 +67,9 @@ function Nav() {
             ></Link>
           </li>
           <li>
-            <Link
-              to="#"
-              className="navigation__user__basket"
-              target="blank"
-            ></Link>
+            <Link to="#" className="navigation__user__basket" target="blank">
+              <div>0</div>
+            </Link>
           </li>
           <li>
             <span
