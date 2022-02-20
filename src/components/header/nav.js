@@ -5,9 +5,7 @@ import { MENU } from "../../constants/const";
 import classNames from "classnames";
 
 function Nav() {
-  const [isMenuOpen, toggleMenu] = useState(false);
-
-  console.log(useState());
+  const [isMenuOpen, toggleMenu] = useState(false);  
 
   function toggleMenuMode(e) {
     document.body.classList.toggle("fixed");

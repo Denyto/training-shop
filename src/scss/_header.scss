@@ -120,6 +120,7 @@
         display: none;
         @include media-tablet {
           display: block;
+          margin-left: 1rem;
         }
       }
     }
@@ -163,7 +164,7 @@
   font-size: 1.4rem;
   transition: all 0.5s;
   & li {
-    margin: 0 1.6rem;
+    margin: 0 1.4rem;
     font-size: 1.4rem;
     line-height: 16px;
     & a {
