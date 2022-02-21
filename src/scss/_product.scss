@@ -22,7 +22,7 @@
       & p {
         font-size: 1.1rem;
         line-height: 1px;
-        margin-left: .9rem;
+        margin-left: 0.9rem;
       }
     }
   }
@@ -63,10 +63,12 @@
         flex-direction: column;
         justify-content: space-between;
         padding-right: 1.4rem;
+        user-select: none;
       }
       &__2 {
         width: 83%;
         position: relative;
+        user-select: none;
         &__slider {
           width: 100%;
           display: flex;
@@ -74,20 +76,24 @@
           position: absolute;
           top: 45%;
           padding: 0 1.6rem 0 1.6rem;
+          z-index: 2;
         }
         &__arrow {
           width: 4rem;
           height: 4rem;
           background: #ffffff;
-          opacity: 0.6;
           border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+          cursor: pointer;
           & img {
             width: 40%;
             height: 20%;
             transform: rotate(-90deg);
+          }
+          &.disable {
+            opacity: 0.3;
           }
         }
       }
@@ -98,14 +104,19 @@
       }
       &__arrow {
         width: 50%;
-        height: 2.7vw;
+        height: 300%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid tomato;
+        cursor: pointer;
         & img {
           width: 40%;
           height: 20%;
+        }
+        &.disable {
+          opacity: 0.3;
         }
       }
       @include media-tablet {
@@ -245,7 +256,7 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 18px;
-        padding: 1rem 0 1rem .5rem;
+        padding: 1rem 0 1rem 0.5rem;
         opacity: 0.6;
       }
       & hr {
@@ -268,12 +279,18 @@
     &__arrows {
       display: flex;
       align-items: center;
+      cursor: pointer;
       & img {
         width: 1.4rem;
-        height: .7rem;
+        height: 0.7rem;
         transform: rotate(-90deg);
-        margin: 0 1.2rem;
+        margin: 0 1.2rem;        
       }
+      & div {
+        &.disable {
+          opacity: 0.3;
+        }
+      }      
     }
   }
 }

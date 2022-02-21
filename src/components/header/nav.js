@@ -5,11 +5,16 @@ import { MENU } from "../../constants/const";
 import classNames from "classnames";
 
 function Nav() {
-  const [isMenuOpen, toggleMenu] = useState(false);  
+  const [isMenuOpen, toggleMenu] = useState(false);
 
-  function toggleMenuMode(e) {
-    document.body.classList.toggle("fixed");
-    toggleMenu(!isMenuOpen);
+  function toggleMenuMode() {
+    if (
+      getComputedStyle(document.querySelector(".hamburger")).display ===
+      "inline-block"
+    ) {
+      document.body.classList.toggle("fixed");
+      toggleMenu(!isMenuOpen);
+    }
   }
 
   return (

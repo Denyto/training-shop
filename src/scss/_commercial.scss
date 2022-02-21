@@ -54,33 +54,37 @@
         height: 10rem;
       }
     }
-    // &__arrow {
-    //   width: 2.8vw;
-    //   height: 2.8vw;
-    //   border-radius: 50%;
-    //   background-color: #fff;
-    //   background-position: center;
-    //   background-size: 25%;
-    //   background-repeat: no-repeat;
-    //   position: absolute;
-    //   &__left {
+    &__arrow {
+      width: 9%;
+      height: 9%;
+      border-radius: 50%;
+      background-color: #fff;
+      background-position: center;
+      background-size: 25%;
+      background-repeat: no-repeat;
+      position: absolute;
+      z-index: 2;
+      top: 45%;
+      cursor: pointer;
+      &__left {        
+        left: 3%;
+        background-image: url(./assets/img/arrowleft.png);        
+      }
+      &__right {
         
-    //     left: 3%;
-    //     background-image: url(./assets/img/arrowleft.png);        
-    //   }
-    //   &__right {
-        
-    //     right: 3%;
-    //     background-image: url(./assets/img/arrowright.png);
-    //   }
-    //   @include media-mobile {
-    //     width: 9vw;
-    //     height: 9vw;
-    //   }
-    // }
+        right: 3%;
+        background-image: url(./assets/img/arrowright.png);
+      }
+      @include media-finish {
+        width: 10%;
+        height: 10%;
+      }
+      &.disable {
+        opacity: .2;
+      }
+    }
     @include media-mobile {
       width: 95%;
-      height: 82vw;
     }
   }
   &__quarter {
@@ -106,6 +110,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    @include media-mobile {
+      height: 37vw;
     }
   }
   &__part {

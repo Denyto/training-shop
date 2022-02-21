@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import Advantage from "./advantage";
-import Slider from "../slider/slider";
-
+import SliderMain from "../slider/sliderMain";
 
 function Commercial() {
   return (
     <aside className="commercial">
       <div className="wrapper commercial__wrapper">
         <div className="commercial__half">
-          <Slider></Slider>
-          {/* <img alt="review" src={require("../../assets/img/banner.png")}></img> */}
-          {/* <div className="commercial__half__arrow commercial__half__arrow__left"></div> */}
+          <SliderMain
+            type={["banner.png", "banner.png", "banner.png"]}
+          ></SliderMain>
+          <div className="commercial__half__arrow commercial__half__arrow__right btn-next"></div>
+          <div className="commercial__half__arrow commercial__half__arrow__left btn-prev"></div>
           <div className="commercial__half__banner">
             <p>BANNER</p>
             <h2>YOUR TITLE TEXT</h2>
-          </div>
-          {/* <div className="commercial__half__arrow commercial__half__arrow__right"></div> */}
+          </div>       
         </div>
         <div className="commercial__half">
           <div className="commercial__quarter">
