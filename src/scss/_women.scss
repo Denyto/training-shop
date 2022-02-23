@@ -44,6 +44,9 @@
         height: 100%;
         border: 1px solid transparent;
         transition: all .3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         &:hover {
           transform: scale(97%);
         }        
@@ -76,6 +79,7 @@
         opacity: 1;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         & span {
           font-weight: bold;
           font-size: 1.2rem;

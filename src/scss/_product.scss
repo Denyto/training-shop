@@ -56,9 +56,11 @@
     justify-content: space-between;
     &__item {
       width: 50%;
+      max-height: 45%;
       display: flex;
+      justify-content: space-between;
       &__1 {
-        width: 17%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -66,30 +68,33 @@
         user-select: none;
       }
       &__2 {
-        width: 83%;
+        width: 80%;
         position: relative;
         user-select: none;
         &__slider {
-          width: 100%;
+          width: 80%;
+          height: 8%;
           display: flex;
           justify-content: space-between;
           position: absolute;
           top: 45%;
+          right: 0;
           padding: 0 1.6rem 0 1.6rem;
           z-index: 2;
+          user-select: none;
         }
         &__arrow {
-          width: 4rem;
-          height: 4rem;
-          background: #ffffff;
+          width: 12%;
+          height: 100%;
+          background: #ffffff86;
           border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
           & img {
-            width: 40%;
-            height: 20%;
+            width: auto;
+            height: auto;
             transform: rotate(-90deg);
           }
           &.disable {
@@ -98,18 +103,21 @@
         }
       }
       &__foto {
+        position: absolute;
+        top: 0;
+        width: 90%;
+        height: 6%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
       }
       &__arrow {
-        width: 50%;
-        height: 300%;
+        width: 45%;
+        height: 100%;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid tomato;
         cursor: pointer;
         & img {
           width: 40%;
@@ -276,6 +284,7 @@
     display: flex;
     justify-content: space-between;
     padding: 4rem 0;
+    user-select: none;
     &__arrows {
       display: flex;
       align-items: center;

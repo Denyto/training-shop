@@ -13,6 +13,7 @@ export default function SliderMain({ type }) {
           disabledClass: "disable",
         }}
         className="mySwiper"
+        data-test-id="main-slider"
       >
         {type.map((item, index) => (
           <SwiperSlide key={index}>

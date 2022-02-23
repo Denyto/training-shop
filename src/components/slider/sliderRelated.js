@@ -27,6 +27,7 @@ export default function SliderRelated({ data }) {
           },
         }}
         className="mySwiper"
+        data-test-id="related-slider"
       >
         {data.map(({ discount, file, id, price, title }) => (
           <SwiperSlide key={id}>

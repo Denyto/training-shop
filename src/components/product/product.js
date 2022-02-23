@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { DATA } from "../../constants/const";
 import Footer from "../footer/footer";
-import SliderMain from "../slider/sliderMain";
+import SliderProduct from "../slider/sliderProduct";
 import SliderRelated from "../slider/sliderRelated";
 
 function Product({ type }) {
@@ -81,8 +81,44 @@ function Product({ type }) {
           className="product__main page-product"
           data-test-id={`page-product-${type}`}
         >
-          <div className="product__main__item">
-            <div className="product__main__item__1">
+          <div className="product__main__item product__slider">
+            <SliderProduct
+              type={[
+                `categories/women/${women[+id - 1].file}`,
+                `categories/women/${women[+id - 1].file}`,
+                `categories/women/${women[+id - 1].file}`,
+                `categories/women/${women[+id - 1].file}`,
+              ]}
+            ></SliderProduct>
+            <div className="product__main__item__2__slider">
+              <div className="product__main__item__2__arrow btn-product-prev">
+                <img
+                  alt="arrow"
+                  src={require("../../assets/img/arrowup.png")}
+                ></img>
+              </div>
+              <div className="product__main__item__2__arrow btn-product-next">
+                <img
+                  alt="arrow"
+                  src={require("../../assets/img/arrowdown.png")}
+                ></img>
+              </div>
+            </div>
+            {/* <div className="product__main__item__2__slider">
+              <div className="product__main__item__2__arrow btn-product-prev">
+                <img
+                  alt="arrow"
+                  src={require("../../assets/img/arrowup.png")}
+                ></img>
+              </div>
+              <div className="product__main__item__2__arrow btn-product-next">
+                <img
+                  alt="arrow"
+                  src={require("../../assets/img/arrowdown.png")}
+                ></img>
+              </div>
+            </div> */}
+            {/* <div className="product__main__item__1">
               <div className="product__main__item__foto">
                 <div className="product__main__item__arrow btn-prev">
                   <img
@@ -153,7 +189,7 @@ function Product({ type }) {
                   ></img>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="product__main__item product__main__description">
             <p>

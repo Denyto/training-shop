@@ -76,7 +76,7 @@ function Nav() {
               <div>0</div>
             </Link>
           </li>
-          <li data-test-id="burger-menu-btn">
+          <li>
             <span
               onClick={toggleMenuMode}
               className={classNames("hamburger", { rotate: isMenuOpen })}
