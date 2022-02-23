@@ -164,6 +164,7 @@
   list-style: none;
   font-size: 1.4rem;
   transition: all 0.5s;
+  user-select: none;
   & li {
     margin: 0 1.4rem;
     font-size: 1.4rem;

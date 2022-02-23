@@ -3,7 +3,7 @@
     position: absolute;
     display: inline-block;
     width: 100%;
-    height: .23rem;
+    height: 3px;
     background: rgb(29, 70, 104);
     border-radius: 5px;
   }
@@ -51,12 +51,12 @@
       position: absolute;
       display: inline-block;
       width: 100%;
-      height: .23rem;
+      height: 3px;
       background: rgb(29, 70, 104);
       border-radius: 5px;
-      top: 1rem;
+      top: 6px;
       left: 0;
-      transform: rotate(405deg);
+      transform: rotate(-315deg);
     }
     &:after {
       transition: 0.5s;
@@ -64,10 +64,10 @@
       position: absolute;
       display: inline-block;
       width: 100%;
-      height: .23rem;
+      height: 3px;
       background: rgb(29, 70, 104);
       border-radius: 5px;
-      bottom: 1.1rem;
+      bottom: 6px;
       left: 0;
       transform: rotate(495deg);
     }
