@@ -3,14 +3,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
 export default function SliderRelated({ data }) {
+  
   return (
     <>
       <Swiper
         modules={[Navigation]}
         navigation={{
-          nextEl: ".btn-related-next",
-          prevEl: ".btn-related-prev",
-          disabledClass: "disable",
+          nextEl: '.btn-related-next',
+          prevEl: '.btn-related-prev',
+          disabledClass: 'disable',
         }}
         breakpoints={{
           405: {
@@ -29,11 +30,11 @@ export default function SliderRelated({ data }) {
         className="mySwiper"
         data-test-id="related-slider"
       >
-        {data.map(({ discount, file, id, price, title }) => (
+        {data.map(({ discount, id, price, name, images }) => (
           <SwiperSlide key={id}>
             <li key={id}>
               <Link
-                to={`/men/${id}`}
+                to={`/${data[0].category}/${id}`}
                 className="cards-item"
                 data-test-id="clothes-card-men"
               >
@@ -42,11 +43,11 @@ export default function SliderRelated({ data }) {
                     <div className="men__group__sale">-{discount}%</div>
                   ) : null}
                   <img
-                    alt={title}
-                    src={require(`../../assets/img/categories/men/${file}`)}
+                    alt={name}
+                    src={`https://training.cleverland.by/shop${images[0].url}`}
                   ></img>
                 </div>
-                <p>{title}</p>
+                <p>{name}</p>
 
                 <div className="men__group__price">
                   <p>
@@ -54,13 +55,13 @@ export default function SliderRelated({ data }) {
                     <span>
                       {discount
                         ? `$ ${(price / (1 - discount / 100)).toFixed()}.00`
-                        : ""}
+                        : ''}
                     </span>
                   </p>
                   <div className="men__group__review">
                     <img
                       alt="review"
-                      src={require("../../assets/img/stars-review.png")}
+                      src={require('../../assets/img/stars-review.png')}
                     ></img>
                   </div>
                 </div>

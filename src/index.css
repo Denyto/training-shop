@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: "Spartan", "sans-serif";
+  font-family: "Spartan", "Open Sans", "sans-serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -294,6 +294,7 @@ img {
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   margin-left: 3rem;
+  cursor: pointer;
 }
 @media (max-width: 605px) {
   .women__nav {
@@ -497,6 +498,7 @@ img {
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   margin-left: 3rem;
+  cursor: pointer;
 }
 @media (max-width: 605px) {
   .men__nav {
@@ -1533,6 +1535,8 @@ form button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background: #FFF;
+  z-index: 1;
 }
 .product__main__item__arrow {
   width: 45%;

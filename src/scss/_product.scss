@@ -110,6 +110,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background: #FFF;
+    z-index: 1;
       }
       &__arrow {
         width: 45%;

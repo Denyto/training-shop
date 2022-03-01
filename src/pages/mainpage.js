@@ -9,6 +9,7 @@ import Commercial from "../components/commercial/commercial";
 
 
 function Mainpage() {
+
   return (
     <div className="App">
       <Commercial></Commercial>

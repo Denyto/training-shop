@@ -1,44 +1,50 @@
-import { Link } from "react-router-dom";
-import { DATA } from "../../constants/const";
+import { Link } from 'react-router-dom';
+import { PRODUCTS } from '../../constants/products';
 
-function WomenBody() {
-  const { women } = DATA;
+function WomenBody({ data }) {
   return (
     <ul
       className="women__group products-page"
       data-test-id="products-page-women"
     >
-      {women.map(({ discount, file, id, price, title }) => (
-        <li key={id}>
-          <Link
-            to={`/women/${id}`}
-            className="cards-item"
-            data-test-id="clothes-card-women"
-          >
-            <div className="women__group__foto">
-              {discount > 0 ? (
-                <div className="women__group__sale">-{discount}%</div>
-              ) : null}
-              <img
-                alt={title}
-                src={require(`../../assets/img/categories/women/${file}`)}
-              ></img>
-            </div>
-            <p>{title}</p>
-            <div className="women__group__price">
-              <p>
-                $ {price}.00<span>{discount ? `$ ${(price / (1 - discount / 100)).toFixed()}.00` : ""}</span>
-              </p>
-              <div className="women__group__review">
+      {PRODUCTS.women
+        .filter((item) => item.particulars[data])
+        .map(({ discount, id, price, name, images }) => (
+          <li key={id}>
+            <Link
+              to={`/women/${id}`}
+              className="cards-item"
+              data-test-id="clothes-card-women"
+            >
+              <div className="women__group__foto">
+                {discount > 0 ? (
+                  <div className="women__group__sale">-{discount}%</div>
+                ) : null}
                 <img
-                  alt="review"
-                  src={require("../../assets/img/stars-review.png")}
+                  alt={name}
+                  src={`https://training.cleverland.by/shop${images[0].url}`}
                 ></img>
               </div>
-            </div>
-          </Link>
-        </li>
-      ))}
+              <p>{name}</p>
+              <div className="women__group__price">
+                <p>
+                  $ {price}
+                  <span>
+                    {discount
+                      ? `$ ${(price / (1 - discount / 100)).toFixed()}.00`
+                      : ''}
+                  </span>
+                </p>
+                <div className="women__group__review">
+                  <img
+                    alt="review"
+                    src={require('../../assets/img/stars-review.png')}
+                  ></img>
+                </div>
+              </div>
+            </Link>
+          </li>
+        ))}
     </ul>
   );
 }

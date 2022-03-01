@@ -15,8 +15,7 @@ function Womenpage() {
             ►<p>Women</p>
           </div>
           <div className="women__route__share">
-
-              <img alt="share" src={require("../assets/img/share.png")}></img>
+            <img alt="share" src={require('../assets/img/share.png')}></img>
 
             <p>Share</p>
           </div>
@@ -34,7 +33,7 @@ function Womenpage() {
         </div>
       </div>
       <div className="wrapper">
-        <WomenBody></WomenBody>
+        <WomenBody data="isNewArrivals"></WomenBody>
       </div>
       <Footer></Footer>
     </div>

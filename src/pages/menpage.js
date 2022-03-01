@@ -15,8 +15,7 @@ function Menpage() {
             ►<p>Men</p>
           </div>
           <div className="men__route__share">
-
-              <img alt="share" src={require("../assets/img/share.png")}></img>
+            <img alt="share" src={require('../assets/img/share.png')}></img>
 
             <p>Share</p>
           </div>
@@ -34,7 +33,7 @@ function Menpage() {
         </div>
       </div>
       <div className="wrapper">
-        <MenBody></MenBody>
+        <MenBody data='isNewArrivals'></MenBody>
       </div>
       <Footer></Footer>
     </div>

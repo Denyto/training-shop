@@ -1,23 +1,17 @@
-import React, { useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState } from 'react';
 
-// Import Swiper styles
-// import "swiper/css";
-// import "swiper/css/free-mode";
-import "swiper/css/navigation";
-// import "swiper/css/thumbs";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-// import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs } from 'swiper';
 
-export default function SliderProduct({ type }) {
+export default function SliderProduct({ data }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  console.log(data);
 
   return (
     <>
       <Swiper
-        direction={"vertical"}
+        direction={'vertical'}
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={4}
@@ -31,80 +25,46 @@ export default function SliderProduct({ type }) {
           <div className="product__main__item__arrow btn-product-prev">
             <img
               alt="arrow"
-              src={require("../../assets/img/arrowup.png")}
+              src={require('../../assets/img/arrowup.png')}
             ></img>
           </div>
           <div className="product__main__item__arrow btn-product-next">
             <img
               alt="arrow"
-              src={require("../../assets/img/arrowdown.png")}
+              src={require('../../assets/img/arrowdown.png')}
             ></img>
           </div>
         </div>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
+        {data.map((elem) => (
+          <SwiperSlide key={elem.id}>
+            <img
+              alt="product"
+              src={`https://training.cleverland.by/shop${elem.url}`}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <Swiper
         spaceBetween={10}
-        // navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
         navigation={{
-          nextEl: ".btn-product-next",
-          prevEl: ".btn-product-prev",
-          disabledClass: "disable",
+          nextEl: '.btn-product-next',
+          prevEl: '.btn-product-prev',
+          disabledClass: 'disable',
         }}
         className="product__main__item__2"
         data-test-id="product-slider"
       >
-        
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="product"
-            src={require("../../assets/img/categories/men/men-4.jpg")}
-          />
-        </SwiperSlide>
+        {data.map((elem) => (
+          <SwiperSlide key={elem.id}>
+            <img
+              alt="product"
+              src={`https://training.cleverland.by/shop${elem.url}`}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
