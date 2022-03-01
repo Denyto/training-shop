@@ -5,8 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 
 export default function SliderProduct({ data }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  console.log(data);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);  
 
   return (
     <>

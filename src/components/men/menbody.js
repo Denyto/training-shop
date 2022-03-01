@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../../constants/products';
 
 function MenBody({ data }) {
+  
   return (
     <ul className="men__group products-page" data-test-id="products-page-men">
       {PRODUCTS.men
@@ -14,8 +15,8 @@ function MenBody({ data }) {
               data-test-id="clothes-card-men"
             >
               <div className="men__group__foto">
-                {discount > 0 ? (
-                  <div className="men__group__sale">-{discount}%</div>
+                {discount ? (
+                  <div className="men__group__sale">{discount}</div>
                 ) : null}
                 <img
                   alt={name}
@@ -29,7 +30,10 @@ function MenBody({ data }) {
                   $ {price}
                   <span>
                     {discount
-                      ? `$ ${(price / (1 - discount / 100)).toFixed()}.00`
+                      ? `$ ${(
+                          price /
+                          (1 - Math.abs(parseInt(discount)) / 100)
+                        ).toFixed()}.00`
                       : ''}
                   </span>
                 </p>
