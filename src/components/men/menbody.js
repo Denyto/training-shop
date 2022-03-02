@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../../constants/products';
+import Rating from '../rating/rating';
 
 function MenBody({ data }) {
   
@@ -7,7 +8,7 @@ function MenBody({ data }) {
     <ul className="men__group products-page" data-test-id="products-page-men">
       {PRODUCTS.men
         .filter((item) => item.particulars[data])
-        .map(({ discount, id, price, name, images }) => (
+        .map(({ discount, id, price, name, images, rating }) => (
           <li key={id}>
             <Link
               to={`/men/${id}`}
@@ -38,10 +39,7 @@ function MenBody({ data }) {
                   </span>
                 </p>
                 <div className="men__group__review">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/stars-review.png')}
-                  ></img>
+                  <Rating rating={rating}></Rating>
                 </div>
               </div>
             </Link>

@@ -1,5 +1,6 @@
 import MenBody from './menbody';
 import { useState } from 'react';
+import { MAIN_CLOTHES_BLOCK_MENU } from '../../constants/const';
 
 function Men() {
   const [particular, selectParticular] = useState('isNewArrivals');
@@ -14,21 +15,15 @@ function Men() {
         <div className="men__header">
           <h2>MEN'S</h2>
           <ul className="men__nav">
-            <li onClick={setMenuMode} data-particularname="isNewArrivals">
-              NEW ARRIVALS
-            </li>
-            <li onClick={setMenuMode} data-particularname="isSpecial">
-              SPECIALS
-            </li>
-            <li onClick={setMenuMode} data-particularname="isBestseller">
-              BESTSELLERS
-            </li>
-            <li onClick={setMenuMode} data-particularname="isMostViewed">
-              MOST VIEWED
-            </li>
-            <li onClick={setMenuMode} data-particularname="isFeatured">
-              FEATURED PRODUCTS
-            </li>
+            {MAIN_CLOTHES_BLOCK_MENU.map((elem) => (
+              <li
+                key={elem.particularName}
+                onClick={setMenuMode}
+                data-particularname={elem.particularName}
+              >
+                {elem.name}
+              </li>
+            ))}
           </ul>
         </div>
         <MenBody data={particular}></MenBody>

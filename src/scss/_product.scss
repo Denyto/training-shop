@@ -44,9 +44,15 @@
         }
       }
     }
+    &__star {
+      & img {
+        height: auto;
+      }
+    }
   }
 
   &__title {
+    text-transform: uppercase;
     padding: 1rem 0 2.4rem 0;
   }
 
@@ -110,8 +116,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background: #FFF;
-    z-index: 1;
+        background: #fff;
+        z-index: 1;
       }
       &__arrow {
         width: 45%;
@@ -295,13 +301,13 @@
         width: 1.4rem;
         height: 0.7rem;
         transform: rotate(-90deg);
-        margin: 0 1.2rem;        
+        margin: 0 1.2rem;
       }
       & div {
         &.disable {
           opacity: 0.3;
         }
-      }      
+      }
     }
   }
 }

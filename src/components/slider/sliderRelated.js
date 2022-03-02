@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import Rating from '../rating/rating';
 
 export default function SliderRelated({ data }) {
-  
   return (
     <>
       <Swiper
@@ -30,7 +30,7 @@ export default function SliderRelated({ data }) {
         className="mySwiper"
         data-test-id="related-slider"
       >
-        {data.map(({ discount, id, price, name, images }) => (
+        {data.map(({ discount, id, price, name, images, rating }) => (
           <SwiperSlide key={id}>
             <li key={id}>
               <Link
@@ -39,8 +39,8 @@ export default function SliderRelated({ data }) {
                 data-test-id="clothes-card-men"
               >
                 <div className="men__group__foto">
-                  {discount > 0 ? (
-                    <div className="men__group__sale">-{discount}%</div>
+                  {discount ? (
+                    <div className="men__group__sale">{discount}</div>
                   ) : null}
                   <img
                     alt={name}
@@ -54,15 +54,15 @@ export default function SliderRelated({ data }) {
                     $ {price}.00
                     <span>
                       {discount
-                        ? `$ ${(price / (1 - discount / 100)).toFixed()}.00`
+                        ? `$ ${(
+                            price /
+                            (1 - Math.abs(parseInt(discount)) / 100)
+                          ).toFixed()}.00`
                         : ''}
                     </span>
                   </p>
                   <div className="men__group__review">
-                    <img
-                      alt="review"
-                      src={require('../../assets/img/stars-review.png')}
-                    ></img>
+                    <Rating rating={rating}></Rating>
                   </div>
                 </div>
               </Link>
