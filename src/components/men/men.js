@@ -26,7 +26,7 @@ function Men() {
             ))}
           </ul>
         </div>
-        <MenBody data={particular}></MenBody>
+        <MenBody particular={particular}></MenBody>
         <div className="men__footer">
           <p>SEE ALL</p>
         </div>

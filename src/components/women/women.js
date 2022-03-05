@@ -25,7 +25,7 @@ function Women() {
             ))}
           </ul>
         </div>
-        <WomenBody data={particular}></WomenBody>
+        <WomenBody particular={particular}></WomenBody>
         <div className="women__footer">
           <p>SEE ALL</p>
         </div>

@@ -471,6 +471,25 @@ img {
 .women__filter__view i:last-child {
   background-image: url(./assets/img/filter2.png);
 }
+.women__filtration {
+  height: 0rem;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.5s;
+}
+.women__filtration ul {
+  list-style: none;
+}
+.women__filtration ul li {
+  display: flex;
+}
+.women__filtration input {
+  width: 2rem;
+  height: 2rem;
+}
+.women__filtration.showed {
+  height: 34rem;
+}
 .women__title {
   padding: 1rem 0 2.4rem 0;
 }

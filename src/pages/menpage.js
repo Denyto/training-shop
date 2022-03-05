@@ -33,7 +33,7 @@ function Menpage() {
         </div>
       </div>
       <div className="wrapper">
-        <MenBody data='isNewArrivals'></MenBody>
+        <MenBody></MenBody>
       </div>
       <Footer></Footer>
     </div>

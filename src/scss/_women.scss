@@ -192,6 +192,26 @@
       }
     }
   }
+  &__filtration {
+    height: 0rem;
+    display: flex;
+    justify-content: space-between;    
+    transition: all .5s;
+    & ul {
+      list-style: none;
+      & li {
+        display: flex;
+      }
+    }
+    & input {
+      width: 2rem;
+      height: 2rem;
+
+    }
+    &.showed {
+      height: 34rem;      
+    }
+  }
   &__title {
     padding: 1rem 0 2.4rem 0;
   }
