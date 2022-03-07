@@ -1,43 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
+import classNames from 'classnames';
 import WomenBody from '../components/women/womenbody';
 import Footer from '../components/footer/footer';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants/products';
 
 function Womenpage() {
-  let [color, setColor] = useState([]);
-  let [size, setSize] = useState([]);
-
-  function selectColor(e) {
-    if (e.target.checked) {
-      color.push(e.target.labels[0].innerText);
-      setColor(color.map((elem) => elem));
-    } else {
-      color.find(
-        (item, index) =>
-          e.target.labels[0].innerText === item && color.splice(index, 1)
-      );
-      setColor(color.map((elem) => elem));
-    }
-  }
-
-  function selectSize(e) {
-    if (e.target.checked) {
-      size.push(e.target.labels[0].innerText);
-      setSize(size.map((elem) => elem));
-    } else {
-      size.find(
-        (item, index) =>
-          e.target.labels[0].innerText === item && size.splice(index, 1)
-      );
-      setSize(size.map((elem) => elem));
-    }
-  }
-
   let colorArr = [];
   let colorId = [];
   let sizeArr = [];
+
   PRODUCTS.women.forEach((elem) => {
     elem.images.forEach((item) => {
       colorArr.push(item.color);
@@ -47,6 +20,56 @@ function Womenpage() {
       sizeArr.push(item);
     });
   });
+
+  let [color, setColor] = useState([]);
+  let [size, setSize] = useState([]);
+  let [brand, setBrand] = useState([]);
+  let [price, setPrice] = useState([]);
+  const [isMenuShowed, setMenuShowed] = useState(false);
+
+  function toggleMenuFilter(e) {
+    setMenuShowed(!isMenuShowed);
+  }
+
+  // function selectPrice(e, arr) {
+  //   if (e.target.checked) {
+  //     let temp = [];
+  //     e.target.labels[0].innerText
+  //       .split('-')
+  //       .forEach((elem) => temp.push(parseInt(elem.slice(1))));
+  //     arr.push(temp.join('-'));
+  //     setPrice(arr.map((elem) => elem));
+  //   } else {
+  //     arr.find(
+  //       (item, index) =>
+  //         e.target.labels[0].innerText === item && arr.splice(index, 1)
+  //     );
+  //     setPrice(arr.map((elem) => elem));
+  //   }
+  // }
+
+  function selectFilter(e, arr) {
+    if (e.target.checked) {
+      arr.push(e.target.labels[0].innerText);
+      e.currentTarget.dataset.filter === 'color'
+        ? setColor(arr.map((elem) => elem))
+        : e.currentTarget.dataset.filter === 'brand'
+        ? setBrand(arr.map((elem) => elem))
+        : e.currentTarget.dataset.filter === 'price'
+        ? setPrice(arr.map((elem) => elem))
+        : setSize(arr.map((elem) => elem));
+    } else {
+      arr.find((item, index) => e.target.labels[0].innerText === item && arr.splice(index, 1));
+      e.currentTarget.dataset.filter === 'color'
+        ? setColor(arr.map((elem) => elem))
+        : e.currentTarget.dataset.filter === 'brand'
+        ? setBrand(arr.map((elem) => elem))
+        : e.currentTarget.dataset.filter === 'price'
+        ? setPrice(arr.map((elem) => elem))
+        : setSize(arr.map((elem) => elem));
+    }
+  }
+
   return (
     <div className="App">
       <div className="wrapper">
@@ -64,8 +87,14 @@ function Womenpage() {
         </div>
         <h2 className="women__title">WOMEN</h2>
         <div className="women__filter">
-          <div className="women__filter__icon">
-            <i></i>
+          <div className="women__filter__icon" onClick={toggleMenuFilter}>
+            <i>
+              {!isMenuShowed ? (
+                <img alt="share" src={require('../assets/img/filtericon.png')}></img>
+              ) : (
+                <img alt="share" src={require('../assets/img/x.png')}></img>
+              )}
+            </i>
             <p>FILTER</p>
           </div>
           <div className="women__filter__view">
@@ -73,8 +102,13 @@ function Womenpage() {
             <i></i>
           </div>
         </div>
-        <div className="women__filtration showed">
-          <ul onChange={selectColor}>
+        <div
+          className={classNames('women__filtration', {
+            showed: isMenuShowed,
+          })}
+        >
+          <ul onChange={(e) => selectFilter(e, color)} data-filter="color">
+            <li>COLOR</li>
             {Array.from(new Set(colorArr)).map((elem, index) => (
               <li key={elem}>
                 <label htmlFor={colorId[index]}>
@@ -84,7 +118,8 @@ function Womenpage() {
               </li>
             ))}
           </ul>
-          <ul onChange={selectSize}>
+          <ul onChange={(e) => selectFilter(e, size)}>
+            <li>SIZE</li>
             {Array.from(new Set(sizeArr)).map((elem) => (
               <li key={elem}>
                 <label htmlFor={elem}>
@@ -94,19 +129,19 @@ function Womenpage() {
               </li>
             ))}
           </ul>
-          <ul>
-            {Array.from(new Set(PRODUCTS.women.map((elem) => elem.brand))).map(
-              (elem) => (
-                <li key={elem}>
-                  <label htmlFor={elem}>
-                    <input type="checkbox" id={elem} />
-                    {elem}
-                  </label>
-                </li>
-              )
-            )}
+          <ul onChange={(e) => selectFilter(e, brand)} data-filter="brand">
+            <li>BRAND</li>
+            {Array.from(new Set(PRODUCTS.women.map((elem) => elem.brand))).map((elem) => (
+              <li key={elem}>
+                <label htmlFor={elem}>
+                  <input type="checkbox" id={elem} />
+                  {elem}
+                </label>
+              </li>
+            ))}
           </ul>
-          <ul>
+          <ul onChange={(e) => selectFilter(e, price)} data-filter="price">
+            <li>PRICE</li>
             <li>
               <label>
                 <input type="checkbox" />
@@ -133,13 +168,13 @@ function Womenpage() {
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" data-price="50-150" />
                 $50-$150
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" data-price="7-50" />
                 $7-$50
               </label>
             </li>
@@ -147,7 +182,7 @@ function Womenpage() {
         </div>
       </div>
       <div className="wrapper">
-        <WomenBody color={color} size={size}></WomenBody>
+        <WomenBody color={color} size={size} brand={brand} price={price}></WomenBody>
       </div>
       <Footer></Footer>
     </div>

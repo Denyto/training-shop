@@ -1,7 +1,7 @@
-import React from "react";
-import MenBody from "../components/men/menbody";
-import Footer from "../components/footer/footer";
-import { Link } from "react-router-dom";
+import React from 'react';
+import MenBody from '../components/men/menbody';
+import Footer from '../components/footer/footer';
+import { Link } from 'react-router-dom';
 
 function Menpage() {
   return (

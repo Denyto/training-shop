@@ -44,21 +44,21 @@
         width: 100%;
         height: 100%;
         border: 1px solid transparent;
-        transition: all .3s;
+        transition: all 0.3s;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         &:hover {
           transform: scale(97%);
-        }        
+        }
       }
       @include media-tablet {
         width: 48%;
       }
       @include media-finish {
         width: 97%;
-        }
-    }    
+      }
+    }
     &__title {
       flex: 1;
     }
@@ -86,7 +86,7 @@
           font-size: 1.2rem;
           opacity: 0.4;
           text-decoration: line-through;
-          margin-left: .4rem;
+          margin-left: 0.4rem;
         }
       }
     }
@@ -99,7 +99,7 @@
     &__sale {
       width: 5.5rem;
       height: 3.5rem;
-      color: #FFF;
+      color: #fff;
       font-size: 1.2rem;
       font-weight: bold;
       background-color: red;
@@ -111,7 +111,7 @@
     }
     @include media-finish {
       justify-content: center;
-      }
+    }
   }
   &__footer {
     padding: 1.8rem 0;
@@ -146,7 +146,7 @@
       & p {
         font-size: 1.1rem;
         line-height: 1px;
-        margin-left: .9rem;
+        margin-left: 0.9rem;
       }
     }
   }
@@ -159,14 +159,16 @@
       display: flex;
       align-items: center;
       opacity: 0.6;
+      user-select: none;
+      cursor: pointer;
       & i {
-        width: 2.1rem;
-        height: 2.1rem;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-image: url(./assets/img/filtericon.png);
+        margin-right: 0.5rem;
+        & img {
+          width: 1.8rem;
+          height: 1.8rem;
+        }
       }
+
       & p {
         font-size: 1.3rem;
         line-height: 14px;
@@ -194,9 +196,10 @@
   }
   &__filtration {
     height: 0rem;
+    opacity: 0;
     display: flex;
-    justify-content: space-between;    
-    transition: all .5s;
+    justify-content: space-between;
+    transition: all 0.5s;
     & ul {
       list-style: none;
       & li {
@@ -206,10 +209,10 @@
     & input {
       width: 2rem;
       height: 2rem;
-
     }
     &.showed {
-      height: 34rem;      
+      height: 36rem;
+      opacity: 1;
     }
   }
   &__title {
