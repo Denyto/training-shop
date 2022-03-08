@@ -3,8 +3,6 @@ import { PRODUCTS } from '../../constants/products';
 import Rating from '../rating/rating';
 
 function WomenBody({ particular, color, size, brand, price }) {
-  console.log(particular, color, size, brand, price);
-
   let filter = PRODUCTS.women;
 
   if (color && color.length > 0) {
@@ -30,17 +28,94 @@ function WomenBody({ particular, color, size, brand, price }) {
   }
 
   if (brand && brand.length > 0) {
-    filter = filter.filter((elem) => elem.brand.includes(brand));
+    filter = filter.filter((elem) => brand.includes(elem.brand));
   }
 
-  console.log(filter);
+  if (price && price.length > 0) {
+    let selectedPrices = [];
+    price.forEach((element) => {
+      switch (element) {
+        case '$0-$50':
+          selectedPrices.push([0, 50]);
+          break;
+        case '$50-$100':
+          selectedPrices.push([50, 100]);
+          break;
+        case '$100-$150':
+          selectedPrices.push([100, 150]);
+          break;
+        case '$150-$200':
+          selectedPrices.push([150, 200]);
+          break;
+        case '$200-$250':
+          selectedPrices.push([200, 250]);
+          break;
+        case '$250+':
+          selectedPrices.push([250, 10000]);
+          break;
+        default:
+      }
+    });
+
+    filter = filter.filter(
+      (elem) =>
+        selectedPrices.filter((em) => {
+          if (elem.price > em[0] && elem.price < em[1]) {
+            return elem;
+          } else {
+            return false;
+          }
+        }).length > 0
+    );
+  }
 
   return (
-    <ul className="women__group products-page" data-test-id="products-page-women">
-      {particular
-        ? PRODUCTS.women
-            .filter((item) => item.particulars[particular])
-            .map(({ discount, id, price, name, images, rating }) => (
+    <>
+      {!particular && (
+        <div className="women__selected">
+          <p>{filter.length} items found</p>
+          {size && size.length > 0 ? size.map((el) => <p key={el}>Size: {el}</p>) : ''}
+          {color && color.length > 0 ? color.map((el) => <p key={el}>Color: {el}</p>) : ''}
+          {price && price.length > 0 ? price.map((el) => <p key={el}>Price: {el}</p>) : ''}
+          {brand && brand.length > 0 ? brand.map((el) => <p key={el}>Brand: {el}</p>) : ''}
+        </div>
+      )}
+      <ul className="women__group products-page" data-test-id="products-page-women">
+        {particular
+          ? PRODUCTS.women
+              .filter((item) => item.particulars[particular])
+              .map(({ discount, id, price, name, images, rating }) => (
+                <li key={id}>
+                  <Link
+                    to={`/women/${id}`}
+                    className="cards-item"
+                    data-test-id="clothes-card-women"
+                  >
+                    <div className="women__group__foto">
+                      {discount ? <div className="women__group__sale">{discount}</div> : null}
+                      <img
+                        alt={name}
+                        src={`https://training.cleverland.by/shop${images[0].url}`}
+                      ></img>
+                    </div>
+                    <p>{name}</p>
+                    <div className="women__group__price">
+                      <p>
+                        $ {price}
+                        <span>
+                          {discount
+                            ? `$ ${(price / (1 - Math.abs(parseInt(discount)) / 100)).toFixed()}.00`
+                            : ''}
+                        </span>
+                      </p>
+                      <div className="women__group__review">
+                        <Rating rating={rating}></Rating>
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              ))
+          : filter.map(({ discount, id, price, name, images, rating }) => (
               <li key={id}>
                 <Link to={`/women/${id}`} className="cards-item" data-test-id="clothes-card-women">
                   <div className="women__group__foto">
@@ -66,32 +141,9 @@ function WomenBody({ particular, color, size, brand, price }) {
                   </div>
                 </Link>
               </li>
-            ))
-        : filter.map(({ discount, id, price, name, images, rating }) => (
-            <li key={id}>
-              <Link to={`/women/${id}`} className="cards-item" data-test-id="clothes-card-women">
-                <div className="women__group__foto">
-                  {discount ? <div className="women__group__sale">{discount}</div> : null}
-                  <img alt={name} src={`https://training.cleverland.by/shop${images[0].url}`}></img>
-                </div>
-                <p>{name}</p>
-                <div className="women__group__price">
-                  <p>
-                    $ {price}
-                    <span>
-                      {discount
-                        ? `$ ${(price / (1 - Math.abs(parseInt(discount)) / 100)).toFixed()}.00`
-                        : ''}
-                    </span>
-                  </p>
-                  <div className="women__group__review">
-                    <Rating rating={rating}></Rating>
-                  </div>
-                </div>
-              </Link>
-            </li>
-          ))}
-    </ul>
+            ))}
+      </ul>
+    </>
   );
 }
 

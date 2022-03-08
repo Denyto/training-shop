@@ -34,10 +34,10 @@ function Nav() {
           className={classNames("menu", { visible: isMenuOpen })}
           data-test-id="burger-menu"
         >
-          {MENU.map(({ id, path }) => (
+          {MENU.map(({ id, path, link }) => (
             <li key={id}>
               <Link
-                to={`/${path}`}
+                to={`/${link}`}
                 className="menu-item"
                 data-test-id={`menu-link-${path}`}
               >

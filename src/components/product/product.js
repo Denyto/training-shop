@@ -7,9 +7,9 @@ import SliderRelated from '../slider/sliderRelated';
 
 function Product({ type }) {
   const { id } = useParams();
-  const { name, price, images, reviews, rating, material } = PRODUCTS[
-    type
-  ].filter((elem) => elem.id === id)[0];
+  const { name, price, images, reviews, rating, material, sizes } = PRODUCTS[type].filter(
+    (elem) => elem.id === id
+  )[0];
   console.log(PRODUCTS[type].filter((elem) => elem.id === id)[0]);
   return (
     <>
@@ -50,24 +50,15 @@ function Product({ type }) {
             </p>
           </div>
         </div>
-        <div
-          className="product__main page-product"
-          data-test-id={`page-product-${type}`}
-        >
+        <div className="product__main page-product" data-test-id={`page-product-${type}`}>
           <div className="product__main__item product__slider">
             <SliderProduct data={images}></SliderProduct>
             <div className="product__main__item__2__slider">
               <div className="product__main__item__2__arrow btn-product-prev">
-                <img
-                  alt="arrow"
-                  src={require('../../assets/img/arrowup.png')}
-                ></img>
+                <img alt="arrow" src={require('../../assets/img/arrowup.png')}></img>
               </div>
               <div className="product__main__item__2__arrow btn-product-next">
-                <img
-                  alt="arrow"
-                  src={require('../../assets/img/arrowdown.png')}
-                ></img>
+                <img alt="arrow" src={require('../../assets/img/arrowdown.png')}></img>
               </div>
             </div>
           </div>
@@ -77,45 +68,29 @@ function Product({ type }) {
             </p>
             <div className="product__main__description__flex">
               <div className="product__main__description__foto">
-                <img
-                  alt={name}
-                  src={require('../../assets/img/categories/women/small1.png')}
-                ></img>
+                <img alt={name} src={require('../../assets/img/categories/women/small1.png')}></img>
               </div>
               <div className="product__main__description__foto">
-                <img
-                  alt={name}
-                  src={require('../../assets/img/categories/women/small2.png')}
-                ></img>
+                <img alt={name} src={require('../../assets/img/categories/women/small2.png')}></img>
               </div>
               <div className="product__main__description__foto">
-                <img
-                  alt={name}
-                  src={require('../../assets/img/categories/women/small3.png')}
-                ></img>
+                <img alt={name} src={require('../../assets/img/categories/women/small3.png')}></img>
               </div>
               <div className="product__main__description__foto">
-                <img
-                  alt={name}
-                  src={require('../../assets/img/categories/women/small4.png')}
-                ></img>
+                <img alt={name} src={require('../../assets/img/categories/women/small4.png')}></img>
               </div>
             </div>
-            <p>
-              SIZE: <span>S</span>
-            </p>
+            <p>SIZE:</p>
             <div className="product__main__description__flex">
-              <div className="product__main__description__size">XS</div>
-              <div className="product__main__description__size">S</div>
-              <div className="product__main__description__size">M</div>
-              <div className="product__main__description__size">L</div>
+              {sizes.map((el) => (
+                <div className="product__main__description__size" key={el}>
+                  {el}
+                </div>
+              ))}
             </div>
             <div className="product__main__description__flex">
               <div className="product__main__description__sizeguide">
-                <img
-                  alt="hanger"
-                  src={require('../../assets/img/hanger.png')}
-                ></img>
+                <img alt="hanger" src={require('../../assets/img/hanger.png')}></img>
               </div>
               <p>Size guide</p>
             </div>
@@ -124,34 +99,19 @@ function Product({ type }) {
               <div className="product__main__description__price">$ {price}</div>
               <button>ADD TO CARD</button>
               <div className="product__main__description__name">
-                <img
-                  alt="like"
-                  src={require('../../assets/img/like.png')}
-                ></img>
+                <img alt="like" src={require('../../assets/img/like.png')}></img>
               </div>
               <div className="product__main__description__name">
-                <img
-                  alt="scales"
-                  src={require('../../assets/img/scales.png')}
-                ></img>
+                <img alt="scales" src={require('../../assets/img/scales.png')}></img>
               </div>
             </div>
             <hr></hr>
             <div className="product__main__description__ship">
-              <img
-                alt="truck"
-                src={require('../../assets/img/truck 1.png')}
-              ></img>
+              <img alt="truck" src={require('../../assets/img/truck 1.png')}></img>
               <p>Shipping & Delivery</p>
-              <img
-                alt="refresh"
-                src={require('../../assets/img/refresh 1.png')}
-              ></img>
+              <img alt="refresh" src={require('../../assets/img/refresh 1.png')}></img>
               <p>Shipping & Delivery</p>
-              <img
-                alt="mail"
-                src={require('../../assets/img/mail 1.png')}
-              ></img>
+              <img alt="mail" src={require('../../assets/img/mail 1.png')}></img>
               <p>Shipping & Delivery</p>
             </div>
             <div className="product__main__description__guarant">
@@ -161,40 +121,22 @@ function Product({ type }) {
 
             <div className="product__main__description__payments">
               <div>
-                <img
-                  alt="Stripe"
-                  src={require('../../assets/img/Stripe_x42.png')}
-                ></img>
+                <img alt="Stripe" src={require('../../assets/img/Stripe_x42.png')}></img>
               </div>
               <div>
-                <img
-                  alt="aes"
-                  src={require('../../assets/img/AES256_x42.png')}
-                ></img>
+                <img alt="aes" src={require('../../assets/img/AES256_x42.png')}></img>
               </div>
               <div>
-                <img
-                  alt="paypal"
-                  src={require('../../assets/img/paypal_2_x42.png')}
-                ></img>
+                <img alt="paypal" src={require('../../assets/img/paypal_2_x42.png')}></img>
               </div>
               <div>
-                <img
-                  alt="visa"
-                  src={require('../../assets/img/visa_x42.png')}
-                ></img>
+                <img alt="visa" src={require('../../assets/img/visa_x42.png')}></img>
               </div>
               <div>
-                <img
-                  alt="mastercard"
-                  src={require('../../assets/img/mastercard_x42.png')}
-                ></img>
+                <img alt="mastercard" src={require('../../assets/img/mastercard_x42.png')}></img>
               </div>
               <div>
-                <img
-                  alt="discover"
-                  src={require('../../assets/img/discover_x42.png')}
-                ></img>
+                <img alt="discover" src={require('../../assets/img/discover_x42.png')}></img>
               </div>
               <div>
                 <img
@@ -212,10 +154,12 @@ function Product({ type }) {
             <hr></hr>
             <h4>ADDITIONAL INFORMATION</h4>
             <p>
-              <span>Color:</span>&nbsp;Blue, White, Black, Grey
+              <span>Color:</span>&nbsp;
+              {new Set(images.map((el, index) => (index > 0 ? `, ${el.color}` : `${el.color}`)))}
             </p>
             <p>
-              <span>Size:</span>&nbsp;XS, S, M, L
+              <span>Size:</span>&nbsp;
+              {sizes.map((el, index) => (index > 0 ? `, ${el}` : `${el}`))}
             </p>
             <p>
               <span>Material:</span>&nbsp;{material}
@@ -229,85 +173,17 @@ function Product({ type }) {
               </div>
               <div>Write a review</div>
             </div>
-            <div className="product__main__info__element">
-              <h4>Oleh Chabanov</h4>
-              <div className="product__review__block">
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
+            {reviews.map((el) => (
+              <div key={el.id}>
+                <div className="product__main__info__element">
+                  <h4>{el.name}</h4>
+                  <div className="product__review__block">
+                    <Rating rating={el.rating}></Rating>
+                  </div>
                 </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
+                <p>{el.text}</p>
               </div>
-            </div>
-            <p>
-              On the other hand, we denounce with righteous indignation and like
-              men who are so beguiled and demoralized by the charms of pleasure
-              of the moment
-            </p>
-            <div className="product__main__info__element">
-              <h4>ShAmAn design</h4>
-              <div className="product__review__block">
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-                <div className="product__review__star">
-                  <img
-                    alt="review"
-                    src={require('../../assets/img/yellowStar.png')}
-                  ></img>
-                </div>
-              </div>
-            </div>
-            <p>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti
-            </p>
+            ))}
             <hr></hr>
           </div>
         </div>
@@ -317,16 +193,10 @@ function Product({ type }) {
           </div>
           <div className="product__related__arrows">
             <div className="btn-related-prev">
-              <img
-                alt="arrow"
-                src={require('../../assets/img/arrowup.png')}
-              ></img>
+              <img alt="arrow" src={require('../../assets/img/arrowup.png')}></img>
             </div>
             <div className="btn-related-next">
-              <img
-                alt="arrow"
-                src={require('../../assets/img/arrowdown.png')}
-              ></img>
+              <img alt="arrow" src={require('../../assets/img/arrowdown.png')}></img>
             </div>
           </div>
         </div>

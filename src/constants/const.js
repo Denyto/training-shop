@@ -1,11 +1,11 @@
 export const MENU = [
-  { id: 1, path: 'About Us' },
-  { id: 2, path: 'men' },
-  { id: 3, path: 'women' },
-  { id: 4, path: 'Beauty' },
-  { id: 5, path: 'Accessories' },
-  { id: 6, path: 'Blog' },
-  { id: 7, path: 'Contact' },
+  { id: 1, path: 'About Us', link: '' },
+  { id: 2, path: 'men', link: 'men' },
+  { id: 3, path: 'women', link: 'women' },
+  { id: 4, path: 'Beauty', link: '' },
+  { id: 5, path: 'Accessories', link: '' },
+  { id: 6, path: 'Blog', link: '' },
+  { id: 7, path: 'Contact', link: '' },
 ];
 
 export const MAIN_CLOTHES_BLOCK_MENU = [
@@ -15,122 +15,3 @@ export const MAIN_CLOTHES_BLOCK_MENU = [
   { particularName: 'isMostViewed', name: 'MOST VIEWED' },
   { particularName: 'isFeatured', name: 'FEATURED PRODUCTS' },  
 ];
-
-// export const DATA = {
-//   men: [
-//     {
-//       id: 1,
-//       title: "Women's tracksuit Q109",
-//       file: "men-1.jpg",
-//       price: 35,
-//       discount: 0,
-//     },
-//     {
-//       id: 2,
-//       title: "Women's tracksuit Q109",
-//       file: "men-2.jpg",
-//       price: 350,
-//       discount: 50,
-//     },
-//     {
-//       id: 3,
-//       title: "Women's tracksuit Q109",
-//       file: "men-3.jpg",
-//       price: 35,
-//       discount: 0,
-//     },
-//     {
-//       id: 4,
-//       title: "Women's tracksuit Q109",
-//       file: "men-4.jpg",
-//       price: 35,
-//       discount: 20,
-//     },
-//     {
-//       id: 5,
-//       title: "Women's tracksuit Q109",
-//       file: "men-5.jpg",
-//       price: 357,
-//       discount: 0,
-//     },
-//     {
-//       id: 6,
-//       title: "Women's tracksuit Q109",
-//       file: "men-6.jpg",
-//       price: 375,
-//       discount: 0,
-//     },
-//     {
-//       id: 7,
-//       title: "Women's tracksuit Q109",
-//       file: "men-7.jpg",
-//       price: 35,
-//       discount: 0,
-//     },
-//     {
-//       id: 8,
-//       title: "Women's tracksuit Q109",
-//       file: "men-8.jpg",
-//       price: 35,
-//       discount: 0,
-//     },
-//   ],
-//   women: [
-//     {
-//       id: 1,
-//       title: "Women's tracksuit Q109",
-//       file: "women-1.jpg",
-//       price: 50,
-//       discount: 0,
-//     },
-//     {
-//       id: 2,
-//       title: "Women's tracksuit Q109",
-//       file: "women-2.jpg",
-//       price: 250,
-//       discount: 0,
-//     },
-//     {
-//       id: 3,
-//       title: "Women's tracksuit Q109",
-//       file: "women-3.jpg",
-//       price: 330,
-//       discount: 33,
-//     },
-//     {
-//       id: 4,
-//       title: "Women's tracksuit Q109",
-//       file: "women-4.jpg",
-//       price: 50,
-//       discount: 0,
-//     },
-//     {
-//       id: 5,
-//       title: "Women's tracksuit Q109",
-//       file: "women-5.jpg",
-//       price: 550,
-//       discount: 0,
-//     },
-//     {
-//       id: 6,
-//       title: "Women's tracksuit Q109",
-//       file: "women-6.jpg",
-//       price: 50,
-//       discount: 50,
-//     },
-//     {
-//       id: 7,
-//       title: "Women's tracksuit Q109",
-//       file: "women-7.jpg",
-//       price: 50,
-//       discount: 0,
-//     },
-//     {
-//       id: 8,
-//       title: "Women's tracksuit Q109",
-//       file: "women-8.jpg",
-//       price: 50,
-//       discount: 0,
-//     },
-//   ],
-// };

@@ -21,32 +21,15 @@ function Womenpage() {
     });
   });
 
-  let [color, setColor] = useState([]);
-  let [size, setSize] = useState([]);
-  let [brand, setBrand] = useState([]);
-  let [price, setPrice] = useState([]);
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
+  const [brand, setBrand] = useState([]);
+  const [price, setPrice] = useState([]);
   const [isMenuShowed, setMenuShowed] = useState(false);
 
-  function toggleMenuFilter(e) {
+  function toggleMenuFilter() {
     setMenuShowed(!isMenuShowed);
   }
-
-  // function selectPrice(e, arr) {
-  //   if (e.target.checked) {
-  //     let temp = [];
-  //     e.target.labels[0].innerText
-  //       .split('-')
-  //       .forEach((elem) => temp.push(parseInt(elem.slice(1))));
-  //     arr.push(temp.join('-'));
-  //     setPrice(arr.map((elem) => elem));
-  //   } else {
-  //     arr.find(
-  //       (item, index) =>
-  //         e.target.labels[0].innerText === item && arr.splice(index, 1)
-  //     );
-  //     setPrice(arr.map((elem) => elem));
-  //   }
-  // }
 
   function selectFilter(e, arr) {
     if (e.target.checked) {
@@ -145,37 +128,37 @@ function Womenpage() {
             <li>
               <label>
                 <input type="checkbox" />
-                $1200+
+                $250+
               </label>
             </li>
             <li>
               <label>
                 <input type="checkbox" />
-                $600-$1200
+                $200-$250
               </label>
             </li>
             <li>
               <label>
                 <input type="checkbox" />
-                $300-$600
+                $150-$200
               </label>
             </li>
             <li>
               <label>
                 <input type="checkbox" />
-                $150-$300
+                $100-$150
               </label>
             </li>
             <li>
               <label>
                 <input type="checkbox" data-price="50-150" />
-                $50-$150
+                $50-$100
               </label>
             </li>
             <li>
               <label>
                 <input type="checkbox" data-price="7-50" />
-                $7-$50
+                $0-$50
               </label>
             </li>
           </ul>

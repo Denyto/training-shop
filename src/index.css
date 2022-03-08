@@ -304,13 +304,13 @@ img {
 .women__group {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-content: space-between;
   flex-wrap: wrap;
   list-style: none;
   overflow: hidden;
 }
 .women__group li {
+  margin: 0.76rem;
   width: 23.6%;
   display: flex;
   flex-direction: column;
@@ -328,6 +328,11 @@ img {
 }
 .women__group li a:hover {
   transform: scale(97%);
+}
+@media (max-width: 1110px) {
+  .women__group li {
+    margin: 0.62rem;
+  }
 }
 @media (max-width: 905px) {
   .women__group li {
@@ -478,23 +483,52 @@ img {
   display: flex;
   justify-content: space-between;
   transition: all 0.5s;
+  padding: 0 0.5rem;
 }
 .women__filtration ul {
   list-style: none;
+  user-select: none;
 }
 .women__filtration ul li {
   display: flex;
+  margin: 0.7rem 0 0.7rem 0;
+}
+.women__filtration ul li:first-child {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
 }
 .women__filtration input {
   width: 2rem;
   height: 2rem;
+  margin: 0 0.7rem 0 0;
 }
 .women__filtration.showed {
-  height: 36rem;
+  height: 42rem;
   opacity: 1;
 }
 .women__title {
   padding: 1rem 0 2.4rem 0;
+}
+.women__selected {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0.5rem;
+}
+.women__selected p {
+  margin: 1rem 2rem 1rem 1rem;
+  font-size: 1.4rem;
+  opacity: 0.6;
+}
+.women__selected p:first-child {
+  font-weight: bold;
+  opacity: 1;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
 }
 
 .men {
@@ -530,7 +564,6 @@ img {
 .men__group {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-content: space-between;
   flex-wrap: wrap;
   list-style: none;
@@ -542,6 +575,7 @@ img {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 3rem;
+  margin: 0.76rem;
 }
 .men__group li a {
   width: 100%;
@@ -554,6 +588,11 @@ img {
 }
 .men__group li a:hover {
   transform: scale(97%);
+}
+@media (max-width: 1110px) {
+  .men__group li {
+    margin: 0.62rem;
+  }
 }
 @media (max-width: 905px) {
   .men__group li {
@@ -1454,6 +1493,7 @@ form button {
 }
 .product__route__name {
   display: flex;
+  align-items: center;
 }
 .product__route__name a {
   font-size: 1.1rem;
@@ -1461,6 +1501,7 @@ form button {
 }
 .product__route__name p {
   font-size: 1.1rem;
+  line-height: 18px;
 }
 .product__route__share {
   display: flex;
@@ -1603,6 +1644,7 @@ form button {
   line-height: 18px;
 }
 .product__main__description p span {
+  margin: 0 1rem;
   font-size: 1.2rem;
   font-weight: 700;
   opacity: 1;
@@ -1610,6 +1652,7 @@ form button {
 .product__main__description__flex {
   padding: 1rem 0 1rem 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 .product__main__description__flex button {
@@ -1621,16 +1664,11 @@ form button {
   color: #ffffff;
   opacity: 0.9;
 }
-@media (max-width: 405px) {
-  .product__main__description__flex {
-    justify-content: space-between;
-  }
-}
 .product__main__description__foto {
   margin-right: 1.6rem;
 }
 .product__main__description__size {
-  width: 4rem;
+  min-width: 8rem;
   height: 4rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -1638,9 +1676,13 @@ form button {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin: 0.5rem 2rem 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #f8f8f8;
   cursor: pointer;
 }
-.product__main__description__size:nth-child(2) {
+.product__main__description__size:first-child {
   border: 2px solid #121212;
 }
 .product__main__description__sizeguide {
