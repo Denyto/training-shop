@@ -31,7 +31,7 @@
     align-content: space-between;
     flex-wrap: wrap;
     list-style: none;
-    overflow: hidden;    
+    overflow: hidden;
     & li {
       width: 23.6%;
       display: flex;
@@ -59,7 +59,7 @@
       }
       @include media-finish {
         width: 97%;
-        }
+      }
     }
     &__description {
       flex: 1;
@@ -163,14 +163,16 @@
       display: flex;
       align-items: center;
       opacity: 0.6;
+      user-select: none;
+      cursor: pointer;
       & i {
-        width: 2.1rem;
-        height: 2.1rem;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-image: url(./assets/img/filtericon.png);
+        margin-right: 0.5rem;
+        & img {
+          width: 1.8rem;
+          height: 1.8rem;
+        }
       }
+
       & p {
         font-size: 1.3rem;
         line-height: 14px;
@@ -198,5 +200,19 @@
   }
   &__title {
     padding: 1rem 0 2.4rem 0;
+  }
+  &__selected {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0.5rem;
+    & p {
+      margin: 1rem 2rem 1rem 1rem;
+      font-size: 1.4rem;
+      opacity: 0.6;
+      &:first-child {
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
   }
 }

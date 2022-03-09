@@ -70,7 +70,11 @@ function Womenpage() {
         </div>
         <h2 className="women__title">WOMEN</h2>
         <div className="women__filter">
-          <div className="women__filter__icon" onClick={toggleMenuFilter}>
+          <div
+            className="women__filter__icon"
+            onClick={toggleMenuFilter}
+            data-test-id="filter-button"
+          >
             <i>
               {!isMenuShowed ? (
                 <img alt="share" src={require('../assets/img/filtericon.png')}></img>
@@ -89,11 +93,16 @@ function Womenpage() {
           className={classNames('women__filtration', {
             showed: isMenuShowed,
           })}
+          data-test-id="filters-women"
         >
-          <ul onChange={(e) => selectFilter(e, color)} data-filter="color">
+          <ul
+            onChange={(e) => selectFilter(e, color)}
+            data-filter="color"
+            data-test-id="filters-color"
+          >
             <li>COLOR</li>
             {Array.from(new Set(colorArr)).map((elem, index) => (
-              <li key={elem}>
+              <li key={elem} data-test-id={`filter-color-${elem}`}>
                 <label htmlFor={colorId[index]}>
                   <input type="checkbox" id={colorId[index]} />
                   {elem}
@@ -101,10 +110,10 @@ function Womenpage() {
               </li>
             ))}
           </ul>
-          <ul onChange={(e) => selectFilter(e, size)}>
+          <ul onChange={(e) => selectFilter(e, size)} data-test-id="filters-size">
             <li>SIZE</li>
             {Array.from(new Set(sizeArr)).map((elem) => (
-              <li key={elem}>
+              <li key={elem} data-test-id={`filter-size-${elem}`}>
                 <label htmlFor={elem}>
                   <input type="checkbox" id={elem} />
                   {elem}
@@ -112,10 +121,14 @@ function Womenpage() {
               </li>
             ))}
           </ul>
-          <ul onChange={(e) => selectFilter(e, brand)} data-filter="brand">
+          <ul
+            onChange={(e) => selectFilter(e, brand)}
+            data-filter="brand"
+            data-test-id="filters-brand"
+          >
             <li>BRAND</li>
             {Array.from(new Set(PRODUCTS.women.map((elem) => elem.brand))).map((elem) => (
-              <li key={elem}>
+              <li key={elem} data-test-id={`filter-brand-${elem}`}>
                 <label htmlFor={elem}>
                   <input type="checkbox" id={elem} />
                   {elem}

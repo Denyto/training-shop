@@ -20,6 +20,7 @@ function Men() {
                 key={elem.particularName}
                 onClick={setMenuMode}
                 data-particularname={elem.particularName}
+                data-test-id={`clothes-men-${elem.particularName}`}
               >
                 {elem.name}
               </li>
