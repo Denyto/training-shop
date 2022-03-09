@@ -102,9 +102,13 @@ function Menpage() {
           >
             <li>COLOR</li>
             {Array.from(new Set(colorArr)).map((elem, index) => (
-              <li key={elem} data-test-id={`filter-color-${elem}`}>
+              <li key={elem}>
                 <label htmlFor={colorId[index]}>
-                  <input type="checkbox" id={colorId[index]} />
+                  <input
+                    type="checkbox"
+                    id={colorId[index]}
+                    data-test-id={`filter-color-${elem}`}
+                  />
                   {elem}
                 </label>
               </li>
@@ -113,9 +117,9 @@ function Menpage() {
           <ul onChange={(e) => selectFilter(e, size)} data-test-id="filters-size">
             <li>SIZE</li>
             {Array.from(new Set(sizeArr)).map((elem) => (
-              <li key={elem} data-test-id={`filter-size-${elem}`}>
+              <li key={elem}>
                 <label htmlFor={elem}>
-                  <input type="checkbox" id={elem} />
+                  <input type="checkbox" id={elem} data-test-id={`filter-size-${elem}`} />
                   {elem}
                 </label>
               </li>
@@ -128,9 +132,9 @@ function Menpage() {
           >
             <li>BRAND</li>
             {Array.from(new Set(PRODUCTS.men.map((elem) => elem.brand))).map((elem) => (
-              <li key={elem} data-test-id={`filter-brand-${elem}`}>
+              <li key={elem}>
                 <label htmlFor={elem}>
-                  <input type="checkbox" id={elem} />
+                  <input type="checkbox" id={elem} data-test-id={`filter-brand-${elem}`} />
                   {elem}
                 </label>
               </li>
