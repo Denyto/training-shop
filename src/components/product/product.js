@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { PRODUCTS } from '../../constants/products';
 import Footer from '../footer/footer';
 import Rating from '../rating/rating';
@@ -10,7 +11,28 @@ function Product({ type }) {
   const { name, price, images, reviews, rating, material, sizes } = PRODUCTS[type].filter(
     (elem) => elem.id === id
   )[0];
-  console.log(PRODUCTS[type].filter((elem) => elem.id === id)[0]);
+
+  let uniqueColors = [];
+  let uniqueImages = [];
+
+  images.forEach((el) => {
+    if (!uniqueColors.includes(el.color)) {
+      uniqueColors.push(el.color);
+      uniqueImages.push(el);
+    }
+  });
+
+  const [color, setColor] = useState(uniqueColors[0]);
+  const [size, setSize] = useState(sizes[0]);
+
+  function selectColor(e) {
+    setColor(e.target.getAttribute('alt'));
+  }
+
+  function selectSize(e) {
+    setSize(e.target.innerText);
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -64,26 +86,52 @@ function Product({ type }) {
           </div>
           <div className="product__main__item product__main__description">
             <p>
-              COLOR: <span>Blue</span>
+              COLOR: <span>{color}</span>
+            </p>
+            <div className="product__main__description__flex" onClick={(e) => console.log()}>
+              {uniqueImages.map((elem, index) => (
+                <div
+                  className={
+                    index === 0
+                      ? 'product__main__description__foto selected'
+                      : 'product__main__description__foto'
+                  }
+                  key={elem.id}
+                  onClick={(e) => {
+                    selectColor(e);
+                    document
+                      .querySelectorAll('.product__main__description__foto')
+                      .forEach((el) => el.classList.remove('selected'));
+                    e.currentTarget.classList.add('selected');
+                  }}
+                >
+                  <img
+                    alt={elem.color}
+                    src={`https://training.cleverland.by/shop${elem.url}`}
+                  ></img>
+                </div>
+              ))}
+            </div>
+            <p>
+              SIZE: <span>{size}</span>
             </p>
             <div className="product__main__description__flex">
-              <div className="product__main__description__foto">
-                <img alt={name} src={require('../../assets/img/categories/women/small1.png')}></img>
-              </div>
-              <div className="product__main__description__foto">
-                <img alt={name} src={require('../../assets/img/categories/women/small2.png')}></img>
-              </div>
-              <div className="product__main__description__foto">
-                <img alt={name} src={require('../../assets/img/categories/women/small3.png')}></img>
-              </div>
-              <div className="product__main__description__foto">
-                <img alt={name} src={require('../../assets/img/categories/women/small4.png')}></img>
-              </div>
-            </div>
-            <p>SIZE:</p>
-            <div className="product__main__description__flex">
-              {sizes.map((el) => (
-                <div className="product__main__description__size" key={el}>
+              {sizes.map((el, index) => (
+                <div
+                  className={
+                    index === 0
+                      ? 'product__main__description__size selected'
+                      : 'product__main__description__size'
+                  }
+                  key={el}
+                  onClick={(e) => {
+                    selectSize(e);
+                    document
+                      .querySelectorAll('.product__main__description__size')
+                      .forEach((el) => el.classList.remove('selected'));
+                    e.currentTarget.classList.add('selected');
+                  }}
+                >
                   {el}
                 </div>
               ))}

@@ -1665,7 +1665,24 @@ form button {
   opacity: 0.9;
 }
 .product__main__description__foto {
+  width: 6.5rem;
+  height: 6.5rem;
   margin-right: 1.6rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.product__main__description__foto img {
+  height: auto;
+}
+.product__main__description__foto:hover {
+  opacity: 1;
+}
+.product__main__description__foto.selected {
+  border-color: #757575;
+  opacity: 1;
 }
 .product__main__description__size {
   min-width: 8rem;
@@ -1680,10 +1697,17 @@ form button {
   margin: 0.5rem 2rem 0.5rem 0;
   padding: 0.5rem;
   background-color: #f8f8f8;
+  border: 2px solid transparent;
   cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
 }
-.product__main__description__size:first-child {
-  border: 2px solid #121212;
+.product__main__description__size:hover {
+  opacity: 1;
+}
+.product__main__description__size.selected {
+  border-color: #757575;
+  opacity: 1;
 }
 .product__main__description__sizeguide {
   width: 2rem;
@@ -1694,11 +1718,11 @@ form button {
 .product__main__description__price {
   font-weight: bold;
   font-size: 2.2rem;
-  margin-right: 2.4rem;
+  margin-right: 2rem;
 }
 @media (max-width: 405px) {
   .product__main__description__price {
-    margin: 0 0;
+    margin: 0 2rem 0 0;
   }
 }
 .product__main__description__name {

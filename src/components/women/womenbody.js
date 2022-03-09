@@ -73,7 +73,9 @@ function WomenBody({ particular, color, size, brand, price }) {
     <>
       {!particular && (
         <div className="women__selected">
-          <p>{filter.length} items found</p>
+          <p>
+            {filter.length === 1 ? `${filter.length} item found` : `${filter.length} items found`}
+          </p>
           {size && size.length > 0 ? size.map((el) => <p key={el}>Size: {el}</p>) : ''}
           {color && color.length > 0 ? color.map((el) => <p key={el}>Color: {el}</p>) : ''}
           {price && price.length > 0 ? price.map((el) => <p key={el}>Price: {el}</p>) : ''}
