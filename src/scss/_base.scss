@@ -11,17 +11,26 @@
   }
   @include media-finish {
     font-size: 9px;
-  }   
+  }
 }
 
 body {
   font-family: 'Spartan', 'Open Sans', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-&.fixed {
-  overflow: hidden;
-}
-  
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background-color: #e6e6e6;
+  }
+  ::-webkit-scrollbar-thumb {
+    width: 4px;
+    background-color: #838383;
+    border-radius: 15px;
+  }
+  &.fixed {
+    overflow: hidden;
+  }
 }
 
 a {
@@ -33,7 +42,6 @@ a {
   max-width: $laptop-width;
   height: 100%;
   margin: 0 auto;
-
 }
 
 h2 {

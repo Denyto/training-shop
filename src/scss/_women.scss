@@ -8,22 +8,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
+    padding: 1.1rem 0 1.1rem 0;
+    @include media-mobile {
+      flex-direction: column;
+    }
+    & h2 {
+      @include media-mobile {
+        margin-bottom: 1rem;
+      }
+    }
   }
   &__nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    color: #121212;
     & li {
       font-size: 1.2rem;
       letter-spacing: 0.06em;
       margin-left: 3rem;
       cursor: pointer;
+      user-select: none;
+      opacity: 0.4;
+      &.selected {
+        opacity: 1;
+      }
+      @include media-mobile {
+        margin: 0.5rem;
+      }
     }
-    display: flex;
-    list-style: none;
-
-    color: #121212;
-    opacity: 0.6;
     @include media-mobile {
-      display: none;
+      flex-direction: column;
     }
   }
   &__group {
@@ -56,7 +71,7 @@
         margin: 0.62rem;
       }
       @include media-tablet {
-        width: 48%;
+        width: 47%;
       }
       @include media-finish {
         width: 97%;
@@ -112,6 +127,9 @@
       justify-content: center;
       align-items: center;
     }
+    @include media-tablet {
+      justify-content: space-between;
+    }
     @include media-finish {
       justify-content: center;
     }
@@ -121,7 +139,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
     & p {
       font-size: 1.2rem;
     }
@@ -201,12 +220,17 @@
     height: 0rem;
     opacity: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     transition: all 0.5s;
     padding: 0 0.5rem;
     & ul {
+      width: 23%;
+      height: 25rem;
+      overflow: overlay;
       list-style: none;
       user-select: none;
+      margin-bottom: 3rem;
+      
       & li {
         display: flex;
         margin: 0.7rem 0 0.7rem 0;
@@ -216,6 +240,13 @@
           margin: 0 0 2rem 0;
         }
       }
+      @include media-mobile {
+        width: 34%;
+      }
+      @include media-finish {
+        width: 51%;
+        margin-bottom: 2rem;
+      }
     }
     & input {
       width: 2rem;
@@ -223,8 +254,19 @@
       margin: 0 0.7rem 0 0;
     }
     &.showed {
-      height: 42rem;
+      height: 30rem;
       opacity: 1;
+      background-color: #F8F8F8;
+      padding: 2rem 0;
+      @include media-mobile {
+        height: 53rem;
+      }
+      @include media-finish {
+        height: 105rem;
+      }
+    }
+    @include media-mobile {
+      flex-wrap: wrap;
     }
   }
   &__title {
@@ -233,11 +275,11 @@
   &__selected {
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem .5rem;
+    margin: 1rem 0.5rem;
     & p {
       margin: 1rem 2rem 1rem 1rem;
       font-size: 1.4rem;
-      opacity: .6;
+      opacity: 0.6;
       &:first-child {
         font-weight: bold;
         opacity: 1;

@@ -25,6 +25,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body ::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: #e6e6e6;
+}
+body ::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #838383;
+  border-radius: 15px;
+}
 body.fixed {
   overflow: hidden;
 }
@@ -282,23 +292,43 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
+  padding: 1.1rem 0 1.1rem 0;
+}
+@media (max-width: 605px) {
+  .women__header {
+    flex-direction: column;
+  }
+}
+@media (max-width: 605px) {
+  .women__header h2 {
+    margin-bottom: 1rem;
+  }
 }
 .women__nav {
   display: flex;
+  align-items: center;
   list-style: none;
   color: #121212;
-  opacity: 0.6;
 }
 .women__nav li {
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   margin-left: 3rem;
   cursor: pointer;
+  user-select: none;
+  opacity: 0.4;
+}
+.women__nav li.selected {
+  opacity: 1;
+}
+@media (max-width: 605px) {
+  .women__nav li {
+    margin: 0.5rem;
+  }
 }
 @media (max-width: 605px) {
   .women__nav {
-    display: none;
+    flex-direction: column;
   }
 }
 .women__group {
@@ -336,7 +366,7 @@ img {
 }
 @media (max-width: 905px) {
   .women__group li {
-    width: 48%;
+    width: 47%;
   }
 }
 @media (max-width: 405px) {
@@ -394,6 +424,11 @@ img {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 905px) {
+  .women__group {
+    justify-content: space-between;
+  }
+}
 @media (max-width: 405px) {
   .women__group {
     justify-content: center;
@@ -404,6 +439,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f3f3f3;
+  cursor: pointer;
 }
 .women__footer p {
   font-size: 1.2rem;
@@ -481,13 +518,17 @@ img {
   height: 0rem;
   opacity: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   transition: all 0.5s;
   padding: 0 0.5rem;
 }
 .women__filtration ul {
+  width: 23%;
+  height: 25rem;
+  overflow: overlay;
   list-style: none;
   user-select: none;
+  margin-bottom: 3rem;
 }
 .women__filtration ul li {
   display: flex;
@@ -498,14 +539,42 @@ img {
   font-weight: 600;
   margin: 0 0 2rem 0;
 }
+@media (max-width: 605px) {
+  .women__filtration ul {
+    width: 34%;
+  }
+}
+@media (max-width: 405px) {
+  .women__filtration ul {
+    width: 51%;
+    margin-bottom: 2rem;
+  }
+}
 .women__filtration input {
   width: 2rem;
   height: 2rem;
   margin: 0 0.7rem 0 0;
 }
 .women__filtration.showed {
-  height: 42rem;
+  height: 30rem;
   opacity: 1;
+  background-color: #F8F8F8;
+  padding: 2rem 0;
+}
+@media (max-width: 605px) {
+  .women__filtration.showed {
+    height: 53rem;
+  }
+}
+@media (max-width: 405px) {
+  .women__filtration.showed {
+    height: 105rem;
+  }
+}
+@media (max-width: 605px) {
+  .women__filtration {
+    flex-wrap: wrap;
+  }
 }
 .women__title {
   padding: 1rem 0 2.4rem 0;
@@ -542,23 +611,43 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
+  padding: 1.1rem 0 1.1rem 0;
+}
+@media (max-width: 605px) {
+  .men__header {
+    flex-direction: column;
+  }
+}
+@media (max-width: 605px) {
+  .men__header h2 {
+    margin-bottom: 1rem;
+  }
 }
 .men__nav {
   display: flex;
+  align-items: center;
   list-style: none;
   color: #121212;
-  opacity: 0.6;
 }
 .men__nav li {
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   margin-left: 3rem;
   cursor: pointer;
+  user-select: none;
+  opacity: 0.4;
+}
+.men__nav li.selected {
+  opacity: 1;
+}
+@media (max-width: 605px) {
+  .men__nav li {
+    margin: 0.5rem;
+  }
 }
 @media (max-width: 605px) {
   .men__nav {
-    display: none;
+    flex-direction: column;
   }
 }
 .men__group {
@@ -596,7 +685,7 @@ label {
 }
 @media (max-width: 905px) {
   .men__group li {
-    width: 48%;
+    width: 47%;
   }
 }
 @media (max-width: 405px) {
@@ -654,6 +743,11 @@ label {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 905px) {
+  .men__group {
+    justify-content: space-between;
+  }
+}
 @media (max-width: 405px) {
   .men__group {
     justify-content: center;
@@ -664,6 +758,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f3f3f3;
+  cursor: pointer;
 }
 .men__footer p {
   font-size: 1.2rem;

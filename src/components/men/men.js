@@ -1,5 +1,6 @@
 import MenBody from './menbody';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../constants/const';
 
 function Men() {
@@ -7,6 +8,8 @@ function Men() {
 
   function setMenuMode(e) {
     selectParticular(e.target.dataset.particularname);
+    document.querySelectorAll('.men__nav li').forEach((el) => el.classList.remove('selected'));
+    e.target.classList.add('selected');
   }
 
   return (
@@ -14,11 +17,11 @@ function Men() {
       <div className="wrapper men__wrapper">
         <div className="men__header">
           <h2>MEN'S</h2>
-          <ul className="men__nav">
-            {MAIN_CLOTHES_BLOCK_MENU.map((elem) => (
+          <ul className="men__nav" onClick={setMenuMode}>
+            {MAIN_CLOTHES_BLOCK_MENU.map((elem, index) => (
               <li
+                className={index === 0 ? 'selected' : ''}
                 key={elem.particularName}
-                onClick={setMenuMode}
                 data-particularname={elem.particularName}
                 data-test-id={`clothes-men-${elem.particularName}`}
               >
@@ -28,9 +31,11 @@ function Men() {
           </ul>
         </div>
         <MenBody particular={particular}></MenBody>
-        <div className="men__footer">
-          <p>SEE ALL</p>
-        </div>
+        <Link to="/men">
+          <div className="men__footer">
+            <p>SEE ALL</p>
+          </div>
+        </Link>
       </div>
     </section>
   );
