@@ -210,6 +210,7 @@
         background-size: cover;
         &:first-child {
           opacity: 0.6;
+          margin-right: 0.5rem;
           background-image: url(./assets/img/filter1.png);
         }
         &:last-child {

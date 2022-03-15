@@ -208,6 +208,7 @@
         background-size: cover;
         &:first-child {
           opacity: 0.6;
+          margin-right: .5rem;
           background-image: url(./assets/img/filter1.png);
         }
         &:last-child {
@@ -259,7 +260,7 @@
       background-color: #F8F8F8;
       padding: 2rem 0;
       @include media-mobile {
-        height: 53rem;
+        height: 56rem;
       }
       @include media-finish {
         height: 105rem;

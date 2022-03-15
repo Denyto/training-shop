@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import MenBody from '../components/men/menbody';
-import Footer from '../components/footer/footer';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants/products';
 
@@ -184,7 +183,6 @@ function Menpage() {
       <div className="wrapper">
         <MenBody color={color} size={size} brand={brand} price={price}></MenBody>
       </div>
-      <Footer></Footer>
     </div>
   );
 }

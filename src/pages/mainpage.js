@@ -4,7 +4,6 @@ import Men from "../components/men/men";
 import Collection from "../components/collection/collection";
 import Subscribe from "../components/subscribe/subscribe";
 import Blog from "../components/blog/blog";
-import Footer from "../components/footer/footer";
 import Commercial from "../components/commercial/commercial";
 
 
@@ -18,7 +17,6 @@ function Mainpage() {
       <Collection></Collection>
       <Subscribe></Subscribe>
       <Blog></Blog>
-      <Footer></Footer>
     </div>
   );
 }

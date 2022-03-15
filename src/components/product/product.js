@@ -1,12 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { PRODUCTS } from '../../constants/products';
-import Footer from '../footer/footer';
 import Rating from '../rating/rating';
 import SliderProduct from '../slider/sliderProduct';
 import SliderRelated from '../slider/sliderRelated';
+import { connect } from 'react-redux';
+import { addProduct } from '../redux/actions';
 
-function Product({ type }) {
+function Product({ type, addProduct }) {
   const { id } = useParams();
   const { name, price, images, reviews, rating, material, sizes } = PRODUCTS[type].filter(
     (elem) => elem.id === id
@@ -31,6 +32,18 @@ function Product({ type }) {
 
   function selectSize(e) {
     setSize(e.target.innerText);
+  }
+
+  function changeState() {
+    addProduct({
+      name: name,
+      price: price,
+      sizes: size,
+      id: Date.now(),
+      color: color,
+      image: images.find((el) => el.color === color),
+      quantity: 1,
+    });
   }
 
   return (
@@ -88,7 +101,7 @@ function Product({ type }) {
             <p>
               COLOR: <span>{color}</span>
             </p>
-            <div className="product__main__description__flex" onClick={(e) => console.log()}>
+            <div className="product__main__description__flex">
               {uniqueImages.map((elem, index) => (
                 <div
                   className={
@@ -145,7 +158,7 @@ function Product({ type }) {
             <hr></hr>
             <div className="product__main__description__flex">
               <div className="product__main__description__price">$ {price}</div>
-              <button>ADD TO CARD</button>
+              <button onClick={changeState}>ADD TO CARD</button>
               <div className="product__main__description__name">
                 <img alt="like" src={require('../../assets/img/like.png')}></img>
               </div>
@@ -252,9 +265,10 @@ function Product({ type }) {
           <SliderRelated data={PRODUCTS[type]}></SliderRelated>
         </ul>
       </div>
-      <Footer></Footer>
     </>
   );
 }
 
-export default Product;
+const mapDispatchToProp = { addProduct };
+
+export default connect(null, mapDispatchToProp)(Product);
