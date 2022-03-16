@@ -21,9 +21,9 @@ function Basket({ isVisible, callback, cards }) {
   // console.log(cards);
 
   return (
-    <div className={classNames('basket', { visible: isVisible })} data-test-id="cart">
+    <div className={classNames('basket', { visible: isVisible })}>
       <div className="basket__overlay" onClick={callback}></div>
-      <div className="basket__content">
+      <div className="basket__content" data-test-id="cart">
         <div className="basket__content__header">
           <div className="basket__content__title">
             <p>SHOPPING CART</p>
