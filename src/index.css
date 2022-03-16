@@ -234,6 +234,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 2px;
 }
 
 .menu {
@@ -2314,7 +2315,7 @@ hr {
   transition: all 0.3s;
 }
 .basket__content {
-  width: 40rem;
+  width: 39rem;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -2455,10 +2456,20 @@ hr {
   background: #f8f8f8;
   cursor: pointer;
 }
+@media (max-width: 405px) {
+  .basket__content {
+    width: 100%;
+  }
+}
 .basket__overlay {
   background-color: #121212;
   opacity: 0.5;
   flex: 1;
+}
+@media (max-width: 405px) {
+  .basket__overlay {
+    display: none;
+  }
 }
 .basket.visible {
   transform: translateX(0);

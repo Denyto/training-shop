@@ -28,3 +28,10 @@ export function decrementQuantity(product) {
   };
 }
 
+export function removeFromPruductCard(product) {
+  return {
+    type: ACTION_TYPES.REMOVE_FROM_PRODUCT,
+    payload: product,
+  };
+}
+

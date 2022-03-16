@@ -62,8 +62,8 @@ function Nav() {
             <li>
               <Link to="/" className="navigation__user__person"></Link>
             </li>
-            <li>
-              <div className="navigation__user__basket" onClick={toggleBasketVisible}>
+            <li onClick={toggleBasketVisible} data-test-id="cart-button">
+              <div className="navigation__user__basket">
                 <div>{basketQuantity}</div>
               </div>
             </li>

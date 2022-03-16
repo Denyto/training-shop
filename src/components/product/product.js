@@ -1,11 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PRODUCTS } from '../../constants/products';
 import Rating from '../rating/rating';
 import SliderProduct from '../slider/sliderProduct';
 import SliderRelated from '../slider/sliderRelated';
 import { connect } from 'react-redux';
-import { addProduct } from '../redux/actions';
+import { addProduct, removeFromPruductCard } from '../redux/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Product({ type, addProduct }) {
   const { id } = useParams();
@@ -25,6 +26,8 @@ function Product({ type, addProduct }) {
 
   const [color, setColor] = useState(uniqueColors[0]);
   const [size, setSize] = useState(sizes[0]);
+  const [isButtonAdd, setButtonAdd] = useState(false);
+  const dispatch = useDispatch();
 
   function selectColor(e) {
     setColor(e.target.getAttribute('alt'));
@@ -35,7 +38,9 @@ function Product({ type, addProduct }) {
   }
 
   function changeState() {
+    setButtonAdd(!isButtonAdd);
     addProduct({
+      idProduct: id,
       name: name,
       price: price,
       sizes: size,
@@ -45,6 +50,16 @@ function Product({ type, addProduct }) {
       quantity: 1,
     });
   }
+
+  let i = false;
+  useSelector((state) => {
+    state.products.products.forEach((el) => {
+      if (el.color === color && el.sizes === size && el.idProduct === id) {
+        i = true;
+      }
+    });
+  });
+  useEffect(() => setButtonAdd(i), [i]);
 
   return (
     <>
@@ -158,7 +173,20 @@ function Product({ type, addProduct }) {
             <hr></hr>
             <div className="product__main__description__flex">
               <div className="product__main__description__price">$ {price}</div>
-              <button onClick={changeState}>ADD TO CARD</button>
+              {!isButtonAdd ? (
+                <button onClick={changeState} data-test-id="add-cart-button">
+                  ADD TO CARD
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    dispatch(removeFromPruductCard({ color, size, id }));
+                    setButtonAdd(!isButtonAdd);
+                  }}
+                >
+                  REMOVE
+                </button>
+              )}
               <div className="product__main__description__name">
                 <img alt="like" src={require('../../assets/img/like.png')}></img>
               </div>
@@ -269,6 +297,8 @@ function Product({ type, addProduct }) {
   );
 }
 
+const mapStateToProps = (state) => state;
+
 const mapDispatchToProp = { addProduct };
 
-export default connect(null, mapDispatchToProp)(Product);
+export default connect(mapStateToProps, mapDispatchToProp)(Product);

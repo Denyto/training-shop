@@ -11,15 +11,17 @@ function Basket({ isVisible, callback, cards }) {
 
   let sum = 0;
   useSelector((state) => {
+    // console.log(state);
     state.products.products.forEach((el, index) => index >= 0 && (sum += el.quantity * el.price));
   });
 
   useEffect(() => setTotal(sum.toFixed(2)), [sum]);
 
   const dispatch = useDispatch();
+  // console.log(cards);
 
   return (
-    <div className={classNames('basket', { visible: isVisible })}>
+    <div className={classNames('basket', { visible: isVisible })} data-test-id="cart">
       <div className="basket__overlay" onClick={callback}></div>
       <div className="basket__content">
         <div className="basket__content__header">
@@ -37,21 +39,26 @@ function Basket({ isVisible, callback, cards }) {
           {cards.length > 0 ? (
             cards.map((el) => (
               <BasketCart
+                color={el.color}
                 name={el.name}
                 key={Math.random()}
                 image={el.image.url}
                 price={el.price}
                 size={el.sizes}
                 quantity={el.quantity}
-                callback={() => dispatch(deleteProduct(el))}
-                callback2={() => dispatch(incrementQuantity(el))}
-                callback3={() => dispatch(decrementQuantity(el))}
+                deleteCard={() => dispatch(deleteProduct(el))}
+                increment={() => dispatch(incrementQuantity(el))}
+                decrement={() => dispatch(decrementQuantity(el))}
               ></BasketCart>
             ))
           ) : (
             <div className="basket__empty">
               <div className="basket__empty__text">Sorry, your cart is empty</div>
-              <div className="basket__content__further" onClick={callback} style={{marginBottom: '2.4rem'}}>
+              <div
+                className="basket__content__further"
+                onClick={callback}
+                style={{ marginBottom: '2.4rem' }}
+              >
                 BACK TO SHOPPING
               </div>
             </div>

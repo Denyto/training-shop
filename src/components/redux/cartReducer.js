@@ -9,7 +9,10 @@ export const cartReducer = (state = initialState, action) => {
     case ACTION_TYPES.ADD_PRODUCT:
       if (
         !state.products.find(
-          (el) => el.color === action.payload.color && el.sizes === action.payload.sizes
+          (el) =>
+            el.color === action.payload.color &&
+            el.sizes === action.payload.sizes &&
+            el.idProduct === action.payload.id
         )
       ) {
         return { ...state, products: [...state.products, action.payload] };
@@ -42,6 +45,17 @@ export const cartReducer = (state = initialState, action) => {
           }
           return product;
         }),
+      };
+    case ACTION_TYPES.REMOVE_FROM_PRODUCT:
+      
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) =>
+            product.sizes !== action.payload.size ||
+            product.color !== action.payload.color ||
+            product.idProduct !== action.payload.id
+        ),
       };
     default:
       return state;
