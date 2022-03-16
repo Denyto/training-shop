@@ -184,7 +184,7 @@ function Product({ type, addProduct }) {
                     setButtonAdd(!isButtonAdd);
                   }}
                 >
-                  REMOVE
+                  REMOVE TO CARD
                 </button>
               )}
               <div className="product__main__description__name">
