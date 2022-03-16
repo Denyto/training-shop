@@ -183,6 +183,7 @@ function Product({ type, addProduct }) {
                     dispatch(removeFromPruductCard({ color, size, id }));
                     setButtonAdd(!isButtonAdd);
                   }}
+                  data-test-id="add-cart-button"
                 >
                   REMOVE TO CARD
                 </button>
