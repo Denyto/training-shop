@@ -185,7 +185,7 @@ function Product({ type, addProduct }) {
                   }}
                   data-test-id="add-cart-button"
                 >
-                  REMOVE TO CARD
+                  REMOVE
                 </button>
               )}
               <div className="product__main__description__name">
