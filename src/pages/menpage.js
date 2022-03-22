@@ -3,12 +3,18 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import MenBody from '../components/men/menbody';
 import { Link } from 'react-router-dom';
-import { PRODUCTS } from '../constants/products';
+import { useSelector } from 'react-redux';
+import Loader from '../components/loader/loader';
+import Error from '../components/loader/error';
 
 function Menpage() {
   let colorArr = [];
   let colorId = [];
   let sizeArr = [];
+
+  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
+  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
+  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
 
   PRODUCTS.men.forEach((elem) => {
     elem.images.forEach((item) => {
@@ -54,6 +60,7 @@ function Menpage() {
   return (
     <div className="App">
       <div className="wrapper">
+        {isError && <Error></Error>}
         <div className="men__route">
           <div className="men__route__name">
             <p>
@@ -181,7 +188,13 @@ function Menpage() {
         </div>
       </div>
       <div className="wrapper">
-        <MenBody color={color} size={size} brand={brand} price={price}></MenBody>
+        {isLoading ? (
+          <div className="men__group">
+            <Loader></Loader>
+          </div>
+        ) : (
+          <MenBody color={color} size={size} brand={brand} price={price}></MenBody>
+        )}
       </div>
     </div>
   );

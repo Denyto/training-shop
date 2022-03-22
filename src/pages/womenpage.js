@@ -3,12 +3,18 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import WomenBody from '../components/women/womenbody';
 import { Link } from 'react-router-dom';
-import { PRODUCTS } from '../constants/products';
+import { useSelector } from 'react-redux';
+import Loader from '../components/loader/loader';
+import Error from '../components/loader/error';
 
 function Womenpage() {
   let colorArr = [];
   let colorId = [];
   let sizeArr = [];
+
+  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
+  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
+  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
 
   PRODUCTS.women.forEach((elem) => {
     elem.images.forEach((item) => {
@@ -55,6 +61,7 @@ function Womenpage() {
   return (
     <div className="App">
       <div className="wrapper">
+        {isError && <Error></Error>}
         <div className="women__route">
           <div className="women__route__name">
             <p>
@@ -181,7 +188,13 @@ function Womenpage() {
         </div>
       </div>
       <div className="wrapper">
-        <WomenBody color={color} size={size} brand={brand} price={price}></WomenBody>
+        {isLoading ? (
+          <div className="women__group">
+            <Loader></Loader>
+          </div>
+        ) : (
+          <WomenBody color={color} size={size} brand={brand} price={price}></WomenBody>
+        )}
       </div>
     </div>
   );

@@ -11,14 +11,12 @@ function Basket({ isVisible, callback, cards }) {
 
   let sum = 0;
   useSelector((state) => {
-    // console.log(state);
     state.products.products.forEach((el, index) => index >= 0 && (sum += el.quantity * el.price));
   });
 
   useEffect(() => setTotal(sum.toFixed(2)), [sum]);
 
   const dispatch = useDispatch();
-  // console.log(cards);
 
   return (
     <div className={classNames('basket', { visible: isVisible })}>

@@ -2,8 +2,13 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import Rating from '../rating/rating';
+import { useSelector } from 'react-redux';
 
-export default function SliderRelated({ data }) {
+export default function SliderRelated({ type }) {
+
+const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
+// console.log('slider relater', PRODUCTS[type]);
+
   return (
     <>
       <Swiper
@@ -30,22 +35,17 @@ export default function SliderRelated({ data }) {
         className="mySwiper"
         data-test-id="related-slider"
       >
-        {data.map(({ discount, id, price, name, images, rating }) => (
+        {PRODUCTS[type].map(({ discount, id, price, name, images, rating }) => (
           <SwiperSlide key={id}>
             <li key={id}>
               <Link
-                to={`/${data[0].category}/${id}`}
+                to={`/${PRODUCTS[type][0].category}/${id}`}
                 className="cards-item"
                 data-test-id="clothes-card-men"
               >
                 <div className="men__group__foto">
-                  {discount ? (
-                    <div className="men__group__sale">{discount}</div>
-                  ) : null}
-                  <img
-                    alt={name}
-                    src={`https://training.cleverland.by/shop${images[0].url}`}
-                  ></img>
+                  {discount ? <div className="men__group__sale">{discount}</div> : null}
+                  <img alt={name} src={`https://training.cleverland.by/shop${images[0].url}`}></img>
                 </div>
                 <p>{name}</p>
 
@@ -54,10 +54,7 @@ export default function SliderRelated({ data }) {
                     $ {price}.00
                     <span>
                       {discount
-                        ? `$ ${(
-                            price /
-                            (1 - Math.abs(parseInt(discount)) / 100)
-                          ).toFixed()}.00`
+                        ? `$ ${(price / (1 - Math.abs(parseInt(discount)) / 100)).toFixed()}.00`
                         : ''}
                     </span>
                   </p>

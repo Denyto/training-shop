@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 
 export default function SliderProduct({ data }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);  
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <>
@@ -22,24 +20,15 @@ export default function SliderProduct({ data }) {
       >
         <div className="product__main__item__foto">
           <div className="product__main__item__arrow btn-product-prev">
-            <img
-              alt="arrow"
-              src={require('../../assets/img/arrowup.png')}
-            ></img>
+            <img alt="arrow" src={require('../../assets/img/arrowup.png')}></img>
           </div>
           <div className="product__main__item__arrow btn-product-next">
-            <img
-              alt="arrow"
-              src={require('../../assets/img/arrowdown.png')}
-            ></img>
+            <img alt="arrow" src={require('../../assets/img/arrowdown.png')}></img>
           </div>
         </div>
         {data.map((elem) => (
           <SwiperSlide key={elem.id}>
-            <img
-              alt="product"
-              src={`https://training.cleverland.by/shop${elem.url}`}
-            />
+            <img alt="product" src={`https://training.cleverland.by/shop${elem.url}`} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -58,10 +47,7 @@ export default function SliderProduct({ data }) {
       >
         {data.map((elem) => (
           <SwiperSlide key={elem.id}>
-            <img
-              alt="product"
-              src={`https://training.cleverland.by/shop${elem.url}`}
-            />
+            <img alt="product" src={`https://training.cleverland.by/shop${elem.url}`} />
           </SwiperSlide>
         ))}
       </Swiper>

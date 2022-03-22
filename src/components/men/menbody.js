@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
-import { PRODUCTS } from '../../constants/products';
+import { useSelector } from 'react-redux';
 import Rating from '../rating/rating';
 
 function MenBody({ particular, color, size, brand, price }) {
+  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
+
   let filter = PRODUCTS.men;
 
   if (color && color.length > 0) {

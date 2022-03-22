@@ -43,6 +43,7 @@
   }
   &__group {
     width: 100%;
+    min-height: 50vh;
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
