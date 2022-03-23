@@ -3,7 +3,7 @@ import BasketCart from './basketcard';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteProduct, incrementQuantity, decrementQuantity } from '../redux/actions';
+import { deleteProduct, incrementQuantity, decrementQuantity } from '../../redux/actions';
 import { useSelector } from 'react-redux';
 
 function Basket({ isVisible, callback, cards }) {

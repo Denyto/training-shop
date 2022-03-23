@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { addProduct, removeFromPruductCard, loadFromServerById } from '../redux/actions';
+import { addProduct, removeFromPruductCard, loadFromServerById } from '../../redux/actions';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import Rating from '../rating/rating';
 import SliderProduct from '../slider/sliderProduct';
@@ -12,6 +12,7 @@ import Error from '../loader/error';
 function Product({ type }) {
   const { id } = useParams();
   const dispatch = useDispatch();
+  // console.log(useSelector());
 
   const PRODUCTS = useSelector((state) => {
     return state.fetchProducts.fetchProducts.products;

@@ -8,7 +8,7 @@ import Product from './components/product/product';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import { useDispatch } from 'react-redux';
-import { loadFromServer } from './components/redux/actions';
+import { loadFromServer } from './redux/actions';
 
 function App() {
   const dispatch = useDispatch();
