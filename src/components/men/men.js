@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../constants/const';
 
-function Men() {
+function Men({ PRODUCTS }) {
   const [particular, selectParticular] = useState('isNewArrivals');
 
   function setMenuMode(e) {
@@ -30,7 +30,7 @@ function Men() {
             ))}
           </ul>
         </div>
-        <MenBody particular={particular}></MenBody>
+        <MenBody particular={particular} PRODUCTS={PRODUCTS}></MenBody>
         <Link to="/men">
           <div className="men__footer">
             <p>SEE ALL</p>

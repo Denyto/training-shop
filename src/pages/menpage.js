@@ -12,9 +12,9 @@ function Menpage() {
   let colorId = [];
   let sizeArr = [];
 
-  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
-  const { isLoading, isError } = useSelector((state) => {
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
     return {
+      PRODUCTS: state.fetchProducts.fetchProducts.products,
       isLoading: state.fetchProducts.fetchProducts.isLoading,
       isError: state.fetchProducts.fetchProducts.isError,
     };
@@ -197,7 +197,13 @@ function Menpage() {
             <Loader></Loader>
           </div>
         ) : (
-          <MenBody color={color} size={size} brand={brand} price={price}></MenBody>
+          <MenBody
+            color={color}
+            size={size}
+            brand={brand}
+            price={price}
+            PRODUCTS={PRODUCTS}
+          ></MenBody>
         )}
       </div>
     </div>

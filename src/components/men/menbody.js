@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import Rating from '../rating/rating';
 
-function MenBody({ particular, color, size, brand, price }) {
-  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
-
+function MenBody({ particular, color, size, brand, price, PRODUCTS }) {
   let filter = PRODUCTS.men;
 
   if (color && color.length > 0) {

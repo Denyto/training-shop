@@ -42,10 +42,8 @@ export function loadFromServer() {
       dispatch(hideError());
       const response = await fetch('https://training.cleverland.by/shop/products');
       const json = await response.json();
-      setTimeout(() => {
-        dispatch({ type: ACTION_TYPES.FETCH_PRODUCTS, payload: json });
-        dispatch(hideLoader());
-      }, 1000);
+      dispatch({ type: ACTION_TYPES.FETCH_PRODUCTS, payload: json });
+      dispatch(hideLoader());
     } catch (error) {
       dispatch(showError());
       setTimeout(() => {
@@ -55,18 +53,18 @@ export function loadFromServer() {
   };
 }
 
-export function loadFromServerById(id) {
-  return async (dispatch) => {
-    try {
-      const response = await fetch(`https://training.cleverland.by/shop/product/${id}`);
-      const json = await response.json();
-      dispatch({ type: ACTION_TYPES.FETCH_PRODUCT_ID, payload: json });
-      localStorage.setItem('productId', JSON.stringify(json));
-    } catch (error) {
-      dispatch(showError());
-    }
-  };
-}
+// export function loadFromServerById(id) {
+//   return async (dispatch) => {
+//     try {
+//       const response = await fetch(`https://training.cleverland.by/shop/product/${id}`);
+//       const json = await response.json();
+//       dispatch({ type: ACTION_TYPES.FETCH_PRODUCT_ID, payload: json });
+//       localStorage.setItem('productId', JSON.stringify(json));
+//     } catch (error) {
+//       dispatch(showError());
+//     }
+//   };
+// }
 
 export function showLoader() {
   return {

@@ -12,9 +12,13 @@ function Womenpage() {
   let colorId = [];
   let sizeArr = [];
 
-  const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
-  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
-  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
+    return {
+      PRODUCTS: state.fetchProducts.fetchProducts.products,
+      isLoading: state.fetchProducts.fetchProducts.isLoading,
+      isError: state.fetchProducts.fetchProducts.isError,
+    };
+  });
 
   PRODUCTS.women.forEach((elem) => {
     elem.images.forEach((item) => {
@@ -193,7 +197,13 @@ function Womenpage() {
             <Loader></Loader>
           </div>
         ) : (
-          <WomenBody color={color} size={size} brand={brand} price={price}></WomenBody>
+          <WomenBody
+            color={color}
+            size={size}
+            brand={brand}
+            price={price}
+            PRODUCTS={PRODUCTS}
+          ></WomenBody>
         )}
       </div>
     </div>

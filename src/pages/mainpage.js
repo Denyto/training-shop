@@ -10,8 +10,9 @@ import Commercial from '../components/commercial/commercial';
 import { useSelector } from 'react-redux';
 
 function Mainpage() {
-  const { isLoading, isError } = useSelector((state) => {
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
     return {
+      PRODUCTS: state.fetchProducts.fetchProducts.products,
       isLoading: state.fetchProducts.fetchProducts.isLoading,
       isError: state.fetchProducts.fetchProducts.isError,
     };
@@ -21,8 +22,8 @@ function Mainpage() {
     <div className="App">
       {isError && <Error></Error>}
       <Commercial></Commercial>
-      {isLoading ? <Loader></Loader> : <Women></Women>}
-      {isLoading ? <Loader></Loader> : <Men></Men>}
+      {isLoading ? <Loader></Loader> : <Women PRODUCTS={PRODUCTS}></Women>}
+      {isLoading ? <Loader></Loader> : <Men PRODUCTS={PRODUCTS}></Men>}
       <Collection></Collection>
       <Subscribe></Subscribe>
       <Blog></Blog>

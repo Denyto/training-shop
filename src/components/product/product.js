@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { addProduct, removeFromPruductCard, loadFromServerById } from '../../redux/actions';
+import { addProduct, removeFromPruductCard } from '../../redux/actions';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import Rating from '../rating/rating';
 import SliderProduct from '../slider/sliderProduct';
@@ -12,17 +12,22 @@ import Error from '../loader/error';
 function Product({ type }) {
   const { id } = useParams();
   const dispatch = useDispatch();
-  // console.log(useSelector());
 
-  const PRODUCTS = useSelector((state) => {
-    return state.fetchProducts.fetchProducts.products;
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
+    return {
+      PRODUCTS: state.fetchProducts.fetchProducts.products,
+      isLoading: state.fetchProducts.fetchProducts.isLoading,
+      isError: state.fetchProducts.fetchProducts.isError,
+    };
   });
+  PRODUCTS[type].filter((elem) => elem.id === id)[0] &&
+    localStorage.setItem(
+      'productID',
+      JSON.stringify(PRODUCTS[type].filter((elem) => elem.id === id)[0])
+    );
 
-  useEffect(() => dispatch(loadFromServerById(id)), [id, dispatch]);
-  const PRODUCT = JSON.parse(localStorage.getItem('productId'));
-
-  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
-  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
+  // useEffect(() => dispatch(loadFromServerById(id)), [id, dispatch]);
+  const PRODUCT = JSON.parse(localStorage.getItem('productID'));
 
   const { name, price, images, reviews, rating, material, sizes } =
     PRODUCTS[type].filter((elem) => elem.id === id)[0] || PRODUCT;
@@ -271,7 +276,6 @@ function Product({ type }) {
               <p>
                 <span>Color:</span>&nbsp;
                 {uniqueColors.join(', ')}
-                {/* {new Set(images.map((el, index) => (index > 0 ? `, ${el.color}` : `${el.color}`)))} */}
               </p>
               <p>
                 <span>Size:</span>&nbsp;
@@ -317,7 +321,6 @@ function Product({ type }) {
             </div>
           </div>
           <ul className="men__group">
-            {/* <SliderRelated data={PRODUCTS[type]} type={type}></SliderRelated> */}
             <SliderRelated type={type}></SliderRelated>
           </ul>
         </div>
