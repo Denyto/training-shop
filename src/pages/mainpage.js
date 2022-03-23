@@ -10,8 +10,12 @@ import Commercial from '../components/commercial/commercial';
 import { useSelector } from 'react-redux';
 
 function Mainpage() {
-  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
-  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
+  const { isLoading, isError } = useSelector((state) => {
+    return {
+      isLoading: state.fetchProducts.fetchProducts.isLoading,
+      isError: state.fetchProducts.fetchProducts.isError,
+    };
+  });
 
   return (
     <div className="App">

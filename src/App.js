@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Womenpage from './pages/womenpage';
 import Menpage from './pages/menpage';
@@ -12,7 +12,7 @@ import { loadFromServer } from './redux/actions';
 
 function App() {
   const dispatch = useDispatch();
-  dispatch(loadFromServer());
+  useEffect(() => dispatch(loadFromServer()));
 
   return (
     <React.StrictMode>

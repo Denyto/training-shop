@@ -13,8 +13,12 @@ function Menpage() {
   let sizeArr = [];
 
   const PRODUCTS = useSelector((state) => state.fetchProducts.fetchProducts.products);
-  const isLoading = useSelector((state) => state.fetchProducts.fetchProducts.isLoading);
-  const isError = useSelector((state) => state.fetchProducts.fetchProducts.isError);
+  const { isLoading, isError } = useSelector((state) => {
+    return {
+      isLoading: state.fetchProducts.fetchProducts.isLoading,
+      isError: state.fetchProducts.fetchProducts.isError,
+    };
+  });
 
   PRODUCTS.men.forEach((elem) => {
     elem.images.forEach((item) => {
