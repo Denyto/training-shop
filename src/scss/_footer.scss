@@ -7,12 +7,13 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   & input {
+    color: rgb(0, 0, 0);
     width: 27vw;
     height: 3.2rem;
     margin-right: 1.2rem;
-    background: #fff;
-    opacity: 0.2;
+    background: #b3b3b3;
     font-size: 1.4rem;
   }
   button {
@@ -22,9 +23,32 @@ form {
     color: #ffffff;
     opacity: 0.9;
     border: 1px solid #ffffff;
-  }
+    position: relative;
+    cursor: pointer;
+    & p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-left: 1rem;
+      &.disable {
+        opacity: 0.2;
+      }
+    }
+    &.disable {
+      pointer-events: none;
+    }
+    & .loader__mail {
+      width: 3rem;
+      height: 3rem;
+      top: 0;
+    }
+  }  
   @include media-mobile {
     margin-bottom: 1rem;
+  }
+  & .emailstatus {
+    width: 25%;
+    margin-left: 1rem;
+    color: rgb(136, 255, 0);
   }
 }
 
@@ -69,7 +93,7 @@ form {
     font-size: 1.1rem;
     margin: 0 0.5rem;
     &__location {
-      font-family: "Inter", "sans-serif";
+      font-family: 'Inter', 'sans-serif';
       font-style: normal;
       font-weight: normal;
     }
@@ -206,7 +230,7 @@ form {
     font-size: 1.1rem;
     margin: 0 0.5rem;
     &__location {
-      font-family: "Inter", "sans-serif";
+      font-family: 'Inter', 'sans-serif';
       font-style: normal;
       font-weight: normal;
     }

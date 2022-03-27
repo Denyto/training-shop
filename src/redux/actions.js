@@ -53,6 +53,27 @@ export function loadFromServer() {
   };
 }
 
+export function sendEmail(email) {
+  return async (dispatch) => {
+    try {
+      dispatch(showMailLoader());
+      const response = await fetch('https://training.cleverland.by/shop/email', {
+        method: 'POST',
+        body: {
+          mail: email,
+        },
+      });
+      response.ok &&
+        setTimeout(() => {
+          dispatch({ type: ACTION_TYPES.SEND_MAIL_SUCCESS });
+          dispatch(hideMailLoader());
+        }, 2000);
+    } catch (error) {
+      dispatch(hideMailLoader());
+    }
+  };
+}
+
 // export function loadFromServerById(id) {
 //   return async (dispatch) => {
 //     try {
@@ -87,5 +108,17 @@ export function showError() {
 export function hideError() {
   return {
     type: ACTION_TYPES.HIDE_ERROR,
+  };
+}
+
+export function showMailLoader() {
+  return {
+    type: ACTION_TYPES.SHOW_MAIL_LOADER,
+  };
+}
+
+export function hideMailLoader() {
+  return {
+    type: ACTION_TYPES.HIDE_MAIL_LOADER,
   };
 }

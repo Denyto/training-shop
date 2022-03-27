@@ -14,6 +14,7 @@ function Product({ type }) {
   const dispatch = useDispatch();
 
   const { isLoading, isError, PRODUCTS } = useSelector((state) => {
+    console.log(state);
     return {
       PRODUCTS: state.fetchProducts.fetchProducts.products,
       isLoading: state.fetchProducts.fetchProducts.isLoading,

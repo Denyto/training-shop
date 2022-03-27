@@ -23,6 +23,22 @@
       transform: rotate(360deg);
     }
   }
+  &__mail {
+    left: 0;
+    width: 4.5vw;
+    height: 4.5vw;
+    position: absolute;
+    padding: .3rem;
+    opacity: 1;
+    & div {
+      border: .3rem solid hsla(22, 100%, 67%, 0.2);
+      border-top-color: #ff8686;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      animation: spin 1s linear infinite;
+    }
+  }
 }
 
 .error {

@@ -23,8 +23,19 @@
     align-items: center;
     & p {
       font-size: 1.2rem;
-      text-align: center;
+      text-align: left;
       margin-bottom: 1.6rem;
+      font-weight: 600;
+      opacity: 0.4;
+    }
+    @include media-tablet {
+      width: 50%;
+      height: 90%;
+      justify-content: space-evenly;
+    }
+    @include media-mobile {
+      padding: 0.5rem 0;
+      justify-content: space-between;
     }
   }
   &__item {
@@ -36,6 +47,7 @@
     align-items: center;
     text-align: center;
     margin-bottom: 2.4rem;
+    border-radius: 0.3rem;
     & h3 {
       font-size: 1.6rem;
       font-weight: 500;
@@ -53,14 +65,43 @@
       }
     }
     &:nth-child(3) {
-      & h3 {
-        font-size: 1.6rem;
-        opacity: 0.4;
+      position: relative;
+      & p {
+        font-size: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: 4.5vw;
+        opacity: 1;
+        color: #00ff43;
       }
     }
     &:last-child {
+      position: relative;
+      cursor: pointer;
       background: #121212;
       color: #ffffff;
+      user-select: none;
+      transition: all 0.5s;
+      &:active {
+        transform: scale(97%);
+      }
+      &.disable {
+        pointer-events: none;
+      }
+      & h3 {
+        &.disable {
+          opacity: 0.3;
+        }
+      }
+    }
+    & input {
+      font-weight: 500;
+      font-size: 1.6rem;
+      opacity: 0.6;
+      background-color: #f8f8f8;
+    }
+    @include media-tablet {
+      margin-bottom: 1rem;
     }
   }
   &__women {
@@ -73,7 +114,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
-    @include media-mobile {
+    @include media-tablet {
       display: none;
     }
   }
@@ -87,7 +128,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 100;
-    @include media-mobile {
+    @include media-tablet {
       display: none;
     }
   }
