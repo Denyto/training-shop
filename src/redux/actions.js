@@ -1,4 +1,5 @@
 import { ACTION_TYPES } from './types';
+const axios = require('axios');
 
 export function addProduct(product) {
   return {
@@ -48,7 +49,7 @@ export function loadFromServer() {
       dispatch(showError());
       setTimeout(() => {
         dispatch(hideLoader());
-      }, 2000);
+      }, 1000);
     }
   };
 }
@@ -74,18 +75,41 @@ export function sendEmail(email) {
   };
 }
 
-// export function loadFromServerById(id) {
-//   return async (dispatch) => {
-//     try {
-//       const response = await fetch(`https://training.cleverland.by/shop/product/${id}`);
-//       const json = await response.json();
-//       dispatch({ type: ACTION_TYPES.FETCH_PRODUCT_ID, payload: json });
-//       localStorage.setItem('productId', JSON.stringify(json));
-//     } catch (error) {
-//       dispatch(showError());
-//     }
-//   };
-// }
+export function sendReview({ id, name, text, raiting }, closeModal, reloadWindow) {
+  return async (dispatch) => {
+    dispatch(showReviewLoader());
+    axios
+      .post('https://training.cleverland.by/shop/product/review', {
+        id: id,
+        name: name,
+        text: text,
+        rating: raiting,
+      })
+      .then(function (response) {
+        setTimeout(() => {
+          dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
+          closeModal();
+          reloadWindow();
+          dispatch(hideReviewLoader());
+        }, 1000);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+}
+
+export function showReviewLoader() {
+  return {
+    type: ACTION_TYPES.SHOW_REVIEW_LOADER,
+  };
+}
+
+export function hideReviewLoader() {
+  return {
+    type: ACTION_TYPES.HIDE_REVIEW_LOADER,
+  };
+}
 
 export function showLoader() {
   return {

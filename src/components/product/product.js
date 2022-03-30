@@ -8,13 +8,13 @@ import SliderProduct from '../slider/sliderProduct';
 import SliderRelated from '../slider/sliderRelated';
 import Loader from '../loader/loader';
 import Error from '../loader/error';
+import ReviewModal from './reviewModal';
 
 function Product({ type }) {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
-    console.log(state);
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {    
     return {
       PRODUCTS: state.fetchProducts.fetchProducts.products,
       isLoading: state.fetchProducts.fetchProducts.isLoading,
@@ -26,8 +26,6 @@ function Product({ type }) {
       'productID',
       JSON.stringify(PRODUCTS[type].filter((elem) => elem.id === id)[0])
     );
-
-  // useEffect(() => dispatch(loadFromServerById(id)), [id, dispatch]);
   const PRODUCT = JSON.parse(localStorage.getItem('productID'));
 
   const { name, price, images, reviews, rating, material, sizes } =
@@ -292,7 +290,7 @@ function Product({ type }) {
                   <Rating rating={rating}></Rating>
                   <p>{reviews.length} Reviews</p>
                 </div>
-                <div>Write a review</div>
+                <ReviewModal id={id}></ReviewModal>
               </div>
               {reviews.map((el) => (
                 <div key={el.id}>

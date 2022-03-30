@@ -39,10 +39,21 @@
         font-size: 1.1rem;
         line-height: 1.5rem;
         padding-left: 0.7rem;
-        opacity: 0.6;
         & span {
           font-weight: 700;
           font-size: 1.1rem;
+        }
+      }
+      & img {
+        width: auto;
+        height: auto;
+      }
+      &:last-child {
+        cursor: pointer;
+        opacity: 0.6;
+        user-select: none;
+        &:hover {
+          opacity: 1;
         }
       }
     }

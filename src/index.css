@@ -1171,15 +1171,14 @@ input {
 footer {
   padding: 5rem 0 0 0;
 }
-
-form {
+footer form {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-form input {
+footer form input {
   color: black;
   width: 27vw;
   height: 3.2rem;
@@ -1187,7 +1186,7 @@ form input {
   background: #b3b3b3;
   font-size: 1.4rem;
 }
-form button {
+footer form button {
   width: 11rem;
   height: 3.2rem;
   background: #121212;
@@ -1197,28 +1196,28 @@ form button {
   position: relative;
   cursor: pointer;
 }
-form button p {
+footer form button p {
   font-size: 1.2rem;
   font-weight: 600;
   margin-left: 1rem;
 }
-form button p.disable {
+footer form button p.disable {
   opacity: 0.2;
 }
-form button.disable {
+footer form button.disable {
   pointer-events: none;
 }
-form button .loader__mail {
+footer form button .loader__mail {
   width: 3rem;
   height: 3rem;
   top: 0;
 }
 @media (max-width: 605px) {
-  form {
+  footer form {
     margin-bottom: 1rem;
   }
 }
-form .emailstatus {
+footer form .emailstatus {
   width: 25%;
   margin-left: 1rem;
   color: #88ff00;
@@ -1720,11 +1719,22 @@ form .emailstatus {
   font-size: 1.1rem;
   line-height: 1.5rem;
   padding-left: 0.7rem;
-  opacity: 0.6;
 }
 .product__review__block p span {
   font-weight: 700;
   font-size: 1.1rem;
+}
+.product__review__block img {
+  width: auto;
+  height: auto;
+}
+.product__review__block:last-child {
+  cursor: pointer;
+  opacity: 0.6;
+  user-select: none;
+}
+.product__review__block:last-child:hover {
+  opacity: 1;
 }
 .product__review__star img {
   height: auto;
@@ -2616,6 +2626,96 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.review-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 6;
+}
+
+.review-body {
+  width: 50rem;
+  height: 50rem;
+  border-radius: 0.7rem;
+  border: 2px #333333 solid;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.review-body form {
+  width: 75%;
+  height: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-body form input {
+  border-radius: 0.7rem;
+  border: 2px #000 solid;
+  text-align: left;
+  padding-left: 0.5rem;
+  height: 4rem;
+}
+.review-body form textarea {
+  width: 100%;
+  height: 18rem;
+  resize: none;
+  font-size: 1.6rem;
+  border: 2px #000 solid;
+  border-radius: 0.7rem;
+  padding-left: 0.5rem;
+}
+.review-body form button {
+  position: relative;
+  background-color: #121212;
+  color: #fff;
+  width: 17rem;
+  height: 5rem;
+  border: 2px #000 solid;
+  font-size: 1.4rem;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0.7rem;
+}
+.review-body form button:active {
+  transform: scale(97%);
+}
+.review-body form button .loader__mail {
+  top: 0;
+  width: 5.5vw;
+  height: 5.5vw;
+}
+.review-body form button.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+.review-body form p {
+  opacity: 1;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.review-raiting {
+  display: flex;
+}
+.review-raiting span {
+  font-size: 5rem;
+}
+
+.review-error {
+  width: 100%;
+  text-align: left;
+  color: red;
 }
 
 /*# sourceMappingURL=index.css.map */

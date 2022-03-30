@@ -19,11 +19,6 @@ export const fetchReducer = (state = initialState, action) => {
         ...state,
         fetchProducts: { ...state.fetchProducts, products: action.payload },
       };
-    // case ACTION_TYPES.FETCH_PRODUCT_ID:
-    //   return {
-    //     ...state,
-    //     fetchProducts: { ...state.fetchProducts, productId: [action.payload] },
-    //   };
     case ACTION_TYPES.SHOW_LOADER:
       return {
         ...state,

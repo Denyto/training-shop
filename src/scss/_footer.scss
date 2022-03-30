@@ -1,54 +1,53 @@
 footer {
   padding: 5rem 0 0 0;
-}
-
-form {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  & input {
-    color: rgb(0, 0, 0);
-    width: 27vw;
-    height: 3.2rem;
-    margin-right: 1.2rem;
-    background: #b3b3b3;
-    font-size: 1.4rem;
-  }
-  button {
-    width: 11rem;
-    height: 3.2rem;
-    background: #121212;
-    color: #ffffff;
-    opacity: 0.9;
-    border: 1px solid #ffffff;
+  & form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    cursor: pointer;
-    & p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-left: 1rem;
+    & input {
+      color: rgb(0, 0, 0);
+      width: 27vw;
+      height: 3.2rem;
+      margin-right: 1.2rem;
+      background: #b3b3b3;
+      font-size: 1.4rem;
+    }
+    button {
+      width: 11rem;
+      height: 3.2rem;
+      background: #121212;
+      color: #ffffff;
+      opacity: 0.9;
+      border: 1px solid #ffffff;
+      position: relative;
+      cursor: pointer;
+      & p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 1rem;
+        &.disable {
+          opacity: 0.2;
+        }
+      }
       &.disable {
-        opacity: 0.2;
+        pointer-events: none;
+      }
+      & .loader__mail {
+        width: 3rem;
+        height: 3rem;
+        top: 0;
       }
     }
-    &.disable {
-      pointer-events: none;
+    @include media-mobile {
+      margin-bottom: 1rem;
     }
-    & .loader__mail {
-      width: 3rem;
-      height: 3rem;
-      top: 0;
+    & .emailstatus {
+      width: 25%;
+      margin-left: 1rem;
+      color: rgb(136, 255, 0);
     }
-  }  
-  @include media-mobile {
-    margin-bottom: 1rem;
-  }
-  & .emailstatus {
-    width: 25%;
-    margin-left: 1rem;
-    color: rgb(136, 255, 0);
   }
 }
 

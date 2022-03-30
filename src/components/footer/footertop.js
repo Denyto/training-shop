@@ -39,6 +39,7 @@ function FooterTop() {
         <form>
           <input
             type="text"
+            className="subscribe__title"
             placeholder="Enter your email"
             onChange={checkEmail}
             data-test-id="footer-mail-field"
