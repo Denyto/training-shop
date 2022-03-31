@@ -2668,7 +2668,7 @@ hr {
 }
 .review-body form textarea {
   width: 100%;
-  height: 18rem;
+  height: 16rem;
   resize: none;
   font-size: 1.6rem;
   border: 2px #000 solid;
@@ -2692,8 +2692,8 @@ hr {
 }
 .review-body form button .loader__mail {
   top: 0;
-  width: 5.5vw;
-  height: 5.5vw;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 .review-body form button.disabled {
   pointer-events: none;
@@ -2709,11 +2709,12 @@ hr {
   display: flex;
 }
 .review-raiting span {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .review-error {
   width: 100%;
+  height: 2rem;
   text-align: left;
   color: red;
 }

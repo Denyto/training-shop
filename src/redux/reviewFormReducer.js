@@ -4,6 +4,7 @@ const initialState = {
   reviewForm: {
     isReviewSendSuccess: false,
     isReviewSendLoading: false,
+    isError: false,
   },
 };
 
@@ -23,6 +24,16 @@ export const reviewFormReducer = (state = initialState, action) => {
       return {
         ...state,
         reviewForm: { ...state.reviewForm, isReviewSendLoading: false },
+      };
+    case ACTION_TYPES.SHOW_REVIEW_ERROR:
+      return {
+        ...state,
+        reviewForm: { ...state.reviewForm, isError: true },
+      };
+    case ACTION_TYPES.HIDE_REVIEW_ERROR:
+      return {
+        ...state,
+        reviewForm: { ...state.reviewForm, isError: false },
       };
     default:
       return state;

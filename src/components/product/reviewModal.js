@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
+import * as Yup from 'yup';
 import Rating from '@mui/material/Rating';
 import { sendReview } from '../../redux/actions';
 import MailLoader from '../loader/mailLoader';
@@ -11,12 +12,12 @@ function ReviewModal({ id }) {
   const [isOpen, setIsOpen] = useState(false);
   const [raitingValue, setRaitingValue] = useState(1);
 
-  const { isLoading } = useSelector((state) => {
+  const { isLoading, isError } = useSelector((state) => {
     return {
       isLoading: state.reviewForm.reviewForm.isReviewSendLoading,
+      isError: state.reviewForm.reviewForm.isError,
     };
   });
-
 
   const initialValues = {
     name: '',
@@ -36,26 +37,31 @@ function ReviewModal({ id }) {
         () => window.location.reload()
       )
     );
-  };
-
-  function validate(values) {
-    let errors = {};
-    if (!values.name) {
-      errors.name = 'no';
-    }
-    if (!values.text) {
-      errors.text = 'no';
-    }
-    return errors;
   }
+
+  // function validate(values) {
+  //   let errors = {};
+  //   if (!values.name) {
+  //     errors.name = 'no';
+  //   }
+  //   if (!values.text) {
+  //     errors.text = 'no';
+  //   }
+  //   return errors;
+  // }
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(),
+    text: Yup.string().required(),
+  });
 
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
+    // validate,
     validateOnMount: true,
   });
-
 
   return (
     <>
@@ -98,7 +104,7 @@ function ReviewModal({ id }) {
                 onBlur={formik.handleBlur}
               ></input>
               <div className="review-error">
-                {formik.touched.name && formik.errors.name ? 'ERROR' : ''}
+                {formik.touched.name && formik.errors.name ? 'Введите имя' : ''}
               </div>
               <textarea
                 type="textarea"
@@ -111,7 +117,7 @@ function ReviewModal({ id }) {
                 maxLength="350"
               ></textarea>
               <div className="review-error">
-                {formik.touched.text && formik.errors.text ? 'ERROR' : ''}
+                {formik.touched.text && formik.errors.text ? 'Введите отзыв' : ''}
               </div>
               <button
                 type="submit"
@@ -121,6 +127,7 @@ function ReviewModal({ id }) {
                 {isLoading && <MailLoader></MailLoader>}
                 SEND
               </button>
+              <div className="review-error">{isError && 'Произошла ошибка!'}</div>
             </form>
           </div>
         </div>

@@ -54,23 +54,23 @@ export function loadFromServer() {
   };
 }
 
-export function sendEmail(email) {
+export function sendEmail(email, clearInputField) {
   return async (dispatch) => {
     try {
       dispatch(showMailLoader());
+      dispatch(hideMailError());
       const response = await fetch('https://training.cleverland.by/shop/email', {
         method: 'POST',
         body: {
           mail: email,
         },
       });
-      response.ok &&
-        setTimeout(() => {
-          dispatch({ type: ACTION_TYPES.SEND_MAIL_SUCCESS });
-          dispatch(hideMailLoader());
-        }, 2000);
+      response.ok && dispatch({ type: ACTION_TYPES.SEND_MAIL_SUCCESS });
+      dispatch(hideMailLoader());
+      clearInputField();
     } catch (error) {
       dispatch(hideMailLoader());
+      dispatch(showMailError());
     }
   };
 }
@@ -78,8 +78,9 @@ export function sendEmail(email) {
 export function sendReview({ id, name, text, raiting }, closeModal, reloadWindow) {
   return async (dispatch) => {
     dispatch(showReviewLoader());
+    dispatch(hideReviewError());
     axios
-      .post('https://training.cleverland.by/shop/product/review', {
+      .post('ttps://training.cleverland.by/shop/product/review', {
         id: id,
         name: name,
         text: text,
@@ -94,8 +95,24 @@ export function sendReview({ id, name, text, raiting }, closeModal, reloadWindow
         }, 1000);
       })
       .catch(function (error) {
-        console.log(error);
+        setTimeout(() => {
+          dispatch(hideReviewLoader());
+          dispatch(showReviewError());
+          console.log('error');
+        }, 1000);
       });
+  };
+}
+
+export function showMailError() {
+  return {
+    type: ACTION_TYPES.SHOW_MAIL_ERROR,
+  };
+}
+
+export function hideMailError() {
+  return {
+    type: ACTION_TYPES.HIDE_MAIL_ERROR,
   };
 }
 
@@ -108,6 +125,18 @@ export function showReviewLoader() {
 export function hideReviewLoader() {
   return {
     type: ACTION_TYPES.HIDE_REVIEW_LOADER,
+  };
+}
+
+export function showReviewError() {
+  return {
+    type: ACTION_TYPES.SHOW_REVIEW_ERROR,
+  };
+}
+
+export function hideReviewError() {
+  return {
+    type: ACTION_TYPES.HIDE_REVIEW_ERROR,
   };
 }
 

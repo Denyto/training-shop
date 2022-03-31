@@ -4,6 +4,7 @@ const initialState = {
   emailForm: {
     isMailSendSuccess: false,
     isMailSendLoading: false,
+    isMailError: false,
   },
 };
 
@@ -23,6 +24,16 @@ export const emailFormReducer = (state = initialState, action) => {
       return {
         ...state,
         emailForm: { ...state.emailForm, isMailSendLoading: false },
+      };
+    case ACTION_TYPES.SHOW_MAIL_ERROR:
+      return {
+        ...state,
+        emailForm: { ...state.emailForm, isMailError: true, isMailSendSuccess: false },
+      };
+    case ACTION_TYPES.HIDE_MAIL_ERROR:
+      return {
+        ...state,
+        emailForm: { ...state.emailForm, isMailError: false },
       };
     default:
       return state;

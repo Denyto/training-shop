@@ -9,12 +9,15 @@ function Subscribe(e) {
   const dispatch = useDispatch();
   const [isDisable, setIsDisable] = useState(true);
 
-  const { isMailSendLoading, isMailSendSuccess } = useSelector((state) => {
+  const { isMailSendLoading, isMailSendSuccess, isMailError } = useSelector((state) => {
     return {
       isMailSendLoading: state.emailForm.emailForm.isMailSendLoading,
       isMailSendSuccess: state.emailForm.emailForm.isMailSendSuccess,
+      isMailError: state.emailForm.emailForm.isMailError,
     };
   });
+
+  console.log(isMailError);
 
   function checkEmail(e) {
     setIsDisable(
@@ -25,9 +28,13 @@ function Subscribe(e) {
   }
 
   function sendToServer() {
-    dispatch(sendEmail(document.querySelector('.subscribe__title').value));
+    dispatch(
+      sendEmail(
+        document.querySelector('.subscribe__title').value,
+        () => (document.querySelector('.subscribe__title').value = '')
+      )
+    );
     setIsDisable(true);
-    document.querySelector('.subscribe__title').value = '';
   }
 
   return (
@@ -51,6 +58,7 @@ function Subscribe(e) {
               onChange={checkEmail}
             ></input>
             {isMailSendSuccess && <p>Почта отправлена успешно</p>}
+            {isMailError && <p style={{ color: 'red' }}>Произошел сбой</p>}
           </div>
           <div
             data-test-id="main-subscribe-mail-button"
