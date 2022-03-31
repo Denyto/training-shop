@@ -17,7 +17,6 @@ function Subscribe(e) {
     };
   });
 
-  console.log(isMailError);
 
   function checkEmail(e) {
     setIsDisable(

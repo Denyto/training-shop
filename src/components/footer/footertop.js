@@ -10,10 +10,11 @@ function FooterTop() {
   const dispatch = useDispatch();
   const [isDisable, setIsDisable] = useState(true);
 
-  const { isMailSendLoading, isMailSendSuccess } = useSelector((state) => {
+  const { isMailSendLoading, isMailSendSuccess, isMailError } = useSelector((state) => {
     return {
       isMailSendLoading: state.emailForm.emailForm.isMailSendLoading,
       isMailSendSuccess: state.emailForm.emailForm.isMailSendSuccess,
+      isMailError: state.emailForm.emailForm.isMailError,
     };
   });
 
@@ -26,7 +27,12 @@ function FooterTop() {
   }
 
   function sendToServer(e) {
-    dispatch(sendEmail(document.querySelector('.subscribe__title').value));
+    dispatch(
+      sendEmail(
+        document.querySelector('.subscribe__title').value,
+        () => (document.querySelector('.subscribe__title').value = '')
+      )
+    );
     setIsDisable(true);
     document.querySelector('form input').value = '';
   }
@@ -53,6 +59,11 @@ function FooterTop() {
             <p className={classNames({ disable: isDisable })}>JOIN US</p>
           </button>
           {isMailSendSuccess && <p className="emailstatus">Почта отправлена успешно</p>}
+          {isMailError && (
+            <p className="emailstatus" style={{ color: 'red' }}>
+              Произошел сбой
+            </p>
+          )}
         </form>
         <ul className="footer-top__social">
           <li>

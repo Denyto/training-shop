@@ -1005,7 +1005,7 @@ label {
   left: 0;
   top: 4.5vw;
   opacity: 1;
-  color: #00ff43;
+  color: #20a90f;
 }
 .subscribe__item:last-child {
   position: relative;
@@ -1220,7 +1220,7 @@ footer form button .loader__mail {
 footer form .emailstatus {
   width: 25%;
   margin-left: 1rem;
-  color: #88ff00;
+  color: #20a90f;
 }
 
 .footer-top {

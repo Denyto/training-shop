@@ -75,12 +75,17 @@ export function sendEmail(email, clearInputField) {
   };
 }
 
-export function sendReview({ id, name, text, raiting }, closeModal, reloadWindow) {
+export function sendReview(
+  { id, name, text, raiting },
+  closeModal,
+  reloadWindow,
+  setAnaibleSubmitButton
+) {
   return async (dispatch) => {
     dispatch(showReviewLoader());
     dispatch(hideReviewError());
     axios
-      .post('ttps://training.cleverland.by/shop/product/review', {
+      .post('https://training.cleverland.by/shop/product/review', {
         id: id,
         name: name,
         text: text,
@@ -92,13 +97,13 @@ export function sendReview({ id, name, text, raiting }, closeModal, reloadWindow
           closeModal();
           reloadWindow();
           dispatch(hideReviewLoader());
-        }, 1000);
+        }, 33000);
       })
       .catch(function (error) {
         setTimeout(() => {
           dispatch(hideReviewLoader());
           dispatch(showReviewError());
-          console.log('error');
+          setAnaibleSubmitButton();
         }, 1000);
       });
   };

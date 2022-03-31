@@ -11,6 +11,7 @@ function ReviewModal({ id }) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [raitingValue, setRaitingValue] = useState(1);
+  const [isDisable, setIsDisable] = useState(false);
 
   const { isLoading, isError } = useSelector((state) => {
     return {
@@ -25,6 +26,7 @@ function ReviewModal({ id }) {
   };
 
   function onSubmit(values) {
+    setIsDisable(true);
     values = {
       ...values,
       raiting: raitingValue,
@@ -34,7 +36,8 @@ function ReviewModal({ id }) {
       sendReview(
         values,
         () => setIsOpen(false),
-        () => window.location.reload()
+        () => window.location.reload(),
+        () => setIsDisable(false),
       )
     );
   }
@@ -121,6 +124,7 @@ function ReviewModal({ id }) {
               </div>
               <button
                 type="submit"
+                disabled={isDisable}
                 className={classNames({ disabled: !formik.isValid })}
                 data-test-id="review-submit-button"
               >
