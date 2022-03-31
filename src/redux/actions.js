@@ -47,9 +47,7 @@ export function loadFromServer() {
       dispatch(hideLoader());
     } catch (error) {
       dispatch(showError());
-      setTimeout(() => {
-        dispatch(hideLoader());
-      }, 1000);
+      dispatch(hideLoader());
     }
   };
 }
@@ -91,18 +89,16 @@ export function sendReview(
         text: text,
         rating: raiting,
       })
-      .then(function (response) {  
-          dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
-          closeModal();
-          reloadWindow();
-          dispatch(hideReviewLoader());   
+      .then(function (response) {
+        dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
+        closeModal();
+        reloadWindow();
+        dispatch(hideReviewLoader());
       })
       .catch(function (error) {
-        setTimeout(() => {
-          dispatch(hideReviewLoader());
-          dispatch(showReviewError());
-          setAnaibleSubmitButton();
-        }, 1000);
+        dispatch(hideReviewLoader());
+        dispatch(showReviewError());
+        setAnaibleSubmitButton();
       });
   };
 }
