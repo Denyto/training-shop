@@ -91,13 +91,11 @@ export function sendReview(
         text: text,
         rating: raiting,
       })
-      .then(function (response) {
-        setTimeout(() => {
+      .then(function (response) {  
           dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
           closeModal();
           reloadWindow();
-          dispatch(hideReviewLoader());
-        }, 33000);
+          dispatch(hideReviewLoader());   
       })
       .catch(function (error) {
         setTimeout(() => {
