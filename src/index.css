@@ -1720,11 +1720,14 @@ footer form .emailstatus {
   height: auto;
 }
 .product__review__block:nth-child(2) {
-  cursor: pointer;
   opacity: 0.6;
   user-select: none;
 }
-.product__review__block:nth-child(2):hover {
+.product__review__block:nth-child(2) img {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.product__review__block:nth-child(2) img:hover {
   opacity: 1;
 }
 .product__review__star img {
