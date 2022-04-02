@@ -59,14 +59,15 @@ function Subscribe(e) {
             {isMailSendSuccess && <p>Почта отправлена успешно</p>}
             {isMailError && <p style={{ color: 'red' }}>Произошел сбой</p>}
           </div>
-          <div
+          <button
             data-test-id="main-subscribe-mail-button"
+            disabled={isDisable}
             className={classNames('subscribe__item', { disable: isDisable })}
             onClick={sendToServer}
           >
-            {isMailSendLoading && <MailLoader></MailLoader>}
-            <h3 className={classNames('subscribe__title', { disable: isDisable })}>SUBSCRIBE</h3>
-          </div>
+            SUBSCRIBE
+            {isMailSendLoading && <MailLoader></MailLoader>}         
+          </button>
         </div>
         <div className="subscribe__men"></div>
       </div>

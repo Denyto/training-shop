@@ -29,12 +29,11 @@ function FooterTop() {
   function sendToServer(e) {
     dispatch(
       sendEmail(
-        document.querySelector('.subscribe__title').value,
-        () => (document.querySelector('.subscribe__title').value = '')
+        document.querySelector('.fopter__subscribe__title').value,
+        () => (document.querySelector('.fopter__subscribe__title').value = '')
       )
     );
     setIsDisable(true);
-    document.querySelector('form input').value = '';
   }
   return (
     <div className="footer-top">
@@ -45,7 +44,7 @@ function FooterTop() {
         <form>
           <input
             type="text"
-            className="subscribe__title"
+            className="fopter__subscribe__title"
             placeholder="Enter your email"
             onChange={checkEmail}
             data-test-id="footer-mail-field"

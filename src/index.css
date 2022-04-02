@@ -956,6 +956,20 @@ label {
   font-weight: 600;
   opacity: 0.4;
 }
+.subscribe__center button {
+  position: relative;
+  cursor: pointer;
+  background: #121212;
+  color: #ffffff;
+  user-select: none;
+  font-size: 1.6rem;
+}
+.subscribe__center button:active {
+  transform: scale(97%);
+}
+.subscribe__center button.disable {
+  opacity: 0.3;
+}
 @media (max-width: 905px) {
   .subscribe__center {
     width: 50%;
@@ -1006,23 +1020,6 @@ label {
   top: 4.5vw;
   opacity: 1;
   color: #20a90f;
-}
-.subscribe__item:last-child {
-  position: relative;
-  cursor: pointer;
-  background: #121212;
-  color: #ffffff;
-  user-select: none;
-  transition: all 0.5s;
-}
-.subscribe__item:last-child:active {
-  transform: scale(97%);
-}
-.subscribe__item:last-child.disable {
-  pointer-events: none;
-}
-.subscribe__item:last-child h3.disable {
-  opacity: 0.3;
 }
 .subscribe__item input {
   font-weight: 500;
