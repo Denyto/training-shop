@@ -11,9 +11,9 @@ function Subscribe(e) {
 
   const { isMailSendLoading, isMailSendSuccess, isMailError } = useSelector((state) => {
     return {
-      isMailSendLoading: state.emailForm.emailForm.isMailSendLoading,
-      isMailSendSuccess: state.emailForm.emailForm.isMailSendSuccess,
-      isMailError: state.emailForm.emailForm.isMailError,
+      isMailSendLoading: state.emailSubscribeForm.emailForm.isMailSendLoading,
+      isMailSendSuccess: state.emailSubscribeForm.emailForm.isMailSendSuccess,
+      isMailError: state.emailSubscribeForm.emailForm.isMailError,
     };
   });
 
@@ -30,7 +30,8 @@ function Subscribe(e) {
     dispatch(
       sendEmail(
         document.querySelector('.subscribe__title').value,
-        () => (document.querySelector('.subscribe__title').value = '')
+        () => (document.querySelector('.subscribe__title').value = ''),
+        () => setIsDisable(false),
       )
     );
     setIsDisable(true);

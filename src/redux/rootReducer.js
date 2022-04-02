@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import { cartReducer } from "./cartReducer";
 import { fetchReducer } from './fetchReducer';
-import { emailFormReducer } from './emailFormReducer';
+import { emailSubscribeReducer } from './emailSubscribeReducer';
+import { emailFooterReducer } from './emailFooterReducer';
 import { reviewFormReducer } from './reviewFormReducer';
 
 export const rootReducer = combineReducers({
   products: cartReducer,
   fetchProducts: fetchReducer,
-  emailForm: emailFormReducer,
+  emailSubscribeForm: emailSubscribeReducer,
+  emailFooterForm: emailFooterReducer,
   reviewForm: reviewFormReducer,
 });

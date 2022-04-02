@@ -3,7 +3,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { sendEmail } from '../../redux/actions';
+import { sendFooterEmail } from '../../redux/actions';
 import MailLoader from '../loader/mailLoader';
 
 function FooterTop() {
@@ -12,9 +12,9 @@ function FooterTop() {
 
   const { isMailSendLoading, isMailSendSuccess, isMailError } = useSelector((state) => {
     return {
-      isMailSendLoading: state.emailForm.emailForm.isMailSendLoading,
-      isMailSendSuccess: state.emailForm.emailForm.isMailSendSuccess,
-      isMailError: state.emailForm.emailForm.isMailError,
+      isMailSendLoading: state.emailFooterForm.emailForm.isMailSendLoading,
+      isMailSendSuccess: state.emailFooterForm.emailForm.isMailSendSuccess,
+      isMailError: state.emailFooterForm.emailForm.isMailError,
     };
   });
 
@@ -28,9 +28,10 @@ function FooterTop() {
 
   function sendToServer(e) {
     dispatch(
-      sendEmail(
+      sendFooterEmail(
         document.querySelector('.footer__subscribe__title').value,
-        () => (document.querySelector('.footer__subscribe__title').value = '')
+        () => (document.querySelector('.footer__subscribe__title').value = ''),
+        () => setIsDisable(false)
       )
     );
     setIsDisable(true);
