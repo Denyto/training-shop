@@ -77,7 +77,7 @@ export function sendReview(
   { id, name, text, raiting },
   closeModal,
   reloadWindow,
-  setAnaibleSubmitButton
+  setAvailableSubmitButton
 ) {
   return async (dispatch) => {
     dispatch(showReviewLoader());
@@ -92,13 +92,13 @@ export function sendReview(
       .then(function (response) {
         dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
         closeModal();
-        reloadWindow();
         dispatch(hideReviewLoader());
+        reloadWindow();
       })
       .catch(function (error) {
         dispatch(hideReviewLoader());
         dispatch(showReviewError());
-        setAnaibleSubmitButton();
+        setAvailableSubmitButton();
       });
   };
 }

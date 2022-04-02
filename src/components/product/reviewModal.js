@@ -11,7 +11,7 @@ function ReviewModal({ id }) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [raitingValue, setRaitingValue] = useState(1);
-  const [isDisable, setIsDisable] = useState(false);
+  const [isDisable, setIsDisable] = useState(true);
 
   const { isLoading, isError } = useSelector((state) => {
     return {
@@ -26,7 +26,7 @@ function ReviewModal({ id }) {
   };
 
   function onSubmit(values) {
-    setIsDisable(true);
+    setIsDisable(false);
     values = {
       ...values,
       raiting: raitingValue,
@@ -37,21 +37,10 @@ function ReviewModal({ id }) {
         values,
         () => setIsOpen(false),
         () => window.location.reload(),
-        () => setIsDisable(false),
+        () => setIsDisable(true),
       )
     );
   }
-
-  // function validate(values) {
-  //   let errors = {};
-  //   if (!values.name) {
-  //     errors.name = 'no';
-  //   }
-  //   if (!values.text) {
-  //     errors.text = 'no';
-  //   }
-  //   return errors;
-  // }
 
   const validationSchema = Yup.object({
     name: Yup.string().required(),
@@ -62,7 +51,6 @@ function ReviewModal({ id }) {
     initialValues,
     onSubmit,
     validationSchema,
-    // validate,
     validateOnMount: true,
   });
 
@@ -124,8 +112,8 @@ function ReviewModal({ id }) {
               </div>
               <button
                 type="submit"
-                disabled={isDisable}
-                className={classNames({ disabled: !formik.isValid })}
+                disabled={!isDisable || !formik.isValid}
+                className={classNames({ disabled: !isDisable || !formik.isValid })}
                 data-test-id="review-submit-button"
               >
                 {isLoading && <MailLoader></MailLoader>}
