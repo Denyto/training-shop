@@ -48,7 +48,7 @@
         width: auto;
         height: auto;
       }
-      &:last-child {
+      &:nth-child(2) {
         cursor: pointer;
         opacity: 0.6;
         user-select: none;

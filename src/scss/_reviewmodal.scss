@@ -1,14 +1,17 @@
 .review-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba($color: #000000, $alpha: 0.5);
-  z-index: 6;
+  display: none;
+  &.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 6;
+  }
 }
 
 .review-body {
@@ -63,8 +66,8 @@
         height: 4.5rem;
       }
       &.disabled {
-          pointer-events: none;
-          opacity: .3;
+        pointer-events: none;
+        opacity: 0.3;
       }
     }
     & p {

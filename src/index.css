@@ -1719,12 +1719,12 @@ footer form .emailstatus {
   width: auto;
   height: auto;
 }
-.product__review__block:last-child {
+.product__review__block:nth-child(2) {
   cursor: pointer;
   opacity: 0.6;
   user-select: none;
 }
-.product__review__block:last-child:hover {
+.product__review__block:nth-child(2):hover {
   opacity: 1;
 }
 .product__review__star img {
@@ -2620,6 +2620,9 @@ hr {
 }
 
 .review-modal {
+  display: none;
+}
+.review-modal.open {
   position: fixed;
   top: 0;
   left: 0;

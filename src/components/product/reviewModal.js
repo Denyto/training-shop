@@ -66,9 +66,9 @@ function ReviewModal({ id }) {
         </div>
         <p>Write a review</p>
       </div>
-      {isOpen && (
-        <div
-          className="review-modal"
+      
+        <div          
+          className={classNames("review-modal", { open: isOpen })}
           data-test-id="review-modal"
           onClick={(e) => e.target.classList.contains('review-modal') && setIsOpen(false)}
         >
@@ -123,7 +123,7 @@ function ReviewModal({ id }) {
             </form>
           </div>
         </div>
-      )}
+     
     </>
   );
 }
