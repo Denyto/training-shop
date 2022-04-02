@@ -37,7 +37,7 @@ function ReviewModal({ id }) {
         values,
         () => setIsOpen(false),
         () => window.location.reload(),
-        () => setIsDisable(true),
+        () => setIsDisable(true)
       )
     );
   }
@@ -56,8 +56,12 @@ function ReviewModal({ id }) {
 
   return (
     <>
-      <div className="product__review__block">
-        <div onClick={() => setIsOpen(true)} data-test-id="review-button">
+      <div
+        className="product__review__block"
+        onClick={() => setIsOpen(true)}
+        data-test-id="review-button"
+      >
+        <div>
           <img alt="review" src={require('../../assets/img/writing.png')}></img>
         </div>
         <p>Write a review</p>

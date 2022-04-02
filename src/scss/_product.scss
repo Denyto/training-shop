@@ -48,15 +48,12 @@
         width: auto;
         height: auto;
       }
-      &:nth-child(2) {        
+      &:nth-child(2) {
+        cursor: pointer;
         opacity: 0.6;
-        user-select: none;        
-        & img {
-          opacity: 0.6;
-          cursor: pointer;
-          &:hover {
+        user-select: none;
+        &:hover {
           opacity: 1;
-        }
         }
       }
     }
