@@ -56,6 +56,7 @@ function FooterTop() {
             data-test-id="footer-subscribe-mail-button"
           >
             JOIN US
+            {isMailSendLoading && <MailLoader></MailLoader>}
           </button>
           {isMailSendSuccess && <p className="emailstatus">Почта отправлена успешно</p>}
           {isMailError && (
