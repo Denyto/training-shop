@@ -29,8 +29,8 @@ function FooterTop() {
   function sendToServer(e) {
     dispatch(
       sendEmail(
-        document.querySelector('.fopter__subscribe__title').value,
-        () => (document.querySelector('.fopter__subscribe__title').value = '')
+        document.querySelector('.footer__subscribe__title').value,
+        () => (document.querySelector('.footer__subscribe__title').value = '')
       )
     );
     setIsDisable(true);
@@ -44,18 +44,18 @@ function FooterTop() {
         <form>
           <input
             type="text"
-            className="fopter__subscribe__title"
+            className="footer__subscribe__title"
             placeholder="Enter your email"
             onChange={checkEmail}
             data-test-id="footer-mail-field"
           ></input>
           <button
             className={classNames({ disable: isDisable })}
+            disabled={isDisable}
             onClick={sendToServer}
             data-test-id="footer-subscribe-mail-button"
           >
-            {isMailSendLoading && <MailLoader></MailLoader>}
-            <p className={classNames({ disable: isDisable })}>JOIN US</p>
+            JOIN US
           </button>
           {isMailSendSuccess && <p className="emailstatus">Почта отправлена успешно</p>}
           {isMailError && (
