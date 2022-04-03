@@ -58,11 +58,13 @@ function ReviewModal({ id }) {
     <>
       <div
         className="product__review__block"
-        onClick={(e) => e.target.classList.contains('open') && setIsOpen(false)}
+        onClick={(e) => {e.stopPropagation();
+        e.target.classList.contains('open') && setIsOpen(false)}}
       >
         <button
           data-test-id="review-button"
           onClick={(e) => {
+            e.stopPropagation();
             setIsOpen(true);
           }}
         >
