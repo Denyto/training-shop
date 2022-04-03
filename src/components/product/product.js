@@ -291,13 +291,14 @@ function Product({ type }) {
                   <Rating rating={rating}></Rating>
                   <p>{reviews.length} Reviews</p>
                 </div>
-                <div className="product__review__block">
-                  <div
-                    data-test-id="review-button"
-                    onClick={(e) => {
-                      setIsOpen(true);
-                    }}
-                  >
+                <div
+                  className="product__review__block"
+                  data-test-id="review-button"
+                  onClick={() => {
+                    setIsOpen(true);
+                  }}
+                >
+                  <div>
                     <img alt="review" src={require('../../assets/img/writing.png')}></img>
                   </div>
                   <p>Write a review</p>
