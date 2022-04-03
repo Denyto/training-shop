@@ -44,6 +44,7 @@ function Product({ type }) {
   const [color, setColor] = useState(uniqueColors[0]);
   const [size, setSize] = useState(sizes[0]);
   const [isButtonAdd, setButtonAdd] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => setColor(uniqueColors[0]), [uniqueColors[0]]);
   useEffect(() => setSize(sizes[0]), [sizes[0]]);
@@ -290,7 +291,18 @@ function Product({ type }) {
                   <Rating rating={rating}></Rating>
                   <p>{reviews.length} Reviews</p>
                 </div>
-                <ReviewModal id={id}></ReviewModal>
+                <div className="product__review__block">
+                  <div
+                    data-test-id="review-button"
+                    onClick={(e) => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    <img alt="review" src={require('../../assets/img/writing.png')}></img>
+                  </div>
+                  <p>Write a review</p>
+                </div>
+                {isOpen && <ReviewModal id={id} call={() => setIsOpen(false)}></ReviewModal>}
               </div>
               {reviews.map((el) => (
                 <div key={el.id}>

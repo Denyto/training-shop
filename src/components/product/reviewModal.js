@@ -7,9 +7,9 @@ import Rating from '@mui/material/Rating';
 import { sendReview } from '../../redux/actions';
 import MailLoader from '../loader/mailLoader';
 
-function ReviewModal({ id }) {
+function ReviewModal({ id, call }) {
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
+  
   const [raitingValue, setRaitingValue] = useState(1);
   const [isDisable, setIsDisable] = useState(true);
 
@@ -35,7 +35,8 @@ function ReviewModal({ id }) {
     dispatch(
       sendReview(
         values,
-        () => setIsOpen(false),
+        () => call(),
+        // () => setIsOpen(false),
         () => window.location.reload(),
         () => setIsDisable(true)
       )
@@ -57,74 +58,60 @@ function ReviewModal({ id }) {
   return (
     <>
       <div
-        className="product__review__block"
-        onClick={(e) => {e.stopPropagation();
-        e.target.classList.contains('open') && setIsOpen(false)}}
+        onClick={(e) => e.target.classList.contains('open') && call()}
+        className="review-modal open"
+        // className={classNames('review-modal', { open: isOpen })}
+        // onClick={(e) => e.target.classList.contains('open') && setIsOpen(false)}
       >
-        <button
-          data-test-id="review-button"
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsOpen(true);
-          }}
-        >
-          <img alt="review" src={require('../../assets/img/writing.png')}></img>
-        </button>
-        <p>Write a review</p>
-        <div
-          className={classNames('review-modal', { open: isOpen })}
-          // onClick={(e) => e.target.classList.contains('open') && setIsOpen(false)}
-        >
-          <div className="review-body" data-test-id="review-modal">
-            <form onSubmit={formik.handleSubmit}>
-              <p>Write a review</p>
-              <div className="review-raiting">
-                <Rating
-                  name="simple-controlled"
-                  size="large"
-                  value={raitingValue}
-                  onChange={(event, newValue) => {
-                    setRaitingValue(newValue);
-                  }}
-                />
-              </div>
-              <input
-                type="text"
-                placeholder="Имя"
-                id="name"
-                data-test-id="review-name-field"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-                onBlur={formik.handleBlur}
-              ></input>
-              <div className="review-error">
-                {formik.touched.name && formik.errors.name ? 'Введите имя' : ''}
-              </div>
-              <textarea
-                type="textarea"
-                placeholder="Комментарий"
-                id="text"
-                data-test-id="review-text-field"
-                onChange={formik.handleChange}
-                value={formik.values.text}
-                onBlur={formik.handleBlur}
-                maxLength="350"
-              ></textarea>
-              <div className="review-error">
-                {formik.touched.text && formik.errors.text ? 'Введите отзыв' : ''}
-              </div>
-              <button
-                type="submit"
-                disabled={!isDisable || !formik.isValid}
-                className={classNames({ disabled: !isDisable || !formik.isValid })}
-                data-test-id="review-submit-button"
-              >
-                {isLoading && <MailLoader></MailLoader>}
-                SEND
-              </button>
-              <div className="review-error">{isError && 'Ошибка при отправке отзыва!'}</div>
-            </form>
-          </div>
+        <div className="review-body" data-test-id="review-modal">
+          <form onSubmit={formik.handleSubmit}>
+            <p>Write a review</p>
+            <div className="review-raiting">
+              <Rating
+                name="simple-controlled"
+                size="large"
+                value={raitingValue}
+                onChange={(event, newValue) => {
+                  setRaitingValue(newValue);
+                }}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Имя"
+              id="name"
+              data-test-id="review-name-field"
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              onBlur={formik.handleBlur}
+            ></input>
+            <div className="review-error">
+              {formik.touched.name && formik.errors.name ? 'Введите имя' : ''}
+            </div>
+            <textarea
+              type="textarea"
+              placeholder="Комментарий"
+              id="text"
+              data-test-id="review-text-field"
+              onChange={formik.handleChange}
+              value={formik.values.text}
+              onBlur={formik.handleBlur}
+              maxLength="350"
+            ></textarea>
+            <div className="review-error">
+              {formik.touched.text && formik.errors.text ? 'Введите отзыв' : ''}
+            </div>
+            <button
+              type="submit"
+              disabled={!isDisable || !formik.isValid}
+              className={classNames({ disabled: !isDisable || !formik.isValid })}
+              data-test-id="review-submit-button"
+            >
+              {isLoading && <MailLoader></MailLoader>}
+              SEND
+            </button>
+            <div className="review-error">{isError && 'Ошибка при отправке отзыва!'}</div>
+          </form>
         </div>
       </div>
     </>
