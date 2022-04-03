@@ -36,7 +36,7 @@ function Subscribe(e) {
     );
     setIsDisable(true);
   }
-
+console.log(isMailSendSuccess);
   return (
     <aside className="subscribe">
       <div className="subscribe__wrapper">

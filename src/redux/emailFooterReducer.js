@@ -15,6 +15,11 @@ export const emailFooterReducer = (state = initialState, action) => {
         ...state,
         emailForm: { ...state.emailForm, isMailSendSuccess: true },
       };
+    case ACTION_TYPES.SEND_FOOTER_MAIL_DEFAULT:
+      return {
+        ...state,
+        emailForm: { ...state.emailForm, isMailSendSuccess: false },
+      };
     case ACTION_TYPES.SHOW_FOOTER_MAIL_LOADER:
       return {
         ...state,

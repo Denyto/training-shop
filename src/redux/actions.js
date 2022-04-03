@@ -66,6 +66,9 @@ export function sendEmail(email, clearInputField, setAvailableSubmitButton) {
       response.ok && dispatch({ type: ACTION_TYPES.SEND_MAIL_SUCCESS });
       dispatch(hideMailLoader());
       clearInputField();
+      setTimeout(() => {
+        dispatch({ type: ACTION_TYPES.SEND_MAIL_DEFAULT });
+      }, 2000);
     } catch (error) {
       dispatch(hideMailLoader());
       dispatch(showMailError());
@@ -88,6 +91,9 @@ export function sendFooterEmail(email, clearInputField, setAvailableSubmitButton
       response.ok && dispatch({ type: ACTION_TYPES.SEND_FOOTER_MAIL_SUCCESS });
       dispatch(hideFooterMailLoader());
       clearInputField();
+      setTimeout(() => {
+        dispatch({ type: ACTION_TYPES.SEND_FOOTER_MAIL_DEFAULT });
+      }, 2000);
     } catch (error) {
       dispatch(hideFooterMailLoader());
       dispatch(showFooterMailError());
@@ -116,7 +122,7 @@ export function sendReview(
         dispatch({ type: ACTION_TYPES.SEND_REVIEW_SUCCESS });
         closeModal();
         dispatch(hideReviewLoader());
-        reloadWindow();
+        reloadWindow();        
       })
       .catch(function (error) {
         dispatch(hideReviewLoader());

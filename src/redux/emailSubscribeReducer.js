@@ -15,6 +15,11 @@ export const emailSubscribeReducer = (state = initialState, action) => {
         ...state,
         emailForm: { ...state.emailForm, isMailSendSuccess: true },
       };
+    case ACTION_TYPES.SEND_MAIL_DEFAULT:
+      return {
+        ...state,
+        emailForm: { ...state.emailForm, isMailSendSuccess: false },
+      };
     case ACTION_TYPES.SHOW_MAIL_LOADER:
       return {
         ...state,
