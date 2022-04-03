@@ -58,15 +58,16 @@ function ReviewModal({ id }) {
     <>
       <div
         className="product__review__block"
-        onClick={(e) => {
-          setIsOpen(true);
-          e.target.classList.contains('open') && setIsOpen(false);
-        }}
-        data-test-id="review-button"
+        onClick={(e) => e.target.classList.contains('open') && setIsOpen(false)}
       >
-        <div>
+        <button
+          data-test-id="review-button"
+          onClick={(e) => {
+            setIsOpen(true);
+          }}
+        >
           <img alt="review" src={require('../../assets/img/writing.png')}></img>
-        </div>
+        </button>
         <p>Write a review</p>
         <div
           className={classNames('review-modal', { open: isOpen })}
