@@ -14,7 +14,7 @@ function Product({ type }) {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const { isLoading, isError, PRODUCTS } = useSelector((state) => {    
+  const { isLoading, isError, PRODUCTS } = useSelector((state) => {
     return {
       PRODUCTS: state.fetchProducts.fetchProducts.products,
       isLoading: state.fetchProducts.fetchProducts.isLoading,
@@ -296,6 +296,7 @@ function Product({ type }) {
                   data-test-id="review-button"
                   onClick={() => {
                     setIsOpen(true);
+                    document.body.classList.add('fixed');
                   }}
                 >
                   <div>
@@ -303,7 +304,15 @@ function Product({ type }) {
                   </div>
                   <p>Write a review</p>
                 </div>
-                {isOpen && <ReviewModal id={id} call={() => setIsOpen(false)}></ReviewModal>}
+                {isOpen && (
+                  <ReviewModal
+                    id={id}
+                    call={() => {
+                      setIsOpen(false);
+                      document.body.classList.remove('fixed');
+                    }}
+                  ></ReviewModal>
+                )}
               </div>
               {reviews.map((el) => (
                 <div key={el.id}>

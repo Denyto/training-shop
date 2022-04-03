@@ -9,7 +9,7 @@ import MailLoader from '../loader/mailLoader';
 
 function ReviewModal({ id, call }) {
   const dispatch = useDispatch();
-  
+
   const [raitingValue, setRaitingValue] = useState(1);
   const [isDisable, setIsDisable] = useState(true);
 
@@ -90,7 +90,9 @@ function ReviewModal({ id, call }) {
             </div>
             <textarea
               type="textarea"
-              placeholder=" Не понятно почему не проходят тесты по модалке. На клик кнопки она открывается, скрывается и т.д. Вроде все работает лоадер, активности submit-button"
+              placeholder=" Не понятно почему не проходят тесты по модалке.
+              На клик кнопки она открывается, скрывается и т.д.
+              Вроде все работает лоадер, активности submit-button"
               id="text"
               data-test-id="review-text-field"
               onChange={formik.handleChange}
