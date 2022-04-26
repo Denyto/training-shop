@@ -90,9 +90,7 @@ function ReviewModal({ id, call }) {
             </div>
             <textarea
               type="textarea"
-              placeholder=" Не понятно почему не проходят тесты по модалке.
-              На клик кнопки она открывается, скрывается и т.д.
-              Вроде все работает лоадер, активности submit-button"
+              placeholder="Комментарий"
               id="text"
               data-test-id="review-text-field"
               onChange={formik.handleChange}

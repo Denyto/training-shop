@@ -17,7 +17,6 @@ function Subscribe(e) {
     };
   });
 
-
   function checkEmail(e) {
     setIsDisable(
       !/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i.test(
@@ -31,12 +30,12 @@ function Subscribe(e) {
       sendEmail(
         document.querySelector('.subscribe__title').value,
         () => (document.querySelector('.subscribe__title').value = ''),
-        () => setIsDisable(false),
+        () => setIsDisable(false)
       )
     );
     setIsDisable(true);
   }
-console.log(isMailSendSuccess);
+
   return (
     <aside className="subscribe">
       <div className="subscribe__wrapper">
@@ -67,7 +66,7 @@ console.log(isMailSendSuccess);
             onClick={sendToServer}
           >
             SUBSCRIBE
-            {isMailSendLoading && <MailLoader></MailLoader>}         
+            {isMailSendLoading && <MailLoader></MailLoader>}
           </button>
         </div>
         <div className="subscribe__men"></div>
